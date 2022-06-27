@@ -1,0 +1,59 @@
+@font-face {
+    font-family: "NanumMyeongjo";
+    src: url("../font/NanumMyeongjo.ttf");
+}
+@font-face {
+    font-family: "NanumMyeongjoBold";
+    src: url("../font/NanumMyeongjoBold.ttf");
+}
+@font-face {
+    font-family: "NanumMyeongjoExtraBold";
+    src: url("../font/NanumMyeongjoExtraBold.ttf");
+}
+.navbar {
+    background: #790000 ;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    font-size: 24px;
+    color: #F4EEE4;
+    justify-content: space-between;
+    align-content: center;
+    font-family: "NanumMyeongjo";
+}
+
+.left{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding-left: 30px;
+}
+
+.nav-logo {
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    margin-top: 10px;
+}
+
+.nav-links {
+    margin-left: 50px;
+    padding-right: 30px;
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    grid-gap: 20px;
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #F7F5DD;
+    transition: 0.3s;
+}
+
+.active {
+    font-family: "NanumMyeongjo";
+    color: #FFFFFF;
+    text-shadow : 3px 3px 6px #FFFFFF;  
+    text-decoration:underline;
+}
