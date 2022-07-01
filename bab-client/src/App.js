@@ -8,6 +8,7 @@ import BookArchive from "./pages/BookArchive";
 import Review from "./pages/Review";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import Detail from './pages/Detail';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/review" element={<Review />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/detail" element={<Detail />} />
           </Route>
         </Routes>
       </Router>

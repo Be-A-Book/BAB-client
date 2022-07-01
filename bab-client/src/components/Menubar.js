@@ -3,7 +3,7 @@ import Footer from "./Footer";
 //import { Link, Outlet, NavLink } from 'react-router-dom';
 import "../css/Menubar.css";
 import logo from "../img/logobab.png";
-import { Link, Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import Mypage from "./Mypage";
 
 const Menubar = () => {
