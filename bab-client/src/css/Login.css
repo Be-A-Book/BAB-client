@@ -1,0 +1,67 @@
+@font-face {
+    font-family: "NanumMyeongjo";
+    src: url("../font/NanumMyeongjo.ttf");
+}
+@font-face {
+    font-family: "NanumMyeongjoBold";
+    src: url("../font/NanumMyeongjoBold.ttf");
+}
+@font-face {
+    font-family: "NanumMyeongjoExtraBold";
+    src: url("../font/NanumMyeongjoExtraBold.ttf");
+}
+
+.Login {
+    background: #E4D7C4;
+    color: #790000;
+    font-size: 60px;
+    text-align: center;
+    font-family: "NanumMyeongjo";
+    padding-top: 60px;
+    padding-bottom: 70px;
+}
+
+#e-mail {
+    width: 400px;
+    margin-top: 50px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #790000;
+    background-color: #E4D7C4;
+    color: #790000;
+}
+
+#password {
+    width: 400px;
+    margin-top: 20px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #790000;
+    background-color: #E4D7C4;
+    color: #790000;
+}
+
+#e-mail::placeholder{
+    color: #790000;
+    font-family: "NanumMyeongjo";
+}
+
+#password::placeholder{
+    color: #790000;
+    font-family: "NanumMyeongjo";
+}
+
+.login-button{
+    width: 140px;
+    height: 40px;
+    margin-top: 60px;
+    background: none;
+    outline: none;
+    border: none;
+    background-color: #005412;
+    font-size: 1.3rem;
+    font-family: "NanumMyeongjo";
+    color: white;
+}

@@ -8,7 +8,9 @@ import BookArchive from "./pages/BookArchive";
 import Review from "./pages/Review";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
-import Detail from './pages/Detail';
+import Detail from "./pages/Detail";
+import Logout from "./pages/Logout";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -25,6 +27,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/detail" element={<Detail />} />
+            <Route path="/logout" element={<Logout />} />
           </Route>
         </Routes>
       </Router>
