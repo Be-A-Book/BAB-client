@@ -28,7 +28,7 @@ const Login = () => {
             type="email"
             name="email"
             placeholder="E-mail"
-            id="e-mail"
+            id="login-email"
             value={email}
             onChange={onChangeEmail}
           />
@@ -38,7 +38,7 @@ const Login = () => {
             type="password"
             name="password"
             placeholder="Password"
-            id="password"
+            id="login-password"
             value={password}
             onChange={onChangePassword}
             onKeyPress={onKeyPress}
@@ -46,7 +46,7 @@ const Login = () => {
         </form>
         <div className="login-start-button">
           <button type="submit" className="login-button" onClick={onClick}>
-            start
+            Start
           </button>
         </div>
       </div>

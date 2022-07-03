@@ -1,0 +1,61 @@
+@font-face {
+    font-family: "NanumMyeongjo";
+    src: url("../font/NanumMyeongjo.ttf");
+}
+@font-face {
+    font-family: "NanumMyeongjoBold";
+    src: url("../font/NanumMyeongjoBold.ttf");
+}
+@font-face {
+    font-family: "NanumMyeongjoExtraBold";
+    src: url("../font/NanumMyeongjoExtraBold.ttf");
+}
+
+.Logout{
+    background: #E4D7C4;
+    color: #790000;
+    font-size: 60px;
+    text-align: center;
+    font-family: "NanumMyeongjo";
+    padding-top: 60px;
+    padding-bottom: 70px;
+}
+
+.logout-text{
+    margin-top: 30px;
+    font-size: 23px;
+}
+
+.bab-logo{
+    margin-top: 30px;
+}
+
+.logout-button{
+    margin-top: 20px;
+}
+
+.logout-yes-button{
+    background: none;
+    outline: none;
+    border: none;
+    width: 100px;
+    height: 40px;
+    margin-right: 40px;
+    font-family: "NanumMyeongjo";
+    font-size: 1rem;
+    color: white;
+    background-color: #005412;
+}
+
+.logout-no-button{
+    background: none;
+    outline: none;
+    border: none;
+    width: 100px;
+    height: 40px;
+    margin-left: 40px;
+    font-family: "NanumMyeongjo";
+    font-size: 1rem;
+    color: white;
+    background-color: #005412;
+}
