@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "NanumMyeongjo";
+    src: url("../font/NanumMyeongjo.ttf");
+}
+@font-face {
+    font-family: "NanumMyeongjoBold";
+    src: url("../font/NanumMyeongjoBold.ttf");
+}
+@font-face {
+    font-family: "NanumMyeongjoExtraBold";
+    src: url("../font/NanumMyeongjoExtraBold.ttf");
+}
+
+.FavoriteBookstore{
+    background: #F4EEE4;
+    color: #000000;
+    font-family: "NanumMyeongjo";
+    font-size: 25px;
+    text-align: left;
+    width: 90%;
+    height: 50%;
+    margin-bottom: 20px;
+}
+
+.favorite-bookstore-name {
+    padding: 10px;
+}

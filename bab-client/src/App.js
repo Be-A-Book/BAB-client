@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Detail from "./pages/Detail";
 import Logout from "./pages/Logout";
+import Mypage from "./pages/Mypage";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/detail" element={<Detail />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="/mypage" element={<Mypage />} />
           </Route>
         </Routes>
       </Router>

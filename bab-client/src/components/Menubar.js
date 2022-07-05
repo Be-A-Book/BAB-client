@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import "../css/Menubar.css";
 import logo from "../img/logobab.png";
 import { Outlet, NavLink } from "react-router-dom";
-import Mypage from "./Mypage";
+import MypageNavbar from "./MypageNavbar";
 
 const Menubar = () => {
   return (
@@ -49,7 +49,7 @@ const Menubar = () => {
         </div>
         <div className="right">
           <ul className="nav-links">
-            <Mypage />
+            <MypageNavbar />
             <li>
               <NavLink to="/login" className="nav-link">
                 {" "}

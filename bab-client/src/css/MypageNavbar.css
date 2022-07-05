@@ -1,0 +1,16 @@
+.CardBlock {
+    margin: 20px;
+    display: flex;
+    width: 70%;
+    height: 80%;
+    background-color: #F4EEE4;
+    border-radius: 33px;
+    flex-direction: column;
+    padding: 20px 20px 30px 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #F7F5DD;
+    transition: 0.3s;
+}
