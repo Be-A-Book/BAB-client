@@ -48,6 +48,7 @@
 .review {
     padding-left: 100px;
     grid-column-start: 1;
+    grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
 }
@@ -154,9 +155,23 @@
 
 .image {
     text-align: right;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top:300px;
+    right:0;
+    z-index:300;
+}
+
+.image-image{
+    position: absolute;
+    z-index: 300;
+    right: 0;
+    bottom: 0;
 }
 
 .image-text{
+        position: absolute;
         background-color: #C4C4C4;
         width: fit-content;
         font-size: 24px;
@@ -166,4 +181,7 @@
         padding-right: 20px;
         padding-top: 5px;
         padding-bottom: 5px;
+        z-index: 300;
+        right: 0;
+        bottom: 0;
     }

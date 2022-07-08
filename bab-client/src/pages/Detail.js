@@ -65,11 +65,13 @@ const Detail = () => {    //props를 보내는 방법으로, map에서 detail로
             
             <div className="detail-content-right">
                 <div className="heart">
-                    <img alt="하트 버튼" src={heart} width="60px" height="60px"/>
+                    <img alt="하트 버튼" src={heart} width="60px" height="60px"/> {/*인프런 한번 더 확인*/}
                     7
                 </div>
                 <div className="image">
+                    <view className="image-image">
                     <img alt="서점 이미지" src={image} width="360px" height="360px"/>
+                    </view>
                     <div className="image-text">
                         #아늑한 #조용한 #헌책방
                     </div>
