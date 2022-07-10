@@ -1,0 +1,66 @@
+@font-face {
+    font-family: "NanumMyeongjo";
+    src: url("../font/NanumMyeongjo.ttf");
+}
+@font-face {
+    font-family: "NanumMyeongjoBold";
+    src: url("../font/NanumMyeongjoBold.ttf");
+}
+@font-face {
+    font-family: "NanumMyeongjoExtraBold";
+    src: url("../font/NanumMyeongjoExtraBold.ttf");
+}
+.home{
+    background-color: #F4EEE4;
+    font-family: "NanumMyeongjo";
+}
+
+.top{
+    align-items: center;
+    position: relative;
+    height: 30vh;
+}
+
+.top-image{
+    background-image: url('../img/top.jpg');
+    background-size: cover;
+    height: 100%;
+    height: 100%;
+}
+
+.top-text{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);                                                                   
+    font-size: 3rem;
+    color: black;
+    z-index: 2;
+    text-align: center;
+}
+
+.top-button{
+    position: absolute;
+    top:75%;
+    left:50%;
+    transform: translate(-50%, -50%);                                                                   
+    font-size: 1.5rem;
+    background-color: #00000000;
+    border-color: #00000000;
+    color: #C69D4D;
+    z-index: 2;
+    text-align: center;
+}
+
+.search{
+    background-color: #E4D7C4;
+    padding: 20px;
+    align-items: center;
+}
+
+.bookstore{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 100px;
+    padding-bottom: 30px;
+}
