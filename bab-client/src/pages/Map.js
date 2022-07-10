@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../css/Map.css";
 import { markerdata } from "../data/markerData";
+import mapMarker from "../img/map_marker.png";
 const { kakao } = window;
 
 const Map = () => {
@@ -17,6 +18,15 @@ const Map = () => {
     //map
     const map = new kakao.maps.Map(container, options);
 
+    const imageSrc = mapMarker, // 마커이미지 주소
+      imageSize = new kakao.maps.Size(20, 60), // 마커이미지 크기
+      imageOption = { offset: new kakao.maps.Point(17, 54) };
+    const markerImage = new kakao.maps.MarkerImage(
+      imageSrc,
+      imageSize,
+      imageOption
+    );
+
     markerdata.forEach((el) => {
       //마커 생성
       const marker = new kakao.maps.Marker({
@@ -24,6 +34,7 @@ const Map = () => {
         map: map,
         //마커가 표시 될 위치
         position: new kakao.maps.LatLng(el.lat, el.lng),
+        image: markerImage, //마커이미지 설정
       });
 
       // 마커에 표시할 인포윈도우 생성
