@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../css/Map.css";
+import { markerdata } from "../data/markerData";
 const { kakao } = window;
 
 const Map = () => {
@@ -12,21 +13,49 @@ const Map = () => {
       center: new kakao.maps.LatLng(37.555206675339164, 126.93689191198305),
       level: 3,
     };
+
+    //map
     const map = new kakao.maps.Map(container, options);
 
-    //마커가 표시 될 위치 - 이 부분은 서버 모델과 연결하는 것으로 변경
-    const markerPosition = new kakao.maps.LatLng(
-      37.55579240200719,
-      126.9370272266829
-    );
+    markerdata.forEach((el) => {
+      //마커 생성
+      const marker = new kakao.maps.Marker({
+        //마커가 표시 될 지도
+        map: map,
+        //마커가 표시 될 위치
+        position: new kakao.maps.LatLng(el.lat, el.lng),
+      });
 
-    // 마커 생성
-    const marker = new kakao.maps.Marker({
-      position: markerPosition,
+      // 마커에 표시할 인포윈도우 생성
+      const infowindow = new kakao.maps.InfoWindow({
+        content: el.name + el.tags, // 인포윈도우에 표시할 내용
+      });
+
+      // 인포윈도우 표시하는 클로저
+      kakao.maps.event.addListener(
+        marker,
+        "mouseover",
+        makeOverListener(map, marker, infowindow)
+      );
+      // 인포윈도우 닫는 클로저
+      kakao.maps.event.addListener(
+        marker,
+        "mouseout",
+        makeOutListener(infowindow)
+      );
     });
 
-    // 지도 위에 마커 표시
-    marker.setMap(map);
+    function makeOverListener(map, marker, infowindow) {
+      return function () {
+        infowindow.open(map, marker);
+      };
+    }
+
+    function makeOutListener(infowindow) {
+      return function () {
+        infowindow.close();
+      };
+    }
   }, []);
 
   const getDetails = (data) => {
