@@ -18,6 +18,16 @@
     font-family: "NanumMyeongjo";
 }
 
+.searchbar {
+    display: flex;
+    flex: 0.5;
+    width: fit-content;
+    align-items: center;
+    background-color: #C69D4D;
+    font-family: "NanumMyeongjo";
+    color: black;
+}
+
 .form input {
     flex: 0.5; /* 버튼을 뺀 빈 공간을 모두 채워줍니다 */
     font-size: 1.25rem;

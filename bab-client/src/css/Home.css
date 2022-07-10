@@ -32,11 +32,13 @@
     position: absolute;
     top:50%;
     left:50%;
+    width: 1000px;
     transform: translate(-50%, -50%);                                                                   
     font-size: 3rem;
     color: black;
     z-index: 2;
     text-align: center;
+    padding-bottom: 20px;
 }
 
 .top-button{
@@ -50,6 +52,7 @@
     color: #C69D4D;
     z-index: 2;
     text-align: center;
+    padding-top: 20px;
 }
 
 .search{
