@@ -4,7 +4,7 @@ import bookstore from "../img/bookstore.png";
 import logo from "../img/logo_wax2.png";
 import thumbUp from "../img/thumb_up.png";
 
-const WrittenReview = () => {
+const WrittenReview = (data) => {
   return (
     <>
       <div className="writtenReview">

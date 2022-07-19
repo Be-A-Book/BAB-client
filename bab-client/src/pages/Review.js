@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/Review.css";
+import axios from 'axios';
 import reviewBook from "../img/review_book.png";
 import { AiFillCaretLeft } from "react-icons/ai";
 import { AiFillCaretRight } from "react-icons/ai";
@@ -29,7 +30,23 @@ const Review = () => {
       }
       setPrevClick(currentClick);
     },
-    [currentClick]
+    [currentClick],
+    
+    axios({
+      method:"get",
+      url:`/api/review/getReviews`,
+      params: {
+          "store": "62c926a80ea12db83c87b5e9", //storekey 임의 지정
+      }
+  })
+  .then((response) => {  
+      if(response.data.success) {
+          console.log("불러오기");
+          console.log(response.data)
+      } else {
+          console.log("불러오기 실패");
+      }
+  })
   );
   return (
     <>

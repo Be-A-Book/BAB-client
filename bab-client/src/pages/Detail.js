@@ -6,19 +6,27 @@ import logo from "../img/logo_wax2.png";
 import image from "../img/bab_black.png";
 import heart from "../img/heart.png";
 
-const Detail = () => {    //props를 보내는 방법으로, map에서 detail로 넘겨줄 때 props로 처리
+const Detail = () => {    
     const [bookStore, setBookStore] = useState('');
 
-    const getDetails = (data) => { //BookStore는 검색어... 같은 느낌이야, 전체를 다 불러올 때는 필요가 없어
-        axios.get(`API_ENDPOINT + '/bookstore/${data}`).then((response) => {  //ENDPOINT 포트이름 변수 + 내가 요청할 주소
+    useEffect (() => { 
+        axios({
+            method:"post",
+            url:`/api/bookstore/getBookstoreDetail`,
+            params: {
+                "store": "62c926a80ea12db83c87b5e9", //storekey 임의 지정
+            }
+        })
+        .then((response) => {  
             if(response.data.success) {
                 setBookStore(response.data);
                 console.log("불러오기");
+                console.log(response.data)
             } else {
                 console.log("불러오기 실패");
             }
         });
-    }
+    }, []);
 
     return(
         <>
