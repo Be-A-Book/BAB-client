@@ -21,6 +21,17 @@
     padding-bottom: 70px;
 }
 
+#sign-up-name {
+    width: 450px;
+    margin-top: 50px;
+    font-size: 19px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #790000;
+    background-color: #E4D7C4;
+    color: #790000;
+}
+
 #sign-up-email {
     width: 450px;
     margin-top: 50px;
@@ -41,6 +52,11 @@
     border-bottom: 2px solid #790000;
     background-color: #E4D7C4;
     color: #790000;
+}
+
+#sign-up-name::placeholder{
+    color: #790000;
+    font-family: "NanumMyeongjo";
 }
 
 #sign-up-email::placeholder{

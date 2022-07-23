@@ -12,9 +12,9 @@ const Detail = () => {
     useEffect (() => { 
         axios({
             method:"post",
-            url:`/api/bookstore/getBookstoreDetail`,
-            params: {
-                "store": "62c926a80ea12db83c87b5e9", //storekey 임의 지정
+            url:`/bookstore/getBookstoreDetail`,
+            data: {
+                "_id": "62d6935ed5649a098281cf65", //storekey 임의 지정
             }
         })
         .then((response) => {  
