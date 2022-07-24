@@ -46,7 +46,7 @@
 
 .review {
     padding-left: 100px;
-    padding-top: 40px;
+    padding-top: 40pxy;
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 2;
@@ -112,41 +112,6 @@
     padding-right: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
-}
-
-.review-card {
-    background-color: #E4D7C4;
-    position: relative;
-    width: fit-content;
-    padding-left: 20px;
-    padding-right: 30px;
-    display: flex;
-    flex-direction: row;
-}
-
-.review-card-image {
-    flex-shrink: 0;
-    width: fit-content;
-    position: relative;
-    display: block;
-    padding: 10px;
-}
-
-.review-card-content {
-    display: flex;
-    flex-direction: column;
-    padding-top: 15px;
-    padding-left: 10px;
-}
-
-.review-card-top {
-    display: flex;
-    flex-direction: row;
-    font-size: 14px;
-}
-
-.review-card-bottom {
-    font-size: 18px;
 }
 
 .heart{

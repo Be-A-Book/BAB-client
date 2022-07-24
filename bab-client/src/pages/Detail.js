@@ -1,14 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import "../css/Detail.css"
 import axios from 'axios';
-import logo from "../img/logo_wax2.png";
 import image from "../img/bab_black.png";
 import heart from "../img/heart.png";
+import DetailReview from '../components/DetailReview';
 
 const Detail = () => {    
-
     const [bookStore, setBookStore] = useState('');
-    const [review, setReview] = useState('');
 
     useEffect (() => { 
         axios({
@@ -21,33 +19,14 @@ const Detail = () => {
         .then((response) => {  
             if(response.data.success) {
                 setBookStore(response.data);
-                console.log("불러오기");
-                console.log(response.data)
+                // console.log("불러오기");
+                // console.log(response.data)
                 
             } else {
-                console.log("불러오기 실패");
+                // console.log("불러오기 실패");
             }
         });
-    }, []);
-
-    useEffect (() => { 
-        axios({
-            method:"get",
-            url:`/api/review/getReviews/62c926a80ea12db83c87b5e9`,
-            
-        })
-        .then((response) => {  
-            if(response.data.success) {
-                setReview(response.data);
-                console.log("불러오기");
-                console.log(response.data)
-                
-            } else {
-                console.log("불러오기 실패");
-            }
-        });
-    }, []);
-    
+    }, []);    
     return(
         <>
         <div className="detail">
@@ -108,9 +87,11 @@ const Detail = () => {
                     <div className="image-image">
                     <img alt="서점 이미지" src={image} width="360px" height="360px"/> {/* image 불러오기 불가능, 임의 수정 bookStore && bookStore.bookstore.defaultImage */}
                     </div>
-                    <div className="image-text">
-                    { bookStore && bookStore.bookstore.tags[0].name} {/* array 개수 받아와서 tags에 임의 수정 필요 */}
-                    </div>
+                    
+                    { bookStore && bookStore.bookstore.tags.map ((tags =>
+                        <div className="image-text" key={tags._id}>
+                            #{tags && tags.name }, </div>
+                    ))}
                 </div>
             </div>
             {/* 방문 후기 */}
@@ -118,32 +99,7 @@ const Detail = () => {
                 <div className="detail-review">
                     방문후기
                 </div>
-                <div className="review-card">
-                    <div className="review-card-image">
-                        <img alt="프로필 아이콘" src={logo} width="60px" height="60px"/>
-                    </div>
-                    <div className="review-card-content">
-                        <div className="review-card-top">
-                        { review && review.reviews[0].writer.name}
-                        </div>
-                        <div className="review-card-bottom">
-                        { review && review.reviews[0].content}
-                        </div>
-                    </div>
-                </div>
-                <div className="review-card">
-                    <div className="review-card-image">
-                        <img alt="프로필 아이콘" src={logo} width="60px" height="60px"/>
-                    </div>
-                    <div className="review-card-content">
-                        <div className="review-card-top">
-                        { review && review.reviews[1].writer.name}
-                        </div>
-                        <div className="review-card-bottom">
-                        { review && review.reviews[1].content}
-                        </div>
-                    </div>
-                </div>
+                <DetailReview />
             </div>
         </div>
         </>
