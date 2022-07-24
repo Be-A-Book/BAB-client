@@ -3,6 +3,7 @@ import { AiFillCaretLeft } from "react-icons/ai";
 import { AiFillCaretRight } from "react-icons/ai";
 import "../css/BookArchive.css";
 import Bookcase from "../components/Bookcase";
+import bookcasedata from "../data/bookcaseData.json";
 
 const BookArchive = () => {
   return (
@@ -19,10 +20,9 @@ const BookArchive = () => {
           </button>
         </div>
         <div className="bookArchive-content">
-          <Bookcase />
-          <Bookcase />
-          <Bookcase />
-          <Bookcase />
+          {bookcasedata.map((book) => (
+            <Bookcase book={book} />
+          ))}
         </div>
       </div>
     </>

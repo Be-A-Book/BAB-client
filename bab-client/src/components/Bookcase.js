@@ -1,28 +1,36 @@
 import React from "react";
 import "../css/Bookcase.css";
-import bookcasedata from "../data/bookcaseData.json";
 
-const Bookcase = () => {
-  const title = bookcasedata.map((book) => book.district);
-  console.log(bookcasedata.book.books);
-  // const bookList = bookcasedata.books.map((el) => el.books);
-  // console.log(bookcasedata.books[1].content); //bookcasedata[0].books[0].content
-  // const bookList = bookcasedata.forEach(
-  //   (value) => value.books //value.books[index]
-  //   //list.books[list.length].bookid
-  //   // <div className={list.books.bookid}>{list.books.content}</div>
-  // );
+const Bookcase = (book) => {
+  var l = -8.3;
 
-  // console.log({ bookList });
-  //const element = bookList.forEach((value, index) => console.log(value));
+  console.log(book.book.books);
+
+  function generateRandomCode() {
+    var myRandomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    l += 8.3;
+
+    return myRandomColor;
+  }
 
   return (
     <>
       <div className="bookcase">
-        <div className="bookcase-title">
-          <div>{title}</div>
+        <div className="bookcase-title">{book.book.district}</div>
+        <div className="bookcase-content">
+          {book.book.books.map((booklist) => (
+            <div
+              className="bookcase-bookstore-books"
+              key={booklist.bookid}
+              style={{
+                backgroundColor: generateRandomCode(),
+                left: l + "%",
+              }}
+            >
+              {booklist.content}
+            </div>
+          ))}
         </div>
-        <div className="bookcase-content"></div>
       </div>
     </>
   );
