@@ -89,6 +89,8 @@
     z-index: 100;
     left: 0;
     top: -45px;
+    flex-direction: row;
+    display: flex;
 }
 
 .main-book-heart{
@@ -110,8 +112,8 @@
 .main-book-stamp-text{
     position: absolute;
     color: #790000;
-    font-size: 30px;
+    font-size: 24px;
     z-index: 100;
-    right: 40px;
+    right: 37px;
     top: 75px;
 }

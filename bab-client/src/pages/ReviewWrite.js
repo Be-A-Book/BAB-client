@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../css/ReviewWrite.css";
-import writeBook from "../img/write_book.png";
 
 
 const ReviewWrite = () => {

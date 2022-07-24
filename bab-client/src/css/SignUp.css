@@ -27,7 +27,6 @@
 
 #sign-up-name {
     width: 450px;
-    margin-top: 50px;
     font-size: 19px;
     outline: none;
     border: none;
@@ -38,7 +37,6 @@
 
 #sign-up-email {
     width: 450px;
-    margin-top: 50px;
     font-size: 19px;
     outline: none;
     border: none;
@@ -49,7 +47,6 @@
 
 #sign-up-password {
     width: 450px;
-    margin-top: 20px;
     font-size: 19px;
     outline: none;
     border: none;
