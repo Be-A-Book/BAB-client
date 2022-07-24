@@ -20,7 +20,8 @@ const Detail = () => {
             if(response.data.success) {
                 setBookStore(response.data);
                 // console.log("불러오기");
-                // console.log(response.data)
+                console.log(response.data)
+                console.log(response.data.bookstore.tags)
                 
             } else {
                 // console.log("불러오기 실패");
@@ -85,13 +86,13 @@ const Detail = () => {
                 </div>
                 <div className="image">
                     <div className="image-image">
-                    <img alt="서점 이미지" src={image} width="360px" height="360px"/> {/* image 불러오기 불가능, 임의 수정 bookStore && bookStore.bookstore.defaultImage */}
+                    <img alt="서점 이미지" src={bookStore && bookStore.bookstore.defaultImage} width="360px" height="360px"/> {/* image 불러오기 불가능, 임의 수정 bookStore && bookStore.bookstore.defaultImage */}
                     </div>
-                    
+                    <div className="image-text">
                     { bookStore && bookStore.bookstore.tags.map ((tags =>
-                        <div className="image-text" key={tags._id}>
-                            #{tags && tags.name }, </div>
+                        <div className="image-text-hash" key={tags._id}> #{tags && tags.name } </div>
                     ))}
+                    </div>
                 </div>
             </div>
             {/* 방문 후기 */}

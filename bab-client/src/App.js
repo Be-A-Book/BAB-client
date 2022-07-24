@@ -11,8 +11,10 @@ import SignUp from "./pages/SignUp";
 import Detail from "./pages/Detail";
 import Logout from "./pages/Logout";
 import Mypage from "./pages/Mypage";
+import ReviewWrite from './pages/ReviewWrite';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import GuestBook from './pages/Guestbook';
 
 const App = () => {
   return (
@@ -30,6 +32,8 @@ const App = () => {
             <Route path="/detail" element={<Detail />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/mypage" element={<Mypage />} />
+            <Route path="/reviewwrite" element={<ReviewWrite />} />
+            <Route path="/guestbook" element={<GuestBook />} />
           </Route>
         </Routes>
       </Router>

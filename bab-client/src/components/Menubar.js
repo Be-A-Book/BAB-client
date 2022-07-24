@@ -1,6 +1,5 @@
 import React from "react";
 import Footer from "./Footer";
-//import { Link, Outlet, NavLink } from 'react-router-dom';
 import "../css/Menubar.css";
 import logo from "../img/logobab.png";
 import { Outlet, NavLink } from "react-router-dom";
@@ -23,26 +22,22 @@ const Menubar = () => {
           <ul className="nav-links">
             <li>
               <NavLink to="/map" className="nav-link">
-                {" "}
-                Map{" "}
+                Map
               </NavLink>
             </li>
             <li>
               <NavLink to="/recommend" className="nav-link">
-                {" "}
-                Recommend{" "}
+                Recommend
               </NavLink>
             </li>
             <li>
               <NavLink to="/bookarchive" className="nav-link">
-                {" "}
-                Book Archive{" "}
+                Book Archive
               </NavLink>
             </li>
             <li>
               <NavLink to="/review" className="nav-link">
-                {" "}
-                Review{" "}
+                Review
               </NavLink>
             </li>
           </ul>
@@ -52,14 +47,12 @@ const Menubar = () => {
             <MypageNavbar />
             <li>
               <NavLink to="/login" className="nav-link">
-                {" "}
-                Login{" "}
+                Login
               </NavLink>
             </li>
             <li>
               <NavLink to="/signup" className="nav-link">
-                {" "}
-                Sign Up{" "}
+                Sign Up
               </NavLink>
             </li>
           </ul>

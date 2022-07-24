@@ -6,6 +6,8 @@ import { AiFillCaretLeft } from "react-icons/ai";
 import { AiFillCaretRight } from "react-icons/ai";
 import { FaPencilAlt } from "react-icons/fa";
 import WrittenReview from "../components/WrittenReview";
+import { NavLink } from "react-router-dom";
+
 
 const Review = () => {
   const [currentClick, setCurrentClick] = React.useState(null);
@@ -89,10 +91,12 @@ const Review = () => {
             <AiFillCaretRight className="review-right-button-icon" />
           </button>
           {/* 후기 남기기 버튼 */}
-          <button className="review-write-button">
-            <div className="review-write-button-text">후기 남기기</div>
-            <FaPencilAlt className="review-write-button-icon" />
-          </button>
+          <NavLink to ="/reviewwrite">
+            <button className="review-write-button">
+              <div className="review-write-button-text">후기 남기기</div>
+              <FaPencilAlt className="review-write-button-icon" />
+            </button>
+          </NavLink>
         </div>
         <div className="bottom-image-paper"></div>
         <div className="bottom-image-pen"></div>
