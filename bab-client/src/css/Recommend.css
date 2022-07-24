@@ -1,0 +1,64 @@
+.recommend{
+    background-color: #E4D7C4;
+}
+
+.recommend-title{
+    background-image: url("../img/recommend/recommend_title.png");
+    width: 100%;
+    height: 38vh;
+    background-position: 50% 50%;
+    background-size: contain;
+}
+
+.recommend-content{
+    margin: 10vh 10vh 0vh 10vh;
+    padding-bottom: 10vh;
+}
+
+.taste-test{
+    position: relative;
+    width: 41%;
+    height: 60vh;
+    margin-left: 10vh;
+    background-position: 50% 50%;
+    background-image: url("../img/recommend/recommend1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #E4D7C4;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.guest-book{
+    position: absolute;
+    left: 50%;
+    width: 37%;
+    height: 28vh;
+    margin-left: 5vh;
+    background-position: 50% 50%;
+    background-image: url("../img/recommend/recommend2.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #E4D7C4;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.tbd{
+    position: absolute;
+    left: 50%;
+    top: 90vh;
+    width: 37%;
+    height: 27.5vh;
+    margin-left: 5vh;
+    background-position: 50% 50%;
+    background-image: url("../img/recommend/recommend3.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #E4D7C4;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}

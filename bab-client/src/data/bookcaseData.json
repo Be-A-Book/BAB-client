@@ -1,0 +1,13 @@
+[
+  {
+    "district": "#연희동",
+    "books": [
+      { "bookid": 1, "content": "북스피리언스" },
+      { "bookid": 2, "content": "백색소음" },
+      { "bookid": 3, "content": "사슴책방 성산" },
+      { "bookid": 4, "content": "책방서로" },
+      { "bookid": 5, "content": "헬로인디북스" },
+      { "bookid": 6, "content": "아침달" }
+    ]
+  }
+]

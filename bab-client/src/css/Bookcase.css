@@ -1,0 +1,38 @@
+@font-face {
+    font-family: "NanumMyeongjo";
+    src: url("../font/NanumMyeongjo.ttf");
+}
+@font-face {
+    font-family: "NanumMyeongjoBold";
+    src: url("../font/NanumMyeongjoBold.ttf");
+}
+@font-face {
+    font-family: "NanumMyeongjoExtraBold";
+    src: url("../font/NanumMyeongjoExtraBold.ttf");
+}
+@font-face {
+    font-family: "NanumDdarEGeEomMaGa";
+    src: url("../font/NanumDdarEGeEomMaGa.ttf");
+}
+@font-face {
+    font-family: "NanumGothic";
+    src: url("../font/NanumGothic.ttf");
+}
+
+.bookcase{
+    position: relative;
+    z-index: 0;
+    background-color: #F4EEE4;
+    width: 97.5vh;
+    height: 60vh;
+}
+
+.bookcase-title{
+    position: absolute;
+    z-index: 1;
+}
+
+.bookcase-content{
+    position: absolute;
+    z-index: 1;
+}
