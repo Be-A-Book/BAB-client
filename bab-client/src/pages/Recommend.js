@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/Recommend.css";
+import { NavLink } from "react-router-dom";
 
 const Recommend = () => {
   return (
@@ -8,7 +9,9 @@ const Recommend = () => {
         <div className="recommend-title"></div>
         <div className="recommend-content">
           <button className="taste-test"></button>
-          <button className="guest-book"></button>
+          <NavLink to ="/guestbook">
+            <button className="guest-book"></button>
+          </NavLink>
           <button className="tbd"></button>
         </div>
       </div>

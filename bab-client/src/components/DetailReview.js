@@ -11,6 +11,7 @@ class DetailReview extends Component {
     getMyData=async()=>{
         let retData = await axios.get("/api/review/getReviews/62c926a80ea12db83c87b5e9");
         retData = retData.data.reviews;
+        // console.log(retData);
         this.setState({arr:retData});
     }
 

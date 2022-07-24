@@ -1,0 +1,147 @@
+@font-face {
+    font-family: "NanumMyeongjo";
+    src: url("../font/NanumMyeongjo.ttf");
+}
+@font-face {
+    font-family: "NanumMyeongjoBold";
+    src: url("../font/NanumMyeongjoBold.ttf");
+}
+@font-face {
+    font-family: "NanumMyeongjoExtraBold";
+    src: url("../font/NanumMyeongjoExtraBold.ttf");
+}
+@font-face {
+    font-family: "NanumDdarEGeEomMaGa";
+    src: url("../font/NanumDdarEGeEomMaGa.ttf");
+}
+@font-face {
+    font-family: "NanumGothic";
+    src: url("../font/NanumGothic.ttf");
+}
+
+.guestbook{
+    background-color: #F4EEE4;
+    height: 110vh;
+    padding-bottom: 10vh;
+}
+
+.guestbook-title{
+    font-size: 3.5rem;
+    color: #790000;
+    font-family: "NanumMyeongjo";
+    text-align: center;
+    padding-top: 5vh;
+}
+
+.guestbook-write{
+    position: absolute;
+    z-index: 0;
+    top: 25vh;
+    left: 27vh;
+    background-color: #FFFBF4;
+    width: 150vh;
+    height: 20vh;
+    box-shadow: 3px 3px 3px #5a5a5a;
+}
+
+#guestbook-write-input{
+    position: absolute;
+    z-index: 1;
+    top: 1vh;
+    right: 8vh;
+    width: 130vh;
+    height: 15vh;
+    border-radius: 5vh;
+    background-color: #FFFBF4;
+    border:3px solid #790000;
+    padding-top: 2vh;
+    padding-left: 2vh;
+    font-family: "NanumMyeongjo";
+    font-size: 24px;
+}
+
+.guestbook-container{
+    position: absolute;
+    z-index: 0;
+    top: 50vh;
+    left: 22vh;
+
+}
+
+.guestbook-container-memo-left{
+    position: absolute;
+    z-index: 1;
+    top: 5vh;
+    left: 13vh;
+}
+
+.guestbook-container-memo-right{
+    position: absolute;
+    z-index: 1;
+    top: 5vh;
+    right: 13vh;
+}
+
+.guestbook-arrow-keys{
+    position: absolute;
+    margin-left: 20%;
+    bottom: -10vh;
+    left: 28vh;
+}
+
+.guestbook-left-button{
+    background: none;
+    outline: none;
+    border: none;
+    align-items: center;
+    padding-right: 25px;
+}
+
+.guestbook-left-button:hover{
+    color: #FFFFFF;
+}
+
+.guestbook-left-button-icon{
+    background: none;
+    outline: none;
+    border: none;
+    margin-top: 20px;
+    font-size: 5rem;
+    cursor: pointer;
+}
+
+.guestbook-left-button-text{
+    font-family: "NanumMyeongjo";
+    margin-top: 40px;
+    float: right;
+    font-size: 2.2rem;
+}
+
+.guestbook-right-button{
+    background: none;
+    outline: none;
+    border: none;
+    align-items: center;
+    padding-left: 25px;
+}
+
+.guestbook-right-button:hover{
+    color: #FFFFFF;
+}
+
+.guestbook-right-button-text{
+    font-family: "NanumMyeongjo";
+    margin-top: 40px;
+    float: left;
+    font-size: 2.2rem;
+}
+
+.guestbook-right-button-icon{
+    background: none;
+    outline: none;
+    border: none;
+    float: right;
+    margin-top: 20px;
+    font-size: 5rem;
+    cursor: pointer;
+}

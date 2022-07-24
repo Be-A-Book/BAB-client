@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import "../css/Detail.css"
 import axios from 'axios';
-import image from "../img/bab_black.png";
+// import image from "../img/bab_black.png";
 import heart from "../img/heart.png";
 import DetailReview from '../components/DetailReview';
 
@@ -20,9 +20,8 @@ const Detail = () => {
             if(response.data.success) {
                 setBookStore(response.data);
                 // console.log("불러오기");
-                console.log(response.data)
-                console.log(response.data.bookstore.tags)
-                
+                // console.log(response.data)
+                // console.log(response.data.bookstore.tags)
             } else {
                 // console.log("불러오기 실패");
             }
@@ -86,7 +85,7 @@ const Detail = () => {
                 </div>
                 <div className="image">
                     <div className="image-image">
-                    <img alt="서점 이미지" src={bookStore && bookStore.bookstore.defaultImage} width="360px" height="360px"/> {/* image 불러오기 불가능, 임의 수정 bookStore && bookStore.bookstore.defaultImage */}
+                    <img alt={bookStore && bookStore.bookstore.defaultImage} src={bookStore && bookStore.bookstore.defaultImage} width="360px" height="360px"/> {/* image 불러오기 불가능, 임의 수정 bookStore && bookStore.bookstore.defaultImage */}
                     </div>
                     <div className="image-text">
                     { bookStore && bookStore.bookstore.tags.map ((tags =>
