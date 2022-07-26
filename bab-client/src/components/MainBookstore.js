@@ -13,7 +13,7 @@ const MainBookstore = () => {
             method:"post",
             url:`/api/bookstore/getBookstoreDetail`,
             data: {
-                "_id": "62d6935ed5649a098281cf65", //storekey 임의 지정
+                "_id": "62dffd0708c904737340ae36", //storekey 임의 지정
             }
         })
         .then((response) => {  
@@ -33,12 +33,12 @@ const MainBookstore = () => {
         <div className="MainBookstore">
             <div className="main-book-hashtag">
                 { bookStore && bookStore.bookstore.tags.map ((tags =>
-                        <div className="image-text-hash" key={tags._id}> #{tags && tags.name } </div>
+                        <div className="image-text-hash" key={tags._id}> #{ tags && tags.name } </div>
                 ))}
             </div>
             <div className="main-bookarea">
                 <div className="main-book-image">
-                    <img alt="서점 이미지" src={image} width="360px" height="360px"/>
+                    <img alt="서점 이미지" src={bookStore && bookStore.bookstore.defaultImage} width="360px" height="360px"/>
                 </div>
                 <div className="main-book-textarea">
                     <div className="main-book-container">

@@ -13,7 +13,7 @@ const Detail = () => {
             method:"post",
             url:`/api/bookstore/getBookstoreDetail`,
             data: {
-                "_id": "62d6935ed5649a098281cf65", //storekey 임의 지정
+                "_id": "62dfde11ce45d9283ff4e8d8", //storekey 임의 지정
             }
         })
         .then((response) => {  
