@@ -8,36 +8,73 @@ import DetailReview from "../components/DetailReview";
 const Detail = () => {
   const [bookStore, setBookStore] = useState("");
 
-  useEffect(() => {
-    axios({
-      method: "post",
-      url: `/api/bookstore/getBookstoreDetail`,
-      data: {
-        _id: "62dfde11ce45d9283ff4e8d8", //storekey 임의 지정
-      },
-    }).then((response) => {
-      if (response.data.success) {
-        setBookStore(response.data);
-        // console.log("불러오기");
-        // console.log(response.data)
-        // console.log(response.data.bookstore.tags)
-      } else {
-        // console.log("불러오기 실패");
-      }
-    });
-  }, []);
-  return (
-    <>
-      <div className="detail">
-        {/* 세부 내용 좌측 */}
-        <div className="detail-content-left">
-          <div className="detail-big-title">
-            {bookStore && bookStore.bookstore.name}
-          </div>
-          <div className="detail-container-2">
-            <div className="detail-small-title-column">소개</div>
-            <div className="detail-text">
-              {bookStore && bookStore.bookstore.introduction}
+    useEffect (() => { 
+        axios({
+            method:"post",
+            url:`/api/bookstore/getBookstoreDetail`,
+            data: {
+                "_id": "62dfde11ce45d9283ff4e8d8", //storekey 임의 지정
+            }
+        })
+        .then((response) => {  
+            if(response.data.success) {
+                setBookStore(response.data);
+                // console.log("불러오기");
+                // console.log(response.data)
+                // console.log(response.data.bookstore.tags)
+            } else {
+                // console.log("불러오기 실패");
+            }
+        });
+    }, []);    
+    return(
+        <>
+        <div className="detail">
+            {/* 세부 내용 좌측 */}
+            <div className="detail-content-left">
+                <div className="detail-big-title">
+                    { bookStore && bookStore.bookstore.name}
+                </div>
+                <div className="detail-container-2">
+                    <div className="detail-small-title-column">
+                        소개
+                    </div>
+                    <div className="detail-text">
+                        { bookStore && bookStore.bookstore.introduction} 
+                    </div>
+                </div>
+                <div className="detail-container">
+                    <div className="detail-small-title-row">
+                        주소
+                    </div>
+                    <div className="detail-text">
+                        { bookStore && bookStore.bookstore.address}
+                    </div>
+                </div>
+                <div className="detail-container">
+                    <div className="detail-small-title-row">
+                        운영시간
+                    </div>
+                    <div className="detail-text">
+                        { bookStore && bookStore.bookstore.operation}
+                    </div>
+                </div>
+                <div className="detail-container">
+                    <div className="detail-small-title-row">
+                        휴무일
+                    </div>
+                    <div className="detail-text">
+                        { bookStore && bookStore.bookstore.holiday}
+                    </div>
+                </div>
+                <div className="detail-container">
+                    <div className="detail-small-title-row">
+                        웹사이트
+                    </div>
+                    <div className="detail-text">
+                        { bookStore && bookStore.bookstore.website}
+                    </div>
+                </div>
             </div>
           </div>
           <div className="detail-container">
