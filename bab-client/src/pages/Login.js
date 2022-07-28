@@ -2,65 +2,76 @@ import React, { useState, useEffect } from "react";
 import "../css/Login.css";
 import axios from 'axios';
 import { useDispatch } from "react-redux";
+import {Formik, ErrorMessage} from "formik";
+import {useNavigate} from "react-router-dom";
+import {setToken} from "../redux/reducers/AuthReducer";
 
 const Login = () => {
   
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const onChangeEmail = (e) => setEmail(e.target.value);
-  const onChangePassword = (e) => setPassword(e.target.value);
-
-  
-
-  const onClick = () => {
-    setEmail("");
-    setPassword("");
-
-    if (email === "" || password === "") {
-      window.alert("아이디와 비밀번호를 입력해주세요.");
-      return;
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const submit = async (values) => {
+    const {email, password} = values;
+    try {
+      const {data} = await axios({
+        method: "post",
+        url: "/api/users/login",
+        data: {
+          email,
+          password,
+        }
+      });
+      dispatch(setToken(data.jwt));
+      console.log('로그인 성공');
+      navigate("/");
+    } catch (e) {
+      // 서버에서 받은 에러 메시지 출력
+      console.log(e.response.data.message);
     }
   };
 
-  const onKeyPress = (e) => {
-    if (e.key === "Enter") {
-      onClick();
-    }
-  };
 
   return (
-    <>
+    <Formik
+      initialValues={{
+        email: "",
+        password: "",
+      }}
+      onSubmit={submit}
+    >
+    {({values, handleSubmit, handleChange}) => (
       <div className="Login">
-        <div classaName="login-title">Login</div>
-        <form className="login-input-email">
+        <div className="login-title">Login</div>
+        <form className='Login' onSubmit={handleSubmit}>
+        <div className="login-input-email">
           <input
             type="email"
             name="email"
             placeholder="E-mail"
             id="login-email"
-            value={email}
-            onChange={onChangeEmail}
+            value={values.email}
+            onChange={handleChange}
           />
-        </form>
-        <form className="login-input-password">
+        </div>
+        <div className="login-input-password">
           <input
             type="password"
             name="password"
             placeholder="Password"
             id="login-password"
-            value={password}
-            onChange={onChangePassword}
-            onKeyPress={onKeyPress}
+            value={values.password}
+            onChange={handleChange}
           />
-        </form>
+        </div>
         <div className="login-start-button">
-          <button type="submit" className="login-button" onClick={onClick}>
+          <button type="submit" className="login-button">
             Start
           </button>
         </div>
+        </form>
       </div>
-    </>
+    )}
+      </Formik>
   );
 };
 

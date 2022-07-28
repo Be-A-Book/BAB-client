@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../css/SignUp.css";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
