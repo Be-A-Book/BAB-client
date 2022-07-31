@@ -1,5 +1,8 @@
 import React from "react";
 import "./App.css";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Menubar from "./components/Menubar";
 import Home from "./pages/Home";
 import Map from "./pages/Map";
@@ -12,9 +15,8 @@ import Detail from "./pages/Detail";
 import Logout from "./pages/Logout";
 import Mypage from "./pages/Mypage";
 import ReviewWrite from './pages/ReviewWrite';
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GuestBook from './pages/Guestbook';
+import Bookmark from './pages/Bookmark';
 
 const App = () => {
   return (
@@ -34,6 +36,7 @@ const App = () => {
             <Route path="/mypage" element={<Mypage />} />
             <Route path="/reviewwrite" element={<ReviewWrite />} />
             <Route path="/guestbook" element={<GuestBook />} />
+            <Route path="/bookmark" element={<Bookmark />} />
           </Route>
         </Routes>
       </Router>

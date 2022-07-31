@@ -8,7 +8,9 @@ const Recommend = () => {
       <div className="recommend">
         <div className="recommend-title"></div>
         <div className="recommend-content">
-          <button className="taste-test"></button>
+          <NavLink to = "/bookmark">
+            <button className="taste-test"></button>
+          </NavLink>
           <NavLink to ="/guestbook">
             <button className="guest-book"></button>
           </NavLink>
