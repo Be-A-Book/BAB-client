@@ -1,0 +1,10 @@
+.bookmark-select {
+    background-image: url("../img/booktest_select.png");
+    width: 110vh;
+    height: 75vh;
+    background-size:cover;
+    position: absolute;
+    top: 15vh;
+    left: 45vh;
+
+}

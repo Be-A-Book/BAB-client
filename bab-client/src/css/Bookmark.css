@@ -5,7 +5,7 @@
     background-size: auto;
 }
 
-.bookmark-test {
+.bookmarkStart {
     background-image: url("../img/booktest.png");
     width: 60vh;
     height: 89vh;
@@ -14,4 +14,16 @@
     top: 15vh;
     left: 71.5vh;
     border: 0ch;
+}
+
+.bookmarkStart.hidden {
+    background-image: url("../img/booktest.png");
+    width: 60vh;
+    height: 89vh;
+    background-size: cover;
+    position: absolute;
+    top: 15vh;
+    left: 71.5vh;
+    border: 0ch;
+    visibility: hidden;
 }
