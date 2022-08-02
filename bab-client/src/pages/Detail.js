@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from "react";
 import "../css/Detail.css";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 // import image from "../img/bab_black.png";
 import heart from "../img/heart.png";
 import DetailReview from "../components/DetailReview";
 
-const Detail = ({ data }) => {
+const Detail = () => {
+  const location = useLocation();
+  const data = location.state.data;
+
   const [bookStore, setBookStore] = useState("");
-  console.log(data);
 
   useEffect(() => {
     axios({
       method: "post",
       url: `/api/bookstore/getBookstoreDetail`,
       data: {
-        _id: "62dfde11ce45d9283ff4e8d8", //storekey 임의 지정
+        _id: data._id, //"62dffd0708c904737340ae36"
       },
     }).then((response) => {
       if (response.data.success) {
         setBookStore(response.data);
         // console.log("불러오기");
-        // console.log(response.data)
+        console.log(response.data);
         // console.log(response.data.bookstore.tags)
       } else {
         // console.log("불러오기 실패");

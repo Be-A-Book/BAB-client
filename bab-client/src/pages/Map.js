@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "../css/Map.css";
-// import { markerdata } from "../data/markerData";
 import mapMarker from "../img/map_marker.png";
 const { kakao } = window;
 
 const Map = () => {
   const [markers, setMarker] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios({
@@ -15,9 +16,8 @@ const Map = () => {
     }).then((response) => {
       if (response.data.success) {
         console.log("불러오기");
-        setMarker(response.data);
-        console.log(response.data);
-        // console.log(markers && markers.bookstore);
+        setMarker(response.data.bookstore);
+        console.log(response.data.bookstore);
       } else {
         console.log("불러오기 실패");
       }
@@ -25,10 +25,9 @@ const Map = () => {
   }, []);
 
   useEffect(() => {
-    //----------아래 useEffect로부터 추가한 부분----------
     const container = document.getElementById("map");
     const options = {
-      center: new kakao.maps.LatLng(37.5550831, 126.9325161), //37.5550831, 126.932516
+      center: new kakao.maps.LatLng(37.5550831, 126.932516), //37.5550831, 126.932516
       level: 3,
     };
 
@@ -45,7 +44,7 @@ const Map = () => {
     );
 
     markers &&
-      markers.bookstore.map((el) => {
+      markers.map((el) => {
         //content
         const content =
           '<div class="markerbox-wrap">' +
@@ -73,7 +72,6 @@ const Map = () => {
           image: markerImage, //마커이미지 설정
         });
 
-        //---------------수정한 부분 시작------------------
         // 커스텀 오버레이 생성
         const mapCustomOverlay = new kakao.maps.CustomOverlay({
           content: content,
@@ -100,17 +98,16 @@ const Map = () => {
         }
 
         function onClick() {
-          window.location.href = "/detail";
-          <detail data={markers.bookstore} />;
+          navigate("/detail", {
+            state: { data: markers[0] },
+          });
         }
       });
   });
 
   return (
     <>
-      <div id="map" className="Map">
-        {/* {bookStore.name} */}
-      </div>
+      <div id="map" className="Map"></div>
     </>
   );
 };

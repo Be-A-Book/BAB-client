@@ -6,7 +6,43 @@ import logo from "../img/logo_wax2.png";
 import thumbUp from "../img/thumb_up.png";
 
 const WrittenReview = ({ data }) => {
-  console.log(data.writer);
+  // console.log(data.store);
+  const [users, setUser] = useState("");
+  const [bookStore, setBookStore] = useState("");
+
+  //작성자 정보, 북마크
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `/api/users/getUserInfo/${data.writer}`, //${data.writer}
+    }).then((response) => {
+      if (response.data.success) {
+        // console.log("작성자 정보 불러오기");
+        setUser(response.data.userInfo);
+        // console.log(response.data.userInfo);
+      }
+    });
+  }, []);
+
+  //서점 정보 - 현재 bookstore null
+  useEffect(() => {
+    axios({
+      method: "post",
+      url: `/api/bookstore/getBookstoreDetail`,
+      data: {
+        _id: data.store,
+      },
+    }).then((response) => {
+      if (response.data.success) {
+        setBookStore(response.data);
+        console.log("리뷰 서점 정보 불러오기");
+        console.log(response.data);
+      } else {
+        console.log("불러오기 실패");
+      }
+    });
+  }, []);
+
   return (
     <>
       <div className="writtenReview">
@@ -24,7 +60,14 @@ const WrittenReview = ({ data }) => {
             <div className="bookstore-keyword2">#푸근 #따뜻한</div>
           </div>
           <div className="content-right">
-            <div className="review-writer-bookmark"></div>
+            {users && (
+              <div
+                className="review-writer-bookmark"
+                style={{
+                  backgroundColor: users.user?.bookmark?.color,
+                }}
+              ></div>
+            )}
             <div className="review-address">
               --시 --구 --동
               <br />
@@ -40,7 +83,9 @@ const WrittenReview = ({ data }) => {
                 />
               </div>
               <div className="writer-content">
-                <div className="review-writer-name">{data.writer}</div>
+                <div className="review-writer-name">
+                  {users && users.user?.name}
+                </div>
                 <div className="review-date">{data.createdAt}</div>
               </div>
             </div>

@@ -34,9 +34,9 @@ const Review = () => {
     });
   }, []);
 
-  useEffect(() => {
-    console.log(review);
-  }, [review]);
+  // useEffect(() => {
+  //   console.log(review);
+  // }, [review]);
 
   React.useEffect(
     (e) => {

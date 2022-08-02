@@ -15,7 +15,8 @@ const Mypage = () => {
       if (response.data.success) {
         console.log("불러오기");
         setBookmark(response.data.userInfo);
-        console.log(response.data.userInfo.reviews[0]);
+        console.log(response.data.userInfo.user);
+        // console.log(response.data.userInfo.reviews[0]);
       } else {
         console.log("불러오기 실패");
       }
