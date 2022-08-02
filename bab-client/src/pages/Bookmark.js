@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "../css/Bookmark.css"
 import BookmarkTest from '../components/BookmarkTest';
+import { CSSTransition } from 'react-transition-group';
 
 const Bookmark = () => {
     const [visible, setVisible] = useState(false);
@@ -13,7 +14,7 @@ const Bookmark = () => {
     return (
         <div className="bookmark">
             <button className={`bookmarkStart ${ btnVisible ? '' : 'hidden'}`} onClick={ () => { testChange() }} />
-            {visible && <BookmarkTest /> }
+                {visible && <BookmarkTest /> } 
         </div>
     )
 }

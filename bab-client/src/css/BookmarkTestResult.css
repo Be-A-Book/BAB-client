@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "NanumMyeongjo";
+    src: url("../font/NanumMyeongjo.ttf");
+}
+
+.bookmarkResult {
+    background-image: url("../img/booktest_result.png");
+    width: 110vh;
+    height: 75vh;
+    background-size:cover;
+    position: absolute;
+    top: 15vh;
+    left: 45vh;
+    box-shadow: 1px 1px 5px #000000;
+}
+
+.bookmarkResultText {
+    font-family: "NanumMyeongjo";
+    font-size: 32px;
+    position: absolute;
+    left: 35vh;
+    color: #790000;
+}
