@@ -6,7 +6,7 @@ import logo from "../img/logo_wax2.png";
 import thumbUp from "../img/thumb_up.png";
 
 const WrittenReview = ({ data }) => {
-  // console.log(data.store);
+  console.log(data.writer);
   const [users, setUser] = useState("");
   const [bookStore, setBookStore] = useState("");
 
@@ -14,41 +14,43 @@ const WrittenReview = ({ data }) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `/api/users/getUserInfo/${data.writer}`, //${data.writer}
+      url: `/api/users/getUserInfo/${data.writer._id}`, //${data.writer}
     }).then((response) => {
       if (response.data.success) {
-        // console.log("작성자 정보 불러오기");
+        console.log("작성자 정보 불러오기");
         setUser(response.data.userInfo);
-        // console.log(response.data.userInfo);
-      }
-    });
-  }, []);
-
-  //서점 정보 - 현재 bookstore null
-  useEffect(() => {
-    axios({
-      method: "post",
-      url: `/api/bookstore/getBookstoreDetail`,
-      data: {
-        _id: data.store,
-      },
-    }).then((response) => {
-      if (response.data.success) {
-        setBookStore(response.data);
-        console.log("리뷰 서점 정보 불러오기");
-        console.log(response.data);
+        console.log(response.data.userInfo);
       } else {
         console.log("불러오기 실패");
       }
     });
   }, []);
 
+  //서점 정보 - 현재 bookstore null
+  // useEffect(() => {
+  //   axios({
+  //     method: "post",
+  //     url: `/api/bookstore/getBookstoreDetail`,
+  //     data: {
+  //       _id: data.store,
+  //     },
+  //   }).then((response) => {
+  //     if (response.data.success) {
+  //       setBookStore(response.data);
+  //       console.log("리뷰 서점 정보 불러오기");
+  //       console.log(response.data);
+  //     } else {
+  //       console.log("불러오기 실패");
+  //     }
+  //   });
+  // }, []);
+
   return (
     <>
       <div className="writtenReview">
         <div className="review-background">
           <div className="content-left">
-            <dic className="review-bookstore-name">OO서점</dic>
+            <div className="review-bookstore-name">OO서점</div>
             <div>
               <img
                 className="review-bookstore-image"
