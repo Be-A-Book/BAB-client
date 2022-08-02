@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../css/Review.css";
-import axios from 'axios';
+import axios from "axios";
 import reviewBook from "../img/review_book.png";
 import { AiFillCaretLeft } from "react-icons/ai";
 import { AiFillCaretRight } from "react-icons/ai";
@@ -8,14 +8,35 @@ import { FaPencilAlt } from "react-icons/fa";
 import WrittenReview from "../components/WrittenReview";
 import { NavLink } from "react-router-dom";
 
-
 const Review = () => {
+  const [review, setReview] = useState([]);
+
   const [currentClick, setCurrentClick] = React.useState(null);
   const [prevClick, setPrevClick] = React.useState(null);
 
   const GetClick = (e) => {
     setCurrentClick(e.target.id);
   };
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `/api/review/getReviews`,
+    }).then((response) => {
+      if (response.data.success) {
+        console.log("불러오기");
+        setReview(response.data.reviews);
+        // console.log(response.data.reviews);
+        // console.log(response.data.reviews[0]);
+      } else {
+        console.log("불러오기 실패");
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    console.log(review);
+  }, [review]);
 
   React.useEffect(
     (e) => {
@@ -32,35 +53,22 @@ const Review = () => {
       }
       setPrevClick(currentClick);
     },
-    [currentClick],
-    
-    axios({
-      method:"get",
-      url:`/api/review/getReviews`,
-      params: {
-          "store": "62c926a80ea12db83c87b5e9", //storekey 임의 지정
-      }
-  })
-  .then((response) => {  
-      if(response.data.success) {
-          console.log("불러오기");
-          console.log(response.data)
-      } else {
-          console.log("불러오기 실패");
-      }
-  })
+    [currentClick]
   );
+
   return (
     <>
       <div className="review">
         <div className="review-book">
           <img alt="리뷰" src={reviewBook} width="92%" height="75%" />
-          <div className="all-review">
-            <WrittenReview />
-            <WrittenReview />
-            <WrittenReview />
-            <WrittenReview />
-          </div>
+          {review && review.length > 0 && (
+            <div className="all-review">
+              <WrittenReview data={review[0]} />
+              <WrittenReview data={review[1]} />
+              <WrittenReview data={review[2]} />
+              <WrittenReview data={review[3]} />
+            </div>
+          )}
           <div className="review-button">
             <button
               className="popular-order-button"
@@ -91,7 +99,7 @@ const Review = () => {
             <AiFillCaretRight className="review-right-button-icon" />
           </button>
           {/* 후기 남기기 버튼 */}
-          <NavLink to ="/reviewwrite">
+          <NavLink to="/reviewwrite">
             <button className="review-write-button">
               <div className="review-write-button-text">후기 남기기</div>
               <FaPencilAlt className="review-write-button-icon" />

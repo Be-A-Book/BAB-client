@@ -5,8 +5,9 @@ import axios from "axios";
 import heart from "../img/heart.png";
 import DetailReview from "../components/DetailReview";
 
-const Detail = () => {
+const Detail = ({ data }) => {
   const [bookStore, setBookStore] = useState("");
+  console.log(data);
 
   useEffect(() => {
     axios({

@@ -14,6 +14,7 @@
 .Mypage {
     background: #C69D4D;
     color: #790000;
+    height: 85vh;
     font-size: 40px;
     font-family: "NanumMyeongjo";
     padding-top: 40px;
@@ -24,6 +25,7 @@
 
 .mypage-grid {
     margin-top: 40px;
+    height: 70vh;
     background: #E4D7C4;
     display: grid;
     grid-template-columns: 1fr 2fr;
