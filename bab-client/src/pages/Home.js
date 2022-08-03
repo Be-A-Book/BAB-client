@@ -24,7 +24,7 @@ const Home = () => {
                     <SearchBar />
                 </div>
                 <div className="bookstore">
-                    {/* <MainBookstore /> */}
+                    <MainBookstore />
                 </div>
             </div>
         </>
