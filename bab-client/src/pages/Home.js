@@ -2,6 +2,7 @@ import React from 'react';
 import "../css/Home.css"
 import SearchBar from '../components/Searchbar';
 import MainBookstore from '../components/MainBookstore';
+import { Link } from 'react-router-dom';
 const Home = () => {
     return(
         <>
@@ -9,11 +10,13 @@ const Home = () => {
                 <div className="top">
                     <div className="top-image">
                         <div className="top-text">
-                        각자의 장소에서 서로에게 문득 
-                        <br/>“지금 뭐 해요?”라고 말을 건넸습니다.
+                        모퉁이에서 모퉁이로, 그리고 또 <br />
+                        또다른 모퉁이를 만들어내는, 무한한
                         </div>
                         <div className="top-button">
-                            도서 확인하러 가기
+                            <a href="https://cornerlog.herokuapp.com/" className="top-button">
+                            Corner ; [|kɔːrnə(r)]
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -21,7 +24,7 @@ const Home = () => {
                     <SearchBar />
                 </div>
                 <div className="bookstore">
-                    <MainBookstore />
+                    {/* <MainBookstore /> */}
                 </div>
             </div>
         </>
