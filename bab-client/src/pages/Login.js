@@ -5,13 +5,15 @@ import { useDispatch } from "react-redux";
 import {Formik, ErrorMessage} from "formik";
 import {useNavigate} from "react-router-dom";
 import {setToken} from "../redux/reducers/AuthReducer";
+import {toast, ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const submit = async (values) => {
-    const {email, password} = values;
+    const {email, password, jwt} = values;
     try {
       const {data} = await axios({
         method: "post",
@@ -19,14 +21,26 @@ const Login = () => {
         data: {
           email,
           password,
+          jwt
         }
-      });
+      })
       dispatch(setToken(data.jwt));
+      toast.success(<div className='toast'>로그인이 완료되었습니다! 😎</div>, {
+        position: "top-center",
+        autoClose: 2000
+      });
+      setTimeout(()=> {
+          navigate("/");
+      }, 2000);
       console.log('로그인 성공');
-      navigate("/");
+      console.log(data.jwt);
+
     } catch (e) {
       // 서버에서 받은 에러 메시지 출력
       console.log(e.response.data.message);
+      toast.error(<div className='toast'>로그인을 실패하였어요 😭</div>, {
+        position: "top-center",
+    });
     }
   };
 
@@ -41,6 +55,7 @@ const Login = () => {
     >
     {({values, handleSubmit, handleChange}) => (
       <div className="Login">
+        <ToastContainer/>
         <div className="login-title">Login</div>
         <form className='Login' onSubmit={handleSubmit}>
         <div className="login-input-email">

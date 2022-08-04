@@ -25,6 +25,11 @@
     flex-direction: column;
 }
 
+.toast {
+    font-size: 14px !important;
+    color: #0e110fd5  !important;
+}
+
 #login-email {
     width: 450px;
     margin-top: 50px;
