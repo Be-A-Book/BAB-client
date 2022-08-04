@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect } from 'react';
 import "../css/BookmarkTestResult.css"
 import bookmarkData from "../data/bookmarkData.json";
 
@@ -6,6 +7,18 @@ const BookmarkTestResult = (props) => {
     console.log(props)
     const data = bookmarkData[props.number]
     console.log(data)
+
+    
+    useEffect(() => {
+        axios({
+            method: "post",
+            url: `api/users/selectBookmark`,
+            data: {
+                "email" : "yuz@gmail.com",
+                "bookmark" : data.id,
+            }
+        })
+    })
     return (
         <>
         <div className='bookmarkResult'>
