@@ -48,7 +48,7 @@
     position: absolute;
     z-index: 1;
     top: 1vh;
-    right: 8vh;
+    right: 12vh;
     width: 130vh;
     height: 15vh;
     border-radius: 5vh;
@@ -144,4 +144,43 @@
     margin-top: 20px;
     font-size: 5rem;
     cursor: pointer;
+}
+
+.guestbook-write-button {
+    background: none;
+    outline: none;
+    border: none;
+    margin-left: 8%;
+    margin-bottom: 30px;
+    background-color: #F9E7E7;
+    border-radius: 30px;
+    padding: 3px 10px 3px 10px;
+    align-items: center;
+    z-index: 2;
+    position: absolute;
+    color: #790000;
+    top: 13vh;
+    right: 1.5vh;
+
+}
+
+.guestbook-write-button:hover{
+    color: #000000;
+}
+
+.guestbook-write-button-icon{
+    background: none;
+    outline: none;
+    border: none;
+    float: left;
+    margin-top: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.guestbook-write-button-text{
+    font-family: "NanumDdarEGeEomMaGa";
+    font-size: 2.3rem;
+    float: left;
+    padding: 3px 10px 10px 10px;
 }

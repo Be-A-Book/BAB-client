@@ -46,7 +46,7 @@ const SignUp = () => {
             //     title: "Error",
             //     message: message
             // });
-      }
+        }
     }).catch(function (error) {
         console.log(error);
         toast.error(<div>회원가입을 실패하였어요 😭</div>, {
