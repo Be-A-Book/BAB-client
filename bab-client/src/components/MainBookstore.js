@@ -31,8 +31,8 @@ const MainBookstore = () => {
       <div className="MainBookstore">
         <div className="main-book-hashtag">
           {bookStore &&
-            bookStore.bookstore.tags.map((tags) => (
-              <div className="image-text-hash" key={tags._id}>
+            bookStore.bookstore.tags.map((tags, index) => (
+              <div className="image-text-hash" key={index}>
                 {" "}
                 #{tags && tags.name}{" "}
               </div>

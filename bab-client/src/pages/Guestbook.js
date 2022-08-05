@@ -16,6 +16,14 @@ const GuestBook = () => {
     const navigate = useNavigate();
     const [currentClick, setCurrentClick] = React.useState(null);
     const [prevClick, setPrevClick] = React.useState(null);
+    const [category, setCategory] = useState("");
+    const [representImg, setRepresentImg] = useState();
+    const [data, setData] = useState([]);
+    const [count, setCount] = useState(15);
+    const [dataArray, setDataArray] = useState([]);
+    const [result, setResult] = useState([]);
+    const [spinner, setSpinner] = useState(true);
+    let tempArray = [];
 
     const GetClick = (e) => {
         setCurrentClick(e.target.id);
@@ -44,6 +52,21 @@ const GuestBook = () => {
             } 
     }) 
     }
+
+    useEffect(() => {
+        axios({
+            method: "get",
+            url: `api/guestbook+query/getMessages`,
+        }).then((response) => {
+            if (response.data.success) {
+                console.log("불러오기");
+                console.log(response.data);
+            } else {
+                console.log("불러오기 실패");
+            }
+        });
+    });
+
 
     // function check_length(area){
     //     var text = area.value;
