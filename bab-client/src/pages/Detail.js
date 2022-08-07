@@ -17,16 +17,16 @@ const Detail = () => {
       method: "post",
       url: `/api/bookstore/getBookstoreDetail`,
       data: {
-        _id: data._id, //"62dffd0708c904737340ae36"
+        _id: data, //"62dffd0708c904737340ae36"
       },
     }).then((response) => {
       if (response.data.success) {
         setBookStore(response.data);
-        // console.log("불러오기");
-        console.log(response.data);
+        //console.log("불러오기");
+        //console.log(response.data);
         // console.log(response.data.bookstore.tags)
       } else {
-        // console.log("불러오기 실패");
+        console.log("불러오기 실패");
       }
     });
   }, []);
@@ -36,36 +36,36 @@ const Detail = () => {
         {/* 세부 내용 좌측 */}
         <div className="detail-content-left">
           <div className="detail-big-title">
-            {bookStore && bookStore.bookstore.name}
+            {bookStore && bookStore.bookstore?.name}
           </div>
           <div className="detail-container-2">
             <div className="detail-small-title-column">소개</div>
             <div className="detail-text">
-              {bookStore && bookStore.bookstore.introduction}
+              {bookStore && bookStore.bookstore?.introduction}
             </div>
           </div>
           <div className="detail-container">
             <div className="detail-small-title-row">주소</div>
             <div className="detail-text">
-              {bookStore && bookStore.bookstore.address}
+              {bookStore && bookStore.bookstore?.address}
             </div>
           </div>
           <div className="detail-container">
             <div className="detail-small-title-row">운영시간</div>
             <div className="detail-text">
-              {bookStore && bookStore.bookstore.operation}
+              {bookStore && bookStore.bookstore?.operation}
             </div>
           </div>
           <div className="detail-container">
             <div className="detail-small-title-row">휴무일</div>
             <div className="detail-text">
-              {bookStore && bookStore.bookstore.holiday}
+              {bookStore && bookStore.bookstore?.holiday}
             </div>
           </div>
           <div className="detail-container">
             <div className="detail-small-title-row">웹사이트</div>
             <div className="detail-text">
-              {bookStore && bookStore.bookstore.website}
+              {bookStore && bookStore.bookstore?.website}
             </div>
           </div>
         </div>
@@ -79,8 +79,8 @@ const Detail = () => {
           <div className="image">
             <div className="image-image">
               <img
-                alt={bookStore && bookStore.bookstore.defaultImage}
-                src={bookStore && bookStore.bookstore.defaultImage}
+                alt={bookStore && bookStore.bookstore?.defaultImage}
+                src={bookStore && bookStore.bookstore?.defaultImage}
                 width="360px"
                 height="360px"
               />{" "}
@@ -88,10 +88,10 @@ const Detail = () => {
             </div>
             <div className="image-text">
               {bookStore &&
-                bookStore.bookstore.tags.map((tags) => (
-                  <div className="image-text-hash" key={tags._id}>
+                bookStore.bookstore?.tags.map((tags) => (
+                  <div className="image-text-hash" key={tags}>
                     {" "}
-                    #{tags && tags.name}{" "}
+                    #{tags}{" "}
                   </div>
                 ))}
             </div>
@@ -100,7 +100,7 @@ const Detail = () => {
         {/* 방문 후기 */}
         <div className="review">
           <div className="detail-review">방문후기</div>
-          <DetailReview />
+          <DetailReview data={bookStore && bookStore.bookstore?._id} />
         </div>
       </div>
     </>

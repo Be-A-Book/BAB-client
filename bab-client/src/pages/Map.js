@@ -17,7 +17,7 @@ const Map = () => {
       if (response.data.success) {
         console.log("불러오기");
         setMarker(response.data.bookstore);
-        console.log(response.data.bookstore);
+        //console.log(response.data.bookstore);
       } else {
         console.log("불러오기 실패");
       }
@@ -71,6 +71,7 @@ const Map = () => {
           position: new kakao.maps.LatLng(el.lat, el.lng),
           image: markerImage, //마커이미지 설정
         });
+        marker.id = el._id;
 
         // 커스텀 오버레이 생성
         const mapCustomOverlay = new kakao.maps.CustomOverlay({
@@ -98,8 +99,9 @@ const Map = () => {
         }
 
         function onClick() {
+          console.log(marker.id);
           navigate("/detail", {
-            state: { data: markers[0] },
+            state: { data: marker.id }, //markers[0]
           });
         }
       });

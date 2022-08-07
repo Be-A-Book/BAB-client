@@ -1,5 +1,9 @@
-.review-card {
+.detail-review-content{
     background-color: #E4D7C4;
+    margin-right: 100px;
+}
+
+.review-card {
     position: relative;
     width: fit-content;
     padding-left: 20px;

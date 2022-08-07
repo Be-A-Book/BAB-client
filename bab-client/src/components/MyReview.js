@@ -30,7 +30,7 @@ const MyReview = ({ data }) => {
     <>
       <div className="MyReview">
         <div className="my-review-bookstore">
-          {bookStore && bookStore.bookstore.name}
+          {bookStore && bookStore.bookstore?.name}
         </div>
         <div className="my-review-content">{data.content}</div>
       </div>
