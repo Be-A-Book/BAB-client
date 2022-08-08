@@ -1,13 +1,20 @@
 import React from "react";
+import axios from 'axios';
 import {useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import "../css/Logout.css";
 import logo from "../img/logobab.png";
 import {setToken} from "../redux/reducers/AuthReducer";
 import {toast, ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {useCookies } from 'react-cookie';
 
 const Logout = () => {
+
+  const COOKIE_KEY = window.LOGIN_KEY; // 상수화시킨 쿠키 값을 넣어줬다.
+  
+  const [, , removeCookie] = useCookies([COOKIE_KEY]); // 쓰지 않는 변수는 (공백),처리해주고 removeCookie 옵션만 사용한다
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -16,7 +23,13 @@ const Logout = () => {
       position: "top-center",
       autoClose: 2000
   });
+  axios ({
+    method: "get",
+    url: "/api/users/logout"
+  })
+    removeCookie('x_auth');    // 쿠키삭제후
     await dispatch(setToken(""));
+    console.log()
     console.log("로그아웃되었습니다.");
     setTimeout(()=> {
       navigate("/");

@@ -64,7 +64,7 @@
     position: absolute;
     z-index: 0;
     top: 50vh;
-    left: 22vh;
+    left: 30vh;
 
 }
 
@@ -79,14 +79,14 @@
     position: absolute;
     z-index: 1;
     top: 5vh;
-    right: 13vh;
+    right: 15vh;
 }
 
 .guestbook-arrow-keys{
     position: absolute;
     margin-left: 20%;
     bottom: -10vh;
-    left: 28vh;
+    left: 25vh;
 }
 
 .guestbook-left-button{

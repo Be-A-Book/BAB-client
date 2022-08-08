@@ -12,7 +12,7 @@ const Searchbar = () => {
     }
 
     const onSearch = (e) => {
-            const response = axios.get(`/api/bookstore+query/search?keyword=${searchValue}`);
+            const response = axios.get(`/api/bookstore/search?keyword=${searchValue}`);
             console.log(response)
     }
 

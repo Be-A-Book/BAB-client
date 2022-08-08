@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import GuestBookMemo from '../components/GuestbookMemo';
 import "../css/Guestbook.css";
 import reviewBook from "../img/review_book.png";
-import axios from 'axios';
+import axios from "axios";
 import { AiFillCaretLeft } from "react-icons/ai";
 import { AiFillCaretRight } from "react-icons/ai";
 import { FaPencilAlt } from "react-icons/fa";
@@ -18,8 +18,7 @@ const GuestBook = () => {
     const [prevClick, setPrevClick] = React.useState(null);
     const [category, setCategory] = useState("");
     const [representImg, setRepresentImg] = useState();
-    const [data, setData] = useState([]);
-    const [count, setCount] = useState(15);
+    const [guestbook, setGuestbook] = useState([]);
     const [dataArray, setDataArray] = useState([]);
     const [result, setResult] = useState([]);
     const [spinner, setSpinner] = useState(true);
@@ -28,6 +27,22 @@ const GuestBook = () => {
     const GetClick = (e) => {
         setCurrentClick(e.target.id);
     };
+
+    useEffect (() => {
+        axios({
+            method: "get",
+            url: `/api/guestbook/getmessages`
+        }).then((response) => {
+            if (response.data.success) {
+                console.log("불러오기");
+                console.log(response.data);
+                setGuestbook(response.data.messages);
+            } else {
+                console.log("불러오기 실패");
+            }
+        });
+    }, [])
+
     const submit = async (values) => {
         const { content } = values || {}
         axios({
@@ -53,19 +68,6 @@ const GuestBook = () => {
     }) 
     }
 
-    useEffect(() => {
-        axios({
-            method: "get",
-            url: `api/guestbook+query/getMessages`,
-        }).then((response) => {
-            if (response.data.success) {
-                console.log("불러오기");
-                console.log(response.data);
-            } else {
-                console.log("불러오기 실패");
-            }
-        });
-    });
 
 
     // function check_length(area){
@@ -115,16 +117,20 @@ const GuestBook = () => {
                 <div className="guestbook-container">
                     <img alt="리뷰" src={reviewBook} width="1500vh" height="600vh" />
                     <div className="guestbook-container-memo-left">
-                    <GuestBookMemo />
-                    <GuestBookMemo />
-                    <GuestBookMemo />
-                    <GuestBookMemo />
+                    {guestbook && (
+                        <div className="guestbook-container-memo-left{">
+                        <GuestBookMemo data={guestbook[0]} />
+                        <GuestBookMemo data={guestbook[1]} />
+                        <GuestBookMemo data={guestbook[2]} />
+                        <GuestBookMemo data={guestbook[3]} />
+                        </div>
+                    )}
                     </div>
                     <div className="guestbook-container-memo-right">
-                    <GuestBookMemo />
-                    <GuestBookMemo />
-                    <GuestBookMemo />
-                    <GuestBookMemo />
+                        <GuestBookMemo data={guestbook[0]} />
+                        <GuestBookMemo data={guestbook[1]} />
+                        <GuestBookMemo data={guestbook[2]} />
+                        <GuestBookMemo data={guestbook[3]} />
                     </div>
                     <div className="guestbook-arrow-keys">
                         {/* 왼쪽 방향키 */}

@@ -7,13 +7,16 @@ import {useNavigate} from "react-router-dom";
 import {setToken} from "../redux/reducers/AuthReducer";
 import {toast, ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { getCookie } from '../utils/cookie';
+
 
 const Login = () => {
-  
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const submit = async (values) => {
-    const {email, password, jwt} = values;
+    const {email, password} = values;
     try {
       const {data} = await axios({
         method: "post",
@@ -21,10 +24,8 @@ const Login = () => {
         data: {
           email,
           password,
-          jwt
         }
       })
-      dispatch(setToken(data.jwt));
       toast.success(<div className='toast'>로그인이 완료되었습니다! 😎</div>, {
         position: "top-center",
         autoClose: 2000
@@ -33,7 +34,9 @@ const Login = () => {
           navigate("/");
       }, 2000);
       console.log('로그인 성공');
-      console.log(data.jwt);
+      console.log(`${getCookie('x_auth')}`)
+      dispatch(setToken(`${getCookie('x_auth')}`))
+
 
     } catch (e) {
       // 서버에서 받은 에러 메시지 출력
