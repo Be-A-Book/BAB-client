@@ -14,3 +14,13 @@
     color: #F7F5DD;
     transition: 0.3s;
 }
+
+.mypage-bookmark{
+    position: absolute;
+    z-index: 2;
+    background-color: #C4C4C4;
+    width: 3vh;
+    height: 0.5vh;
+    right: 30vh;
+    top: 0vh;
+}
