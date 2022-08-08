@@ -39,7 +39,7 @@ const App = () => {
     <>
       <Router>
         <Routes>
-          <Route props={isLogin} path="/" element={<Menubar />}>
+          <Route path="/" element={<Menubar props={isLogin} />}  >
             <Route path="/" element={<Home />} />
             <Route path="/map" element={<Map />} />
             <Route path="/recommend" element={<Recommand />} />

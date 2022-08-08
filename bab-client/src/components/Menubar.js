@@ -6,14 +6,19 @@ import { Outlet, NavLink } from "react-router-dom";
 import MypageNavbar from "./MypageNavbar";
 
 const Menubar = (props) => {
-  const isLogin = true
-  console.log(props)
+  const isLogin = props.props
   console.log(isLogin)
 
   function userIsLogin() {
-    <>
-    <MypageNavbar />
-    </>
+    return (
+      <>
+      <li>
+        <NavLink to="/logout" className="nav-link"> LogOut </NavLink>
+      </li>
+      <MypageNavbar />
+      </>
+    )
+
   }
 
   function userNotLogin() {
@@ -29,11 +34,11 @@ const Menubar = (props) => {
     )
   }
 
-  let NavberRight = userNotLogin();
+  let NavbarRight = null;
   if (isLogin === true) {
-    NavberRight = userIsLogin()
+    NavbarRight = userIsLogin()
   } else {
-    NavberRight = userNotLogin()
+    NavbarRight = userNotLogin()
   }
 
   return (
@@ -74,7 +79,7 @@ const Menubar = (props) => {
         </div>
         <div className="right">
           <ul className="nav-links">
-            {NavberRight}
+            {NavbarRight}
           </ul>
         </div>
       </div>
