@@ -5,7 +5,37 @@ import logo from "../img/logobab.png";
 import { Outlet, NavLink } from "react-router-dom";
 import MypageNavbar from "./MypageNavbar";
 
-const Menubar = () => {
+const Menubar = (props) => {
+  const isLogin = true
+  console.log(props)
+  console.log(isLogin)
+
+  function userIsLogin() {
+    <>
+    <MypageNavbar />
+    </>
+  }
+
+  function userNotLogin() {
+    return(
+      <>
+      <li>
+      <NavLink to="/login" className="nav-link"> Login </NavLink>
+      </li>
+      <li>
+        <NavLink to="/signup" className="nav-link"> Sign Up </NavLink>
+      </li>
+      </>
+    )
+  }
+
+  let NavberRight = userNotLogin();
+  if (isLogin === true) {
+    NavberRight = userIsLogin()
+  } else {
+    NavberRight = userNotLogin()
+  }
+
   return (
     <div>
       <div className="navbar">
@@ -44,17 +74,7 @@ const Menubar = () => {
         </div>
         <div className="right">
           <ul className="nav-links">
-            <MypageNavbar />
-            <li>
-              <NavLink to="/login" className="nav-link">
-                Login
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/signup" className="nav-link">
-                Sign Up
-              </NavLink>
-            </li>
+            {NavberRight}
           </ul>
         </div>
       </div>

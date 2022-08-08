@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./App.css";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -17,13 +17,29 @@ import Mypage from "./pages/Mypage";
 import ReviewWrite from './pages/ReviewWrite';
 import GuestBook from './pages/Guestbook';
 import Bookmark from './pages/Bookmark';
+import { getCookie } from './utils/cookie';
 
 const App = () => {
+  const [isLogin, setIsLogin] = useState(false)
+
+  useEffect(()=> {
+    if(getCookie('x_auth') != null){
+      setIsLogin(true)
+      console.log('로그인 됨')
+      console.log(isLogin)
+      
+    } else {
+      setIsLogin(false)
+      console.log('로그인 안 됨')
+      console.log(isLogin)
+    }
+  })
+
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Menubar />}>
+          <Route props={isLogin} path="/" element={<Menubar />}>
             <Route path="/" element={<Home />} />
             <Route path="/map" element={<Map />} />
             <Route path="/recommend" element={<Recommand />} />
@@ -32,11 +48,12 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/detail" element={<Detail />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="/mypage" element={<Mypage />} />
             <Route path="/reviewwrite" element={<ReviewWrite />} />
             <Route path="/guestbook" element={<GuestBook />} />
             <Route path="/bookmark" element={<Bookmark />} />
+
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/mypage" element={<Mypage />} />
           </Route>
         </Routes>
       </Router>

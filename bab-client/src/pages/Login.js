@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../css/Login.css";
 import axios from 'axios';
 import { useDispatch } from "react-redux";
-import {Formik, ErrorMessage} from "formik";
+import {Formik} from "formik";
 import {useNavigate} from "react-router-dom";
 import {setToken} from "../redux/reducers/AuthReducer";
 import {toast, ToastContainer} from "react-toastify";
@@ -18,7 +18,7 @@ const Login = () => {
   const submit = async (values) => {
     const {email, password} = values;
     try {
-      const {data} = await axios({
+      await axios({
         method: "post",
         url: "/api/users/login",
         data: {
@@ -46,7 +46,6 @@ const Login = () => {
     });
     }
   };
-
 
   return (
     <Formik
