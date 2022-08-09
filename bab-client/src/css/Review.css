@@ -19,7 +19,7 @@
     src: url("../font/NanumGothic.ttf");
 }
 
-.review{
+.review-page{
     position: relative;
     padding-top: 80px;
     background-color: #E4D7C4;
@@ -29,6 +29,7 @@
 
 .review-book{
     position: relative;
+    margin-left: 14vh;
     z-index: 0;
 }
 

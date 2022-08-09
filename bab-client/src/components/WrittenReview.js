@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "../css/WrittenReview.css";
 import axios from "axios";
-import bookstore from "../img/bookstore.png";
 import logo from "../img/logo_wax2.png";
 import thumbUp from "../img/thumb_up.png";
 
 const WrittenReview = ({ data }) => {
-  console.log(data.writer);
+  // console.log(data.writer);
   const [users, setUser] = useState("");
   const [bookStore, setBookStore] = useState("");
 
@@ -14,52 +13,64 @@ const WrittenReview = ({ data }) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `/api/users/getUserInfo/${data.writer._id}`, //${data.writer}
+      url: `/api/users/getUserInfo/${data.writer?._id}`, //${data.writer}
     }).then((response) => {
       if (response.data.success) {
-        console.log("작성자 정보 불러오기");
+        console.log("리뷰-작성자 정보 불러오기 성공");
         setUser(response.data.userInfo);
-        console.log(response.data.userInfo);
+        console.log(response.data);
       } else {
-        console.log("불러오기 실패");
+        console.log("리뷰-작성자 정보 불러오기 실패");
       }
     });
   }, []);
 
-  //서점 정보 - 현재 bookstore null
-  // useEffect(() => {
-  //   axios({
-  //     method: "post",
-  //     url: `/api/bookstore/getBookstoreDetail`,
-  //     data: {
-  //       _id: data.store,
-  //     },
-  //   }).then((response) => {
-  //     if (response.data.success) {
-  //       setBookStore(response.data);
-  //       console.log("리뷰 서점 정보 불러오기");
-  //       console.log(response.data);
-  //     } else {
-  //       console.log("불러오기 실패");
-  //     }
-  //   });
-  // }, []);
+  // 서점 정보
+  useEffect(() => {
+    axios({
+      method: "post",
+      url: `/api/bookstore/getBookstoreDetail`,
+      data: {
+        _id: data.store,
+      },
+    }).then((response) => {
+      if (response.data.success) {
+        setBookStore(response.data);
+        console.log("리뷰-서점 정보 불러오기 성공");
+        console.log(response.data);
+      } else {
+        console.log("리뷰-서점 정보 불러오기 실패");
+      }
+    });
+  }, []);
 
   return (
     <>
       <div className="writtenReview">
         <div className="review-background">
           <div className="content-left">
-            <div className="review-bookstore-name">OO서점</div>
+            <div className="review-bookstore-name">
+              {bookStore && bookStore.bookstore?.name}
+            </div>
             <div>
               <img
                 className="review-bookstore-image"
-                src={bookstore}
+                src={bookStore && bookStore.bookstore?.defaultImage}
                 alt="서점 사진"
+                height="75%"
               />
             </div>
-            <div className="bookstore-keyword1">#헌책방 #카페</div>
-            <div className="bookstore-keyword2">#푸근 #따뜻한</div>
+            {/* <div className="bookstore-keyword1">              
+            </div> */}
+            <div className="bookstore-keyword">
+              {bookStore &&
+                bookStore.bookstore?.tags.map((tag, index) => (
+                  <div className="bookstore-tags" key={index}>
+                    {" "}
+                    #{tag}{" "}
+                  </div>
+                ))}
+            </div>
           </div>
           <div className="content-right">
             {users && (
@@ -71,9 +82,9 @@ const WrittenReview = ({ data }) => {
               ></div>
             )}
             <div className="review-address">
-              --시 --구 --동
-              <br />
-              상세주소
+              {bookStore && bookStore.bookstore?.address}
+              {/* <br />
+              상세주소 */}
             </div>
             <div className="review-writer">
               <div className="review-profile">

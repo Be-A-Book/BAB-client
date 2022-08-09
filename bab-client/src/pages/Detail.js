@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "../css/Detail.css";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-// import image from "../img/bab_black.png";
 import heart from "../img/heart.png";
 import DetailReview from "../components/DetailReview";
 
@@ -84,7 +83,6 @@ const Detail = () => {
                 width="360px"
                 height="360px"
               />{" "}
-              {/* image 불러오기 불가능, 임의 수정 bookStore && bookStore.bookstore.defaultImage */}
             </div>
             <div className="image-text">
               {bookStore &&

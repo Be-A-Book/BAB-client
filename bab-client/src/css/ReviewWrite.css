@@ -59,8 +59,8 @@
 .write-text {
     position: absolute;
     z-index: 1;
-    top: 20vh;
-    left: 50vh;
+    top: 26vh;
+    left: 55vh;
 }
 
 .write-text-head{
@@ -86,7 +86,7 @@
     margin-top: 10px;
 }
 
-#write-text-input {
+#write-name, #write-address, #write-image, #write-tags {
     width: 70vh;
     margin-top: 20px;
     margin-left: 20px;
@@ -99,7 +99,7 @@
     font-family: "NanumMyeongjo";
 }
 
-#write-text-input-content {
+#write-content {
     width: 70vh;
     height: 25vh;
     margin-top: 20px;
