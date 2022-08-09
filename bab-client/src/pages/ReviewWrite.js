@@ -7,69 +7,55 @@ import "react-toastify/dist/ReactToastify.css";
 import "../css/ReviewWrite.css";
 
 const ReviewWrite = (props) => {
-  const isLogin = props.props
-  if(isLogin === false) {
-    toast.error(<div className='toast'>로그인을 먼저 해 주세요</div>, {
+  const isLogin = props.props;
+  if (isLogin === false) {
+    toast.error(<div className="toast">로그인을 먼저 해 주세요</div>, {
       position: "top-center",
-      autoClose: 2000
+      autoClose: 2000,
     });
-    setTimeout(()=> {
-        navigate("/login");
+    setTimeout(() => {
+      navigate("/login");
     }, 2000);
   }
   const navigate = useNavigate();
   const [name, setName] = useState("");
-
-  // const multer = require("multer");
-  // const upload = multer({ dest: "uploads/" });
-  // const express = require("express");
-  // const app = express();
-
-  // app.post("/review", function (req, res) {
-  //   res.send("업로드 성공!");
-  // });
-
-  // app.post("/review", upload.single("image"), function (req, res) {
-  //   res.send("Uploaded! : " + req.file); // object를 리턴함
-  //   console.log(req.file); // 콘솔(터미널)을 통해서 req.file Object 내용 확인 가능.
-  // });
 
   const submit = async (values) => {
     console.log(values.store);
 
     const value = values || {};
 
-    await axios({
-      method: "post",
-      url: `api/review/postReview`,
-      data: {
-        store: value.store,
-        writer: value.writer, //"62dd295807f7364fbf4cd395"
-        content: value.content,
-      },
-      //   headers: {'Content-Type': 'multipart/form-data' }
-    }).then((response) => {
-      if (response.data.success) {
-        console.log(value.content);
-        //console.log(response.data);
-        toast.success(<div>리뷰 작성이 완료되었습니다.</div>, {
-          position: "bottom-center",
-          autoClose: 2000,
-          closeOnClick: true,
-          hideProgressBar: true,
-        });
-        navigate("/review");
-      } else {
-        //console.log(value.content);
-        console.log(response.data);
-        toast.error(<div>리뷰 작성에 실패하였습니다.</div>, {
-          position: "bottom-center",
-          autoClose: 2000,
-          closeOnClick: true,
-          hideProgressBar: true,
-        });
-      }
-    });
+    const frm = new FormData();
+    const photoFile = document.getElementById("write-image");
+    frm.append("image", photoFile.files[0]);
+    frm.append("store", value.store);
+    frm.append("writer", value.writer);
+    frm.append("content", value.content);
+
+    await axios
+      .post("api/review/postReview", frm, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+      .then((response) => {
+        if (response.data.success) {
+          console.log(value);
+          toast.success(<div>리뷰 작성이 완료되었습니다.</div>, {
+            position: "bottom-center",
+            autoClose: 2000,
+            closeOnClick: true,
+            hideProgressBar: true,
+          });
+          navigate("/review");
+        } else {
+          console.log(value);
+          toast.error(<div>리뷰 작성에 실패하였습니다.</div>, {
+            position: "bottom-center",
+            autoClose: 2000,
+            closeOnClick: true,
+            hideProgressBar: true,
+          });
+        }
+      });
   };
 
   const anotherInfo = async (values) => {
@@ -88,7 +74,6 @@ const ReviewWrite = (props) => {
     await axios
       .get(`/api/users/auth`)
       .then((response) => {
-        //console.log("authInfo의 ID: " + response.data._id);
         value.writer = response.data._id;
       })
       .catch((error) => {
@@ -113,11 +98,7 @@ const ReviewWrite = (props) => {
               }}
               onSubmit={(data, { setSubmitting }) => {
                 setSubmitting(true);
-                // console.log(data);
                 anotherInfo(data);
-
-                // console.log(data.content);
-                //submit(data);
                 setSubmitting(false);
               }}
             >
@@ -136,11 +117,6 @@ const ReviewWrite = (props) => {
                     />
                   </div>
                   <div className="write-text-container">
-                    <div className="write-text-title">서점 주소</div>
-                    <input type="text" name="address" id="write-address" />
-                  </div>
-
-                  <div className="write-text-container">
                     <div className="write-text-title">방문 후기</div>
                     <textarea
                       type="text"
@@ -152,23 +128,12 @@ const ReviewWrite = (props) => {
                   </div>
                   <div className="write-text-container">
                     <div className="write-text-title">서점 사진</div>
-                    <form
-                      action="/review"
-                      method="post"
-                      enctype="multipart/form-data"
-                    >
-                      <input
-                        type="file"
-                        name="image"
-                        id="write-image"
-                        alt="사진"
-                        //onChange={(e) => {setFileValue("file", e.currentTarget.files[0])}}
-                      />
-                    </form>
-                  </div>
-                  <div className="write-text-container">
-                    <div className="write-text-title">서점 키워드</div>
-                    <input type="text" name="tags" id="write-tags" />
+                    <input
+                      type="file"
+                      name="image"
+                      id="write-image"
+                      alt="사진"
+                    />
                   </div>
                   <button
                     className="write-submit-button"

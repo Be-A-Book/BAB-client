@@ -5,7 +5,6 @@ import logo from "../img/logo_wax2.png";
 import thumbUp from "../img/thumb_up.png";
 
 const WrittenReview = ({ data }) => {
-  // console.log(data.writer);
   const [users, setUser] = useState("");
   const [bookStore, setBookStore] = useState("");
 
@@ -13,7 +12,7 @@ const WrittenReview = ({ data }) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `/api/users/getUserInfo/${data.writer?._id}`, //${data.writer}
+      url: `/api/users/getUserInfo/${data.writer?._id}`,
     }).then((response) => {
       if (response.data.success) {
         console.log("리뷰-작성자 정보 불러오기 성공");
@@ -54,14 +53,17 @@ const WrittenReview = ({ data }) => {
             </div>
             <div>
               <img
+                id="book-store-image"
                 className="review-bookstore-image"
-                src={bookStore && bookStore.bookstore?.defaultImage}
+                src={
+                  data.image == null || data.image === "undifiend"
+                    ? bookStore.bookstore?.defaultImage
+                    : data.image
+                }
                 alt="서점 사진"
                 height="75%"
               />
             </div>
-            {/* <div className="bookstore-keyword1">              
-            </div> */}
             <div className="bookstore-keyword">
               {bookStore &&
                 bookStore.bookstore?.tags.map((tag, index) => (
@@ -83,8 +85,6 @@ const WrittenReview = ({ data }) => {
             )}
             <div className="review-address">
               {bookStore && bookStore.bookstore?.address}
-              {/* <br />
-              상세주소 */}
             </div>
             <div className="review-writer">
               <div className="review-profile">

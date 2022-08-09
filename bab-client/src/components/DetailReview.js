@@ -12,9 +12,7 @@ const DetailReview = ({ data }) => {
       url: `/api/review/getReviews/${data}`,
     }).then((response) => {
       if (response.data.success) {
-        //console.log("불러오기");
         setReviews(response.data.reviews);
-        //console.log(response.data.reviews);
       } else {
         console.log("불러오기 실패");
       }
