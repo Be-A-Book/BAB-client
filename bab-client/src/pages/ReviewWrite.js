@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
@@ -10,55 +10,62 @@ const ReviewWrite = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
 
+  // const multer = require("multer");
+  // const upload = multer({ dest: "uploads/" });
+  // const express = require("express");
+  // const app = express();
+
+  // app.post("/review", function (req, res) {
+  //   res.send("업로드 성공!");
+  // });
+
+  // app.post("/review", upload.single("image"), function (req, res) {
+  //   res.send("Uploaded! : " + req.file); // object를 리턴함
+  //   console.log(req.file); // 콘솔(터미널)을 통해서 req.file Object 내용 확인 가능.
+  // });
+
   const submit = async (values) => {
-    console.log(values);
+    console.log(values.store);
 
     const value = values || {};
 
-    console.log(value);
-
-    if (
-      value.store === "62e9a3bd6da7cf12cf5f9dfc" &&
-      value.writer === "62c463f3313ec73353f5f35d"
-    ) {
-      axios({
-        method: "post",
-        url: `api/review/postReview`,
-        data: {
-          store: value.store,
-          writer: value.writer, //"62dd295807f7364fbf4cd395"
-          content: value.content,
-        },
-        //   headers: {'Content-Type': 'multipart/form-data' }
-      }).then((response) => {
-        if (response.data.success) {
-          console.log(value.content);
-          //console.log(response.data);
-          toast.success(<div>리뷰 작성이 완료되었습니다.</div>, {
-            position: "bottom-center",
-            autoClose: 2000,
-            closeOnClick: true,
-            hideProgressBar: true,
-          });
-          navigate("/review");
-        } else {
-          //console.log(value.content);
-          console.log(response.data);
-          toast.error(<div>리뷰 작성에 실패하였습니다.</div>, {
-            position: "bottom-center",
-            autoClose: 2000,
-            closeOnClick: true,
-            hideProgressBar: true,
-          });
-        }
-      });
-    }
+    await axios({
+      method: "post",
+      url: `api/review/postReview`,
+      data: {
+        store: value.store,
+        writer: value.writer, //"62dd295807f7364fbf4cd395"
+        content: value.content,
+      },
+      //   headers: {'Content-Type': 'multipart/form-data' }
+    }).then((response) => {
+      if (response.data.success) {
+        console.log(value.content);
+        //console.log(response.data);
+        toast.success(<div>리뷰 작성이 완료되었습니다.</div>, {
+          position: "bottom-center",
+          autoClose: 2000,
+          closeOnClick: true,
+          hideProgressBar: true,
+        });
+        navigate("/review");
+      } else {
+        //console.log(value.content);
+        console.log(response.data);
+        toast.error(<div>리뷰 작성에 실패하였습니다.</div>, {
+          position: "bottom-center",
+          autoClose: 2000,
+          closeOnClick: true,
+          hideProgressBar: true,
+        });
+      }
+    });
   };
 
-  const anotherInfo = (values) => {
+  const anotherInfo = async (values) => {
     const value = values || {};
 
-    axios
+    await axios
       .get(`/api/bookstore/search?keyword=${name}`)
       .then((response) => {
         value.store = response.data.bookstore[0]._id;
@@ -68,16 +75,18 @@ const ReviewWrite = () => {
       })
       .then(() => {});
 
-    axios
+    await axios
       .get(`/api/users/auth`)
       .then((response) => {
-        console.log("authInfo의 ID: " + response.data._id);
+        //console.log("authInfo의 ID: " + response.data._id);
         value.writer = response.data._id;
       })
       .catch((error) => {
         console.log(error);
       })
       .then(() => {});
+
+    submit(value);
   };
 
   return (
@@ -94,10 +103,12 @@ const ReviewWrite = () => {
               }}
               onSubmit={(data, { setSubmitting }) => {
                 setSubmitting(true);
+                // console.log(data);
                 anotherInfo(data);
-                console.log(data);
+
+                // console.log(data.content);
+                //submit(data);
                 setSubmitting(false);
-                submit(data);
               }}
             >
               {({ values, handleSubmit, handleChange, isSubmitting }) => (
@@ -131,12 +142,19 @@ const ReviewWrite = () => {
                   </div>
                   <div className="write-text-container">
                     <div className="write-text-title">서점 사진</div>
-                    <input
-                      type="image"
-                      name="image"
-                      id="write-image"
-                      alt="사진"
-                    />
+                    <form
+                      action="/review"
+                      method="post"
+                      enctype="multipart/form-data"
+                    >
+                      <input
+                        type="file"
+                        name="image"
+                        id="write-image"
+                        alt="사진"
+                        //onChange={(e) => {setFileValue("file", e.currentTarget.files[0])}}
+                      />
+                    </form>
                   </div>
                   <div className="write-text-container">
                     <div className="write-text-title">서점 키워드</div>
