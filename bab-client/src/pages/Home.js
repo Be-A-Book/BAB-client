@@ -12,6 +12,10 @@ const Home = () => {
     const [props, setProps] = useState();
     const [visible, setVisible] = useState(false);
     const [btnVisible, setBtnVisible] = useState(true);
+    const [state, setState] = useState(true);
+    const [content, setContent] = useState("검색"); 
+
+
 
     const onChangeSearch = (e) => {
         e.preventDefault();
@@ -27,8 +31,17 @@ const Home = () => {
             setProps(response.data.bookstore);
             setVisible(!visible);
             setBtnVisible(!btnVisible);
+            setState(!state)
+
+            if (state != true) {
+                setContent("검색")
+            } else {
+                setContent("메인 화면으로 이동")
+            }
         })
     }
+
+
 
     return(
         <>
@@ -53,7 +66,7 @@ const Home = () => {
                         <input placeholder="검색어를 입력하세요" value={searchValue} onChange={onChangeSearch}/>
                     </div>
                     <div className="create-button" onClick={onSearch}>
-                        검색
+                        {content}
                     </div>
                 </div>
                 </div>
