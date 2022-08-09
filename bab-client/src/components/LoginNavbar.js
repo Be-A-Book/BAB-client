@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "./Footer";
 import "../css/Menubar.css";
 import logo from "../img/logobab.png";
-import { Link, Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import Mypage from "./Mypage";
 
 const Menubar = () => {

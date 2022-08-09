@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../css/MainBookstore.css";
-import image from "../img/bab_black.png";
 import heart from "../img/heart.png";
 import stamp from "../img/stamp.png";
-import axios from "axios";
 
 const SearchBookstore = (props) => {
   const [bookStore, setBookStore] = useState("");

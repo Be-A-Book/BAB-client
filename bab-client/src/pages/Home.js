@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from "axios";
 import "../css/Home.css"
 import MainBookstore from '../components/MainBookstore';
-import { Link } from 'react-router-dom';
 import '../css/Searchbar.css';
 import search from '../img/search.png';
 import SearchBookstore from '../components/SearchBookstore';

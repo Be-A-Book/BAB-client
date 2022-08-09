@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../css/MainBookstore.css";
-import image from "../img/bab_black.png";
 import heart from "../img/heart.png";
 import stamp from "../img/stamp.png";
 import axios from "axios";
@@ -18,9 +17,7 @@ const MainBookstore = () => {
     }).then((response) => {
       if (response.data.success) {
         setBookStore(response.data);
-        // console.log("불러오기");
       } else {
-        // console.log("불러오기 실패");
       }
     });
   }, []);
