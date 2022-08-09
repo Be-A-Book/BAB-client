@@ -9,7 +9,7 @@ const SearchBookstore = (props) => {
   console.log(prop);
   
   new useEffect (() => {
-    setBookStore(prop.props[2])
+    setBookStore(prop.props[0])
     console.log(bookStore)
   })
 
