@@ -7,7 +7,6 @@ import MypageNavbar from "./MypageNavbar";
 
 const Menubar = (props) => {
   const isLogin = props.props
-  console.log(isLogin)
 
   function userIsLogin() {
     return (

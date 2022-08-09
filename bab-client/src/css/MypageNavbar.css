@@ -19,8 +19,8 @@
     position: absolute;
     z-index: 2;
     background-color: #C4C4C4;
-    width: 3vh;
-    height: 0.5vh;
+    width: 40px;
+    height: 160px;
     right: 20vh;
     top: 0vh;
 }

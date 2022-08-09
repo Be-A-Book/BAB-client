@@ -5,8 +5,13 @@ import MainBookstore from '../components/MainBookstore';
 import { Link } from 'react-router-dom';
 import '../css/Searchbar.css';
 import search from '../img/search.png';
+import SearchBookstore from '../components/SearchBookstore';
+
 const Home = () => {
     const [searchValue, setSearch] = useState("");
+    const [props, setProps] = useState();
+    const [visible, setVisible] = useState(false);
+    const [btnVisible, setBtnVisible] = useState(true);
 
     const onChangeSearch = (e) => {
         e.preventDefault();
@@ -19,6 +24,9 @@ const Home = () => {
             url: `/api/bookstore/search?keyword=${searchValue}`
         }).then((response) => {
             console.log(response)
+            setProps(response.data.bookstore);
+            setVisible(!visible);
+            setBtnVisible(!btnVisible);
         })
     }
 
@@ -50,7 +58,8 @@ const Home = () => {
                 </div>
                 </div>
                 <div className="bookstore">
-                    <MainBookstore />
+                    { btnVisible && <MainBookstore />}
+                    {visible && <SearchBookstore props={props}/>}
                 </div>
             </div>
         </>

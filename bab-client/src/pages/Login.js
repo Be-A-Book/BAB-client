@@ -34,7 +34,7 @@ const Login = () => {
           navigate("/");
       }, 2000);
       console.log('로그인 성공');
-      console.log(`${getCookie('x_auth')}`)
+      // console.log(`${getCookie('x_auth')}`)
       dispatch(setToken(`${getCookie('x_auth')}`))
 
 
