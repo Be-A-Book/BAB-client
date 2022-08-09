@@ -7,6 +7,30 @@ import axios from "axios";
 const Mypage = () => {
   const [bookmark, setBookmark] = useState("");
 
+  const [user, setUser] = useState("");
+  const [id, setId] = useState();
+
+  //작성자 정보, 북마크
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `/api/users/auth`, //${data.writer}
+    }).then((response) => {
+      setId(response.data._id);
+    });
+  }, []);
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `/api/users/getUserInfo/${id && id}`, //${data.writer}
+    }).then((response) => {
+      setUser(response.data.userInfo.user);
+      setBookmark(response.data.userInfo);
+    });
+  });
+
+
   useEffect(() => {
     axios({
       method: "get",
@@ -15,7 +39,6 @@ const Mypage = () => {
       if (response.data.success) {
         console.log("불러오기");
         setBookmark(response.data.userInfo);
-        console.log(response.data.userInfo.user);
         // console.log(response.data.userInfo.reviews[0]);
       } else {
         console.log("불러오기 실패");
@@ -34,13 +57,12 @@ const Mypage = () => {
             <div className="mypage-small-title">Your Bookmark</div>
             <div className="mypage-bookmark-container">
               <div className="mypage-big-rectangle"></div>
-              {/* bookmark.userInfo.user.bookmark */}
               <div>
                 {bookmark && (
                   <div
-                    className="mypage-bookmark"
+                    className="mypage-bookmark-book"
                     style={{
-                      backgroundColor: bookmark.user.bookmark.color,
+                      backgroundColor: user.bookmark?.color,
                     }}
                   ></div>
                 )}
@@ -54,13 +76,13 @@ const Mypage = () => {
             {bookmark && (
               <div className="mypage-container">
                 <div className="mypage-small-title">내가 좋아한 서점</div>
-                <FavoriteBookstore data={bookmark.favorites[0]} />
+                {/* <FavoriteBookstore data={bookmark.favorites[0]} /> */}
               </div>
             )}
             {bookmark && (
               <div className="mypage-container">
                 <div className="mypage-small-title">내가 쓴 후기</div>
-                <MyReview data={bookmark.reviews[0]} />
+                {/* <MyReview data={bookmark.reviews[0]} /> */}
               </div>
             )}
           </div>
@@ -68,6 +90,6 @@ const Mypage = () => {
       </div>
     </>
   );
-};
+            };
 
 export default Mypage;

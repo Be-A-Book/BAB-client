@@ -25,13 +25,9 @@ const App = () => {
   useEffect(()=> {
     if(getCookie('x_auth') != null){
       setIsLogin(true)
-      console.log('로그인 됨')
-      console.log(isLogin)
       
     } else {
       setIsLogin(false)
-      console.log('로그인 안 됨')
-      console.log(isLogin)
     }
   })
 

@@ -2,34 +2,26 @@ import React, { useState, useEffect } from "react";
 import "../css/MainBookstore.css";
 import heart from "../img/heart.png";
 import stamp from "../img/stamp.png";
-import axios from "axios";
 
-const MainBookstore = () => {
+const SearchBookstore = (props) => {
   const [bookStore, setBookStore] = useState("");
+  const prop = props;
+  console.log(prop);
+  
+  new useEffect (() => {
+    setBookStore(prop.props[2])
+    console.log(bookStore)
+  })
 
-  useEffect(() => {
-    axios({
-      method: "post",
-      url: `/api/bookstore/getBookstoreDetail`,
-      data: {
-        _id: "62e9a3a46da7cf12cf5f9dfb", //storekey 임의 지정
-      },
-    }).then((response) => {
-      if (response.data.success) {
-        setBookStore(response.data);
-      } else {
-      }
-    });
-  }, []);
   return (
     <>
       <div className="MainBookstore">
         <div className="main-book-hashtag">
           {bookStore &&
-            bookStore.bookstore.tags.map((tags, index) => (
+            bookStore.tags.map((tags, index) => (
               <div className="image-text-hash" key={index}>
                 {" "}
-                #{tags && tags}{" "}
+                #{tags && tags}{" "} 
               </div>
             ))}
         </div>
@@ -37,7 +29,7 @@ const MainBookstore = () => {
           <div className="main-book-image">
             <img
               alt="서점 이미지"
-              src={bookStore && bookStore.bookstore.defaultImage}
+              src={bookStore && bookStore.defaultImage}
               width="360px"
               height="360px"
             />
@@ -46,13 +38,13 @@ const MainBookstore = () => {
             <div className="main-book-container">
               <div className="main-book-small-title-row">소개</div>
               <div className="main-book-text">
-                {bookStore && bookStore.bookstore.introduction}
+                {bookStore && bookStore.introduction}
               </div>
             </div>
             <div className="main-book-container">
               <div className="main-book-small-title-row">주소</div>
               <div className="main-book-text">
-                {bookStore && bookStore.bookstore.address}
+                {bookStore && bookStore.address}
               </div>
             </div>
           </div>
@@ -60,7 +52,7 @@ const MainBookstore = () => {
             <div className="main-book-stamp">
               <img alt="스탬프 버튼" src={stamp} width="300px" />
               <div className="main-book-stamp-text">
-                {bookStore && bookStore.bookstore.name}
+                {bookStore && bookStore.name}
               </div>
             </div>
             <div className="main-book-heart">
@@ -74,4 +66,4 @@ const MainBookstore = () => {
   );
 };
 
-export default MainBookstore;
+export default SearchBookstore;

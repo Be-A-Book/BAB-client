@@ -7,31 +7,26 @@ import { AiFillCaretLeft } from "react-icons/ai";
 import { AiFillCaretRight } from "react-icons/ai";
 import { FaPencilAlt } from "react-icons/fa";
 import {toast, ToastContainer} from "react-toastify";
-import { useNavigate } from 'react-router-dom';
-import {Formik, ErrorMessage} from "formik";
-
+import {Formik} from "formik";
 import "react-toastify/dist/ReactToastify.css";
 
 const GuestBook = () => {
-    const navigate = useNavigate();
-    const [currentClick, setCurrentClick] = React.useState(null);
-    const [prevClick, setPrevClick] = React.useState(null);
-    const [category, setCategory] = useState("");
-    const [representImg, setRepresentImg] = useState();
+    const [currentPage, setCurrentPage] = useState(1);
     const [guestbook, setGuestbook] = useState([]);
-    const [dataArray, setDataArray] = useState([]);
-    const [result, setResult] = useState([]);
-    const [spinner, setSpinner] = useState(true);
-    let tempArray = [];
 
-    const GetClick = (e) => {
-        setCurrentClick(e.target.id);
+    const showToast = () => {
+        toast.info(<div className="toast">첫 페이지입니다.</div>, {
+            position: "bottom-center",
+            autoClose: 2000,
+            closeOnClick: true,
+            hideProgressBar: true,
+        });
     };
 
     useEffect (() => {
         axios({
             method: "get",
-            url: `/api/guestbook/getmessages`
+            url: `/api/guestbook/getmessages?page=${currentPage}`
         }).then((response) => {
             if (response.data.success) {
                 console.log("불러오기");
@@ -41,7 +36,7 @@ const GuestBook = () => {
                 console.log("불러오기 실패");
             }
         });
-    }, [])
+    })
 
     const submit = async (values) => {
         const { content } = values || {}
@@ -68,22 +63,6 @@ const GuestBook = () => {
     }) 
     }
 
-
-
-    // function check_length(area){
-    //     var text = area.value;
-    //     var text_length = text.length;
-
-    //     var max_length = 180;
-
-    //     if (text_length > max_length){
-    //         alert(max_length+"자 이상 입력할 수 없습니다.")
-    //         text = text.substr(0, max_length);
-    //         area.value = text;
-    //         area.focus();
-    //     }
-    // }
-
     return (
         <Formik
         initialValues={{
@@ -106,7 +85,6 @@ const GuestBook = () => {
                         placeholder='공백 포함 180자까지 작성 가능'
                         value={values.content}
                         onChange={handleChange}
-                        // onKeyUp={check_length}
                     />
                     <button type="submit" className="guestbook-write-button" >
                     <FaPencilAlt className="guestbook-write-button-icon" />
@@ -116,31 +94,33 @@ const GuestBook = () => {
                 </div>
                 <div className="guestbook-container">
                     <img alt="리뷰" src={reviewBook} width="1500vh" height="600vh" />
-                    <div className="guestbook-container-memo-left">
-                    {guestbook && (
-                        <div className="guestbook-container-memo-left{">
+                    {guestbook && guestbook.length > 0 && (
+                        <div>
+                        <div className="guestbook-container-memo-left">
                         <GuestBookMemo data={guestbook[0]} />
                         <GuestBookMemo data={guestbook[1]} />
                         <GuestBookMemo data={guestbook[2]} />
                         <GuestBookMemo data={guestbook[3]} />
                         </div>
+
+                        <div className="guestbook-container-memo-right">
+                        <GuestBookMemo data={guestbook[4]} />
+                        <GuestBookMemo data={guestbook[5]} />
+                        <GuestBookMemo data={guestbook[6]} />
+                        <GuestBookMemo data={guestbook[7]} />
+                        </div>
+                        </div>
                     )}
-                    </div>
-                    <div className="guestbook-container-memo-right">
-                        <GuestBookMemo data={guestbook[0]} />
-                        <GuestBookMemo data={guestbook[1]} />
-                        <GuestBookMemo data={guestbook[2]} />
-                        <GuestBookMemo data={guestbook[3]} />
-                    </div>
+                    
                     <div className="guestbook-arrow-keys">
                         {/* 왼쪽 방향키 */}
                         <button className="guestbook-left-button">
                             <AiFillCaretLeft className="guestbook-left-button-icon" />
-                            <div className="guestbook-left-button-text">이전</div>
+                            <div className="guestbook-left-button-text" onClick={() => currentPage > 1 ? setCurrentPage(currentPage - 1) : showToast()}>이전</div>
                         </button>
                         {/* 오른쪽 방향키 */}
                         <button className="guestbook-right-button">
-                            <div className="guestbook-right-button-text">다음</div>
+                            <div className="guestbook-right-button-text" onClick={() => setCurrentPage(currentPage + 1)}>다음</div>
                             <AiFillCaretRight className="guestbook-right-button-icon" />
                         </button>
                     </div>

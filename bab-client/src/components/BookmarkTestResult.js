@@ -1,24 +1,33 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import "../css/BookmarkTestResult.css"
 import bookmarkData from "../data/bookmarkData.json";
 
 const BookmarkTestResult = (props) => {
-    console.log(props)
-    const data = bookmarkData[props.number]
-    console.log(data)
+    const data = bookmarkData[props.number];
+    const [email, setEmail] = useState();
 
+    useEffect(() => {
+        axios({
+            method: "get",
+            url: `/api/users/auth`,
+        }).then((response) => {
+            setEmail(response.data.email)
+            console.log(email)
+        })
+    });
     
     useEffect(() => {
         axios({
             method: "post",
-            url: `api/users/selectBookmark`,
+            url: `/api/users/selectBookmark`,
             data: {
-                "email" : "yuz@gmail.com",
+                "email" : email && email,
                 "bookmark" : data.id,
             }
         })
-    })
+    });
+    
     return (
         <>
         <div className='bookmarkResult'>
