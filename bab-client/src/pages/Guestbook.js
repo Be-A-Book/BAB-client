@@ -9,11 +9,26 @@ import { FaPencilAlt } from "react-icons/fa";
 import {toast, ToastContainer} from "react-toastify";
 import {Formik} from "formik";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+
 
 const GuestBook = (props) => {
+    const navigate = useNavigate();
     const isLogin = props.props
     const [currentPage, setCurrentPage] = useState(1);
     const [guestbook, setGuestbook] = useState([]);
+    const [id, setId] = useState();
+
+
+    //작성자 정보, 북마크
+    useEffect(() => {
+        axios({
+            method: "get",
+            url: `/api/users/auth`, //${data.writer}
+        }).then((response) => {
+            setId(response.data._id);
+        });
+    });
 
     const showToast = () => {
         toast.info(<div className="toast">첫 페이지입니다.</div>, {
@@ -24,49 +39,53 @@ const GuestBook = (props) => {
         });
     };
 
-    let GuestBookWrite = null;
-    if (isLogin === true) {
-        
-    }
-
     useEffect (() => {
         axios({
             method: "get",
             url: `/api/guestbook/getmessages?page=${currentPage}`
         }).then((response) => {
             if (response.data.success) {
-                console.log("불러오기");
-                console.log(response.data);
                 setGuestbook(response.data.messages);
             } else {
-                console.log("불러오기 실패");
             }
         });
     })
 
+
     const submit = async (values) => {
-        const { content } = values || {}
-        axios({
-            method:"post",
-            url:`api/guestbook/postMessage`,
-            data: {
-                message : content,
-                writer : "62b5efe8bf450852ff3d2389"
-            }
-        }).then((response) => {
-            if(response.data.success === true){
-                console.log(response.data)
-                toast.success(<div className='toast'>방명록이 정상적으로 등록되었습니다!</div>, {
-                    position: "top-center",
-                    autoClose: 2000
-                });
-            } else {
-                console.log(response.data)
-                toast.error(<div className='toast'>방명록 등록에 실패하였어요 😭</div>, {
-                    position: "top-center",
-                });
-            } 
-    }) 
+        if(isLogin === false) {
+            toast.error(<div className='toast'>로그인을 먼저 해 주세요</div>, {
+              position: "top-center",
+              autoClose: 2000
+            });
+            setTimeout(()=> {
+                navigate("/login");
+            }, 2000);
+          }else {
+            const { content } = values || {}
+            axios({
+                method:"post",
+                url:`api/guestbook/postMessage`,
+                data: {
+                    message : content,
+                    writer : id
+                }
+            }).then((response) => {
+                if(response.data.success === true){
+                    console.log(response.data)
+                    toast.success(<div className='toast'>방명록이 정상적으로 등록되었습니다!</div>, {
+                        position: "top-center",
+                        autoClose: 2000
+                    });
+                } else {
+                    console.log(response.data)
+                    toast.error(<div className='toast'>방명록 등록에 실패하였어요 😭</div>, {
+                        position: "top-center",
+                    });
+                } 
+        }) 
+          }
+
     }
 
     return (
