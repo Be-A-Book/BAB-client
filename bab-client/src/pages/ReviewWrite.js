@@ -6,7 +6,17 @@ import { Formik } from "formik";
 import "react-toastify/dist/ReactToastify.css";
 import "../css/ReviewWrite.css";
 
-const ReviewWrite = () => {
+const ReviewWrite = (props) => {
+  const isLogin = props.props
+  if(isLogin === false) {
+    toast.error(<div className='toast'>로그인을 먼저 해 주세요</div>, {
+      position: "top-center",
+      autoClose: 2000
+    });
+    setTimeout(()=> {
+        navigate("/login");
+    }, 2000);
+  }
   const navigate = useNavigate();
   const [name, setName] = useState("");
 

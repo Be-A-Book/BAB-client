@@ -10,7 +10,8 @@ import {toast, ToastContainer} from "react-toastify";
 import {Formik} from "formik";
 import "react-toastify/dist/ReactToastify.css";
 
-const GuestBook = () => {
+const GuestBook = (props) => {
+    const isLogin = props.props
     const [currentPage, setCurrentPage] = useState(1);
     const [guestbook, setGuestbook] = useState([]);
 
@@ -22,6 +23,11 @@ const GuestBook = () => {
             hideProgressBar: true,
         });
     };
+
+    let GuestBookWrite = null;
+    if (isLogin === true) {
+        
+    }
 
     useEffect (() => {
         axios({

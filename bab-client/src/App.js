@@ -44,8 +44,8 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/detail" element={<Detail />} />
-            <Route path="/reviewwrite" element={<ReviewWrite />} />
-            <Route path="/guestbook" element={<GuestBook />} />
+            <Route path="/reviewwrite" element={<ReviewWrite props={isLogin} /> } />
+            <Route path="/guestbook" element={<GuestBook props={isLogin} />} />
             <Route path="/bookmark" element={<Bookmark />} />
 
             <Route path="/logout" element={<Logout />} />
