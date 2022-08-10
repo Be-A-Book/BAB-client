@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "../css/Bookcase.css";
 
 const Bookcase = (book) => {
   // console.log(book);
-  const [bookStore, setBookStore] = useState("");
-  const navigate = useNavigate();
 
   var l = -8.3;
 
@@ -40,22 +38,14 @@ const Bookcase = (book) => {
   // }, []);
   // useEffect(() => {
 
-  function onClick(el) {
-    new useEffect(() => {
-      navigate("/detail", {
-        state: { data: el },
-      });
-    }, []);
-  }
-
   return (
     <>
       <div className="bookcase">
         <div className="bookcase-title">{book.book.district}</div>
         <div className="bookcase-content">
           {book.book.books.map((booklist) => (
+            <Link to={'/detail'} state={{ data : booklist && booklist._id }}>
             <div
-              onClick={onClick(booklist._id)}
               className="bookcase-bookstore-books"
               key={booklist._id}
               style={{
@@ -65,6 +55,7 @@ const Bookcase = (book) => {
             >
               {booklist.content}
             </div>
+            </Link>
           ))}
         </div>
       </div>
