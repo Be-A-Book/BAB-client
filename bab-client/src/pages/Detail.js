@@ -8,6 +8,7 @@ import DetailReview from "../components/DetailReview";
 const Detail = () => {
   const location = useLocation();
   const data = location.state.data;
+  console.log(data);
 
   const [bookStore, setBookStore] = useState("");
 

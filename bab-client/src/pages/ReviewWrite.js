@@ -38,10 +38,10 @@ const ReviewWrite = (props) => {
       })
       .then((response) => {
         if (response.data.success) {
-          console.log(value);
           toast.success(<div>리뷰 작성이 완료되었습니다.</div>, {
             position: "bottom-center",
             autoClose: 2000,
+            pauseOnFocusLoss: false,
             closeOnClick: true,
             hideProgressBar: true,
           });
