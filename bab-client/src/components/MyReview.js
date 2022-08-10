@@ -3,8 +3,6 @@ import axios from "axios";
 import "../css/MyReview.css";
 
 const MyReview = ({ data }) => {
-  console.log(data.store);
-
   const [bookStore, setBookstore] = useState("");
 
   useEffect(() => {
@@ -12,16 +10,12 @@ const MyReview = ({ data }) => {
       method: "post",
       url: `/api/bookstore/getBookstoreDetail`,
       data: {
-        _id: "62dffd0708c904737340ae36", //"62c926a80ea12db83c87b5e9" id를 가진 store 필요 //data.store
+        _id: data[0].store,
       },
     }).then((response) => {
       if (response.data.success) {
         setBookstore(response.data);
-        // console.log("불러오기");
-        console.log(response.data);
-        // console.log(response.data.bookstore.tags)
       } else {
-        // console.log("불러오기 실패");
       }
     });
   }, []);
@@ -32,7 +26,8 @@ const MyReview = ({ data }) => {
         <div className="my-review-bookstore">
           {bookStore && bookStore.bookstore?.name}
         </div>
-        <div className="my-review-content">{data.content}</div>
+        <div className="my-review-content">{data[0].content}</div> 
+        {/* map 처리해 줘야 함! */}
       </div>
     </>
   );

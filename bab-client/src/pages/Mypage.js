@@ -9,6 +9,8 @@ const Mypage = () => {
 
   const [user, setUser] = useState("");
   const [id, setId] = useState();
+  const [review, setReviews] = useState();
+  const [like, setLikes] = useState();
 
   //작성자 정보, 북마크
   useEffect(() => {
@@ -27,24 +29,10 @@ const Mypage = () => {
     }).then((response) => {
       setUser(response.data.userInfo.user);
       setBookmark(response.data.userInfo);
+      setReviews(response.data.userInfo.reviews)
+      setLikes(response.data.userInfo.favorites)
     });
   });
-
-
-  useEffect(() => {
-    axios({
-      method: "get",
-      url: `/api/users/getUserInfo/62b5efe8bf450852ff3d2389`,
-    }).then((response) => {
-      if (response.data.success) {
-        console.log("불러오기");
-        setBookmark(response.data.userInfo);
-        // console.log(response.data.userInfo.reviews[0]);
-      } else {
-        console.log("불러오기 실패");
-      }
-    });
-  }, []);
 
   return (
     <>
@@ -76,13 +64,13 @@ const Mypage = () => {
             {bookmark && (
               <div className="mypage-container">
                 <div className="mypage-small-title">내가 좋아한 서점</div>
-                {/* <FavoriteBookstore data={bookmark.favorites[0]} /> */}
+                <FavoriteBookstore data={like} />
               </div>
             )}
             {bookmark && (
               <div className="mypage-container">
                 <div className="mypage-small-title">내가 쓴 후기</div>
-                {/* <MyReview data={bookmark.reviews[0]} /> */}
+                <MyReview data={review} />
               </div>
             )}
           </div>

@@ -9,7 +9,6 @@ const WrittenReview = ({ data }) => {
   const [bookStore, setBookStore] = useState("");
   const [like, setLike] = useState("");
   const [id, setId] = useState();
-  const [likeButton, setLikeButton] = useState(false);
 
   //현재 접속 중인 사람
   useEffect(() => {

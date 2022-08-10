@@ -40,7 +40,7 @@ const Detail = () => {
         console.log("불러오기 실패");
       }
     });
-  }, []);
+  });
 
   useEffect(() => {
     axios({
@@ -53,7 +53,7 @@ const Detail = () => {
         console.log("불러오기 실패");
       }
     });
-  }, []);
+  });
 
   const likeClick = async (values) => {
     if(likeButton === false) {
