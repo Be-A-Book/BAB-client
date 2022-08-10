@@ -57,8 +57,7 @@ const Bookcase = (book) => {
             <div
               onClick={onClick(booklist._id)}
               className="bookcase-bookstore-books"
-              key={booklist.bookid}
-              id={booklist._id}
+              key={booklist._id}
               style={{
                 backgroundColor: generateRandomCode(),
                 left: l + "%",

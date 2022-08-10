@@ -8,14 +8,11 @@ import DetailReview from "../components/DetailReview";
 const Detail = () => {
   const location = useLocation();
   const data = location.state.data;
-<<<<<<< HEAD
   const [link, setLink] = useState();
-=======
   console.log(data);
 
->>>>>>> 44136430f717a071c54ea53da8213f765d2b8288
   const [bookStore, setBookStore] = useState("");
-  const links= `https://${link}`
+  const links = `https://${link}`;
   const [like, setLike] = useState();
   const [id, setId] = useState();
   const [likeButton, setLikeButton] = useState(false);
@@ -53,7 +50,7 @@ const Detail = () => {
       url: `/api/favorite/getFavorites/${data}`,
     }).then((response) => {
       if (response.data.success) {
-        setLike(response.data.favorites.length)
+        setLike(response.data.favorites.length);
       } else {
         console.log("불러오기 실패");
       }
@@ -61,41 +58,39 @@ const Detail = () => {
   });
 
   const likeClick = async (values) => {
-    if(likeButton === false) {
+    if (likeButton === false) {
       await axios({
         method: "post",
         url: `/api/favorite/postFavorite`,
-        data : {
+        data: {
           store: data,
           user: id,
-        }
+        },
       });
-      setLikeButton(true)
+      setLikeButton(true);
     } else {
       await axios({
         method: "post",
         url: `/api/favorite/cancelFavorite`,
-        data : {
+        data: {
           store: data,
           user: id,
-        }
+        },
       });
-      setLikeButton(false)
+      setLikeButton(false);
     }
-
 
     axios({
       method: "get",
       url: `/api/favorite/getFavorites/${data}`,
     }).then((response) => {
       if (response.data.success) {
-        setLike(response.data.favorites.length)
+        setLike(response.data.favorites.length);
       } else {
         console.log("불러오기 실패");
       }
     });
-  }
-  
+  };
 
   return (
     <>
@@ -132,9 +127,7 @@ const Detail = () => {
           <div className="detail-container">
             <div className="detail-small-title-row">웹사이트</div>
             <div className="detail-text">
-              <a href={links}>
-              {bookStore && bookStore.bookstore?.website}
-              </a>
+              <a href={links}>{bookStore && bookStore.bookstore?.website}</a>
             </div>
           </div>
         </div>
@@ -142,8 +135,8 @@ const Detail = () => {
 
         <div className="detail-content-right">
           <div className="heart">
-          <button onClick={likeClick} className="heartbutton">
-            <img alt="하트 버튼" src={heart} width="30px" height="30px" />{" "}
+            <button onClick={likeClick} className="heartbutton">
+              <img alt="하트 버튼" src={heart} width="30px" height="30px" />{" "}
               {like}
             </button>
           </div>
