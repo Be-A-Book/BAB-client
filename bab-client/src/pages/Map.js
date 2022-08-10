@@ -15,7 +15,6 @@ const Map = () => {
       url: `/api/bookstore/getMapMarker`,
     }).then((response) => {
       if (response.data.success) {
-        console.log("불러오기");
         setMarker(response.data.bookstore);
         //console.log(response.data.bookstore);
       } else {
@@ -99,7 +98,6 @@ const Map = () => {
         }
 
         function onClick() {
-          console.log(marker.id);
           navigate("/detail", {
             state: { data: marker.id }, //markers[0]
           });

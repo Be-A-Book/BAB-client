@@ -9,8 +9,6 @@ const Detail = () => {
   const location = useLocation();
   const data = location.state.data;
   const [link, setLink] = useState();
-  console.log(data);
-// 4a8dac215ea179e94b5b355569aa9babe3779206
   const [bookStore, setBookStore] = useState("");
   const links = `https://${link}`;
   const [like, setLike] = useState();
@@ -42,7 +40,7 @@ const Detail = () => {
         console.log("불러오기 실패");
       }
     });
-  });
+  }, []);
 
   useEffect(() => {
     axios({
@@ -55,7 +53,7 @@ const Detail = () => {
         console.log("불러오기 실패");
       }
     });
-  });
+  }, []);
 
   const likeClick = async (values) => {
     if (likeButton === false) {

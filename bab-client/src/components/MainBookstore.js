@@ -6,6 +6,7 @@ import axios from "axios";
 
 const MainBookstore = () => {
   const [bookStore, setBookStore] = useState("");
+  const [like, setLike] = useState();
 
   useEffect(() => {
     axios({
@@ -19,6 +20,17 @@ const MainBookstore = () => {
         setBookStore(response.data);
       } else {
       }
+
+      axios({
+        method: "get",
+        url: `/api/favorite/getFavorites/62e9a3a46da7cf12cf5f9dfb`,
+      }).then((response) => {
+        if (response.data.success) {
+          setLike(response.data.favorites.length);
+        } else {
+          console.log("불러오기 실패");
+        }
+      });
     });
   }, []);
   return (
@@ -65,7 +77,7 @@ const MainBookstore = () => {
             </div>
             <div className="main-book-heart">
               <img alt="하트 버튼" src={heart} width="30px" height="30px" />{" "}
-              {/*인프런 한번 더 확인*/}7
+              {like}
             </div>
           </div>
         </div>

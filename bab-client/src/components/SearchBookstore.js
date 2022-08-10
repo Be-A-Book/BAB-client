@@ -2,15 +2,29 @@ import React, { useState, useEffect } from "react";
 import "../css/MainBookstore.css";
 import heart from "../img/heart.png";
 import stamp from "../img/stamp.png";
+import axios from "axios";
 
 const SearchBookstore = (props) => {
   const [bookStore, setBookStore] = useState("");
+  const [like, setLike] = useState();
+
   const prop = props;
   console.log(prop);
   
   new useEffect (() => {
     setBookStore(prop.props[0])
     console.log(bookStore)
+
+    axios({
+      method: "get",
+      url: `/api/favorite/getFavorites/${bookStore._id}`,
+    }).then((response) => {
+      if (response.data.success) {
+        setLike(response.data.favorites.length);
+      } else {
+        console.log("불러오기 실패");
+      }
+    });
   })
 
   return (
@@ -57,7 +71,7 @@ const SearchBookstore = (props) => {
             </div>
             <div className="main-book-heart">
               <img alt="하트 버튼" src={heart} width="30px" height="30px" />{" "}
-              {/*인프런 한번 더 확인*/}7
+              {like}
             </div>
           </div>
         </div>
