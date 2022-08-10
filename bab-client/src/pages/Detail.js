@@ -8,7 +8,12 @@ import DetailReview from "../components/DetailReview";
 const Detail = () => {
   const location = useLocation();
   const data = location.state.data;
+<<<<<<< HEAD
   const [link, setLink] = useState();
+=======
+  console.log(data);
+
+>>>>>>> 44136430f717a071c54ea53da8213f765d2b8288
   const [bookStore, setBookStore] = useState("");
   const links= `https://${link}`
   const [like, setLike] = useState();
