@@ -7,6 +7,19 @@ import thumbUp from "../img/thumb_up.png";
 const WrittenReview = ({ data }) => {
   const [users, setUser] = useState("");
   const [bookStore, setBookStore] = useState("");
+  const [like, setLike] = useState("");
+  const [id, setId] = useState();
+  const [likeButton, setLikeButton] = useState(false);
+
+  //현재 접속 중인 사람
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `/api/users/auth`, //${data.writer}
+    }).then((response) => {
+      setId(response.data._id);
+    });
+  }, []);
 
   //작성자 정보, 북마크
   useEffect(() => {
@@ -15,9 +28,9 @@ const WrittenReview = ({ data }) => {
       url: `/api/users/getUserInfo/${data.writer?._id}`,
     }).then((response) => {
       if (response.data.success) {
-        console.log("리뷰-작성자 정보 불러오기 성공");
         setUser(response.data.userInfo);
-        console.log(response.data);
+        // console.log("리뷰-작성자 정보 불러오기 성공");
+        // console.log(response.data);
       } else {
         console.log("리뷰-작성자 정보 불러오기 실패");
       }
@@ -35,13 +48,27 @@ const WrittenReview = ({ data }) => {
     }).then((response) => {
       if (response.data.success) {
         setBookStore(response.data);
-        console.log("리뷰-서점 정보 불러오기 성공");
-        console.log(response.data);
+        // console.log("리뷰-서점 정보 불러오기 성공");
+        // console.log(response.data);
       } else {
         console.log("리뷰-서점 정보 불러오기 실패");
       }
     });
   }, []);
+
+  const likeClick = async (values) => {
+      await axios({
+        method: "post",
+        url: `/api/like/postLike`,
+        data : {
+          review: data._id,
+          user: id,
+        }
+      }).then((response) => {
+        console.log(response.data)
+        setLike(response.data.review.likes.length)
+      })
+  }
 
   return (
     <>
@@ -103,10 +130,15 @@ const WrittenReview = ({ data }) => {
               </div>
             </div>
             <div className="review-content">{data.content}</div>
-            <div className="tumbUp">
-              <img src={thumbUp} alt="엄지 버튼" width="20px" height="20px" />
-              <div className="tumb-number">5</div>
+            
+            <div className='tumbUp'>
+            <button onClick={likeClick} className='tumbUpButton'>
+            <img src={thumbUp} alt="엄지 버튼" width="25px" height="25px" />
+            <div className="tumb-number">{like}</div>         
+            </button> 
             </div>
+
+            
           </div>
         </div>
       </div>

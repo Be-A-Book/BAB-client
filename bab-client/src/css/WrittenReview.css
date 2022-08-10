@@ -135,6 +135,18 @@
     flex-direction: row;
 }
 
+.tumbUp :hover {
+    background-color: #C69D4D;
+    border-radius: 30px;
+}
+
+.tumbUpButton {
+    background-color: #00000000;
+    border: 0px;
+    display: flex;
+    flex-direction: row;
+}
+
 .tumb-number{
     float: right;
     margin-left: 1vh;
