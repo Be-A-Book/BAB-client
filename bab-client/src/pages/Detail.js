@@ -8,8 +8,10 @@ import DetailReview from "../components/DetailReview";
 const Detail = () => {
   const location = useLocation();
   const data = location.state.data;
-
+  const [link, setLink] = useState();
   const [bookStore, setBookStore] = useState("");
+
+
 
   useEffect(() => {
     axios({
@@ -21,6 +23,7 @@ const Detail = () => {
     }).then((response) => {
       if (response.data.success) {
         setBookStore(response.data);
+        setLink(bookStore && bookStore.bookstore?.website);
         //console.log("불러오기");
         //console.log(response.data);
         // console.log(response.data.bookstore.tags)
@@ -29,6 +32,9 @@ const Detail = () => {
       }
     });
   }, []);
+
+  const links= `https://${link}`
+
   return (
     <>
       <div className="detail">
@@ -64,7 +70,9 @@ const Detail = () => {
           <div className="detail-container">
             <div className="detail-small-title-row">웹사이트</div>
             <div className="detail-text">
+              <a href={links}>
               {bookStore && bookStore.bookstore?.website}
+              </a>
             </div>
           </div>
         </div>
