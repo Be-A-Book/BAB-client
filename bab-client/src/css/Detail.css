@@ -123,6 +123,21 @@
     font-family: "Gugi";
 }
 
+.heart :hover {
+    color: #FFFFFF;
+    font-size: 35px;
+    font-family: "Gugi";
+}
+
+.heartbutton{
+    background-color: #00000000;
+    color: #790000;
+    font-size: 35px;
+    font-family: "Gugi";
+    border: 0px;
+}
+
+
 .image {
     text-align: right;
     display: flex;

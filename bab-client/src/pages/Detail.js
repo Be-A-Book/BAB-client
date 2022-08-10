@@ -10,8 +10,20 @@ const Detail = () => {
   const data = location.state.data;
   const [link, setLink] = useState();
   const [bookStore, setBookStore] = useState("");
+  const links= `https://${link}`
+  const [like, setLike] = useState();
+  const [id, setId] = useState();
+  const [likeButton, setLikeButton] = useState(false);
 
-
+  //작성자 정보, 북마크
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `/api/users/auth`, //${data.writer}
+    }).then((response) => {
+      setId(response.data._id);
+    });
+  }, []);
 
   useEffect(() => {
     axios({
@@ -24,16 +36,61 @@ const Detail = () => {
       if (response.data.success) {
         setBookStore(response.data);
         setLink(bookStore && bookStore.bookstore?.website);
-        //console.log("불러오기");
-        //console.log(response.data);
-        // console.log(response.data.bookstore.tags)
       } else {
         console.log("불러오기 실패");
       }
     });
   }, []);
 
-  const links= `https://${link}`
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `/api/favorite/getFavorites/${data}`,
+    }).then((response) => {
+      if (response.data.success) {
+        setLike(response.data.favorites.length)
+      } else {
+        console.log("불러오기 실패");
+      }
+    });
+  }, []);
+
+  const likeClick = async (values) => {
+    if(likeButton === false) {
+      await axios({
+        method: "post",
+        url: `/api/favorite/postFavorite`,
+        data : {
+          store: data,
+          user: id,
+        }
+      });
+      setLikeButton(true)
+    } else {
+      await axios({
+        method: "post",
+        url: `/api/favorite/cancelFavorite`,
+        data : {
+          store: data,
+          user: id,
+        }
+      });
+      setLikeButton(false)
+    }
+
+
+    axios({
+      method: "get",
+      url: `/api/favorite/getFavorites/${data}`,
+    }).then((response) => {
+      if (response.data.success) {
+        setLike(response.data.favorites.length)
+      } else {
+        console.log("불러오기 실패");
+      }
+    });
+  }
+  
 
   return (
     <>
@@ -80,8 +137,10 @@ const Detail = () => {
 
         <div className="detail-content-right">
           <div className="heart">
+          <button onClick={likeClick} className="heartbutton">
             <img alt="하트 버튼" src={heart} width="30px" height="30px" />{" "}
-            {/*인프런 한번 더 확인*/}7
+              {like}
+            </button>
           </div>
           <div className="image">
             <div className="image-image">
