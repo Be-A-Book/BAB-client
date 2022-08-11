@@ -26,7 +26,6 @@ const Home = () => {
             method: "get",
             url: `/api/bookstore/search?keyword=${searchValue}`
         }).then((response) => {
-            console.log(response)
             setProps(response.data.bookstore);
             setVisible(!visible);
             setBtnVisible(!btnVisible);

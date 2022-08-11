@@ -9,11 +9,9 @@ const SearchBookstore = (props) => {
   const [like, setLike] = useState();
 
   const prop = props;
-  console.log(prop);
   
   new useEffect (() => {
     setBookStore(prop.props[0])
-    console.log(bookStore)
 
     axios({
       method: "get",
@@ -22,7 +20,6 @@ const SearchBookstore = (props) => {
       if (response.data.success) {
         setLike(response.data.favorites.length);
       } else {
-        console.log("불러오기 실패");
       }
     });
   })

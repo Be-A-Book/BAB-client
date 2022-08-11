@@ -27,10 +27,10 @@ const Mypage = () => {
       method: "get",
       url: `/api/users/getUserInfo/${id && id}`, //${data.writer}
     }).then((response) => {
-      setUser(response.data.userInfo.user);
-      setBookmark(response.data.userInfo);
-      setReviews(response.data.userInfo.reviews)
-      setLikes(response.data.userInfo.favorites)
+      setUser(response.data.userInfo && response.data.userInfo.user);
+      setBookmark(response.data.userInfo && response.data.userInfo);
+      setReviews(response.data.userInfo && response.data.userInfo.reviews)
+      setLikes(response.data.userInfo && response.data.userInfo.favorites)
     });
   });
 
