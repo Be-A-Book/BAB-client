@@ -20,7 +20,7 @@ const EditReview = () => {
     frm.append("content", value.content);
 
     axios({
-      method: "post",
+      method: "put",
       url: `/api/review/postReview/${data}`,
       data: {
         content: value.content,

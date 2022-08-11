@@ -29,19 +29,11 @@ const WrittenReview = ({ data }) => {
     }).then((response) => {
       if (response.data.success) {
         setUser(response.data.userInfo);
-        // console.log("리뷰-작성자 정보 불러오기 성공");
-        // console.log(response.data);
       } else {
         console.log("리뷰-작성자 정보 불러오기 실패");
       }
     });
   }, []);
-
-  // useEffect(() => {
-
-  // }, []);
-
-  // console.log(data.writer?._id);
 
   // 서점 정보
   useEffect(() => {
@@ -76,7 +68,6 @@ const WrittenReview = ({ data }) => {
 
   useEffect(() => {
     if (id !== data.writer?._id) {
-      console.log(id, data.writer?._id);
       const btn = document.getElementById("editbutton");
       btn.style.visibility = "hidden";
     }

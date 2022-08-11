@@ -52,10 +52,7 @@ const Review = () => {
       url: `/api/review/getReviews?page=${currentPage}&sort=${currentSort}`,
     }).then((response) => {
       if (response.data.success) {
-        // console.log("불러오기");
         setReview(response.data.reviews);
-        // console.log(response.data);
-        // console.log(response.data.reviews[0]);
       } else {
         console.log("불러오기 실패");
       }
@@ -79,14 +76,14 @@ const Review = () => {
             <button
               className="popular-order-button"
               id="case1"
-              onClick={() => handleOrder1(setCurrentSort(2))} //GetClick
+              onClick={() => handleOrder1(setCurrentSort(2))}
             >
               인기순
             </button>
             <button
               className="latest-order-button"
               id="case2"
-              onClick={() => handleOrder2(setCurrentSort(1))} //(e) => setCurrentClick(e.target.id)
+              onClick={() => handleOrder2(setCurrentSort(1))}
             >
               최신순
             </button>
