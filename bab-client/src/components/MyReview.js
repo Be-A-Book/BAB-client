@@ -5,7 +5,7 @@ import "../css/MyReview.css";
 const MyReview = ({ data }) => {
   const [bookStore, setBookstore] = useState("");
   const [datas, setData] = useState("");
-
+  
   useEffect(() => {
     if(data.length === 0 ) {
       setData('작성한 리뷰 없음')

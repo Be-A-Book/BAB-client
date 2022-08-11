@@ -24,4 +24,6 @@
 
 .favorite-bookstore-name {
     padding: 10px;
+    color: #000000;
+    text-decoration-line: none;
 }
