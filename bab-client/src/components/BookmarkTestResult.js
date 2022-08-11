@@ -13,7 +13,6 @@ const BookmarkTestResult = (props) => {
             url: `/api/users/auth`,
         }).then((response) => {
             setEmail(response.data.email)
-            console.log(email)
         })
     });
     
