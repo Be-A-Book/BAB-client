@@ -22,7 +22,7 @@ const MypageNavbar = () => {
       method: "get",
       url: `/api/users/getUserInfo/${id && id}`, //${data.writer}
     }).then((response) => {
-      setUser(response.data.userInfo.user);
+      setUser(response.data.userInfo && response.data.userInfo.user);
     });
   });
 
