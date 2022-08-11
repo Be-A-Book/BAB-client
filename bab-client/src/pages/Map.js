@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../css/Map.css";
 import mapMarker from "../img/map_marker.png";
+import bab from "../img/bab_black.png";
+
 const { kakao } = window;
 
 const Map = () => {
@@ -36,6 +38,7 @@ const Map = () => {
     const imageSrc = mapMarker, // 마커이미지 주소
       imageSize = new kakao.maps.Size(20, 60), // 마커이미지 크기
       imageOption = { offset: new kakao.maps.Point(17, 54) };
+
     const markerImage = new kakao.maps.MarkerImage(
       imageSrc,
       imageSize,
@@ -44,6 +47,7 @@ const Map = () => {
 
     markers &&
       markers.map((el) => {
+
         //content
         const content =
           '<div class="markerbox-wrap">' +
