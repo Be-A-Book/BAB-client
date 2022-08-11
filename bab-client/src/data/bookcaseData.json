@@ -1,43 +1,344 @@
 [
-  {
-    "district": "#연희동",
-    "books": [
-      { "content": "유어마인드", "_id": "62f285a6c5780d6f2c6c1e8f" },
-      { "content": "초콜릿책방", "_id": "62f285a6c5780d6f2c6c1e94" },
-      { "content": "사슴책방 성산", "_id": "62f28599c5780d6f2c6c1dfa" },
-      { "content": "책방서로", "_id": "62f28599c5780d6f2c6c1e1e" },
-      { "content": "헬로인디북스", "_id": "62f28599c5780d6f2c6c1e23" },
-      { "content": "아침달", "_id": "62f28599c5780d6f2c6c1e22" }
-    ]
-  },
-  {
-    "district": "#관악구",
-    "books": [
-      { "content": "자상한시간", "_id": "62f2859fc5780d6f2c6c1e78" },
-      { "content": "관객의취향", "_id": "62f2859fc5780d6f2c6c1e77" },
-      { "content": "엠프티폴더스", "_id": "62f2859fc5780d6f2c6c1e76" },
-      { "content": "음주가의책방", "_id": "62f2859fc5780d6f2c6c1e74" },
-      { "content": "밝은책방", "_id": "62f2859fc5780d6f2c6c1e75" },
-      { "content": "그날이오면", "_id": "62f2859fc5780d6f2c6c1e73" }
-    ]
-  },
-  {
-    "district": "#마포구",
-    "books": [
-      { "content": "책익다", "_id": "62f28599c5780d6f2c6c1e25" },
-      { "content": "후란서가", "_id": "62f28599c5780d6f2c6c1e26" },
-      { "content": "책방연희", "_id": "62f28599c5780d6f2c6c1e28" },
-      { "content": "숨어있는책", "_id": "62f28599c5780d6f2c6c1e27" },
-      { "content": "홍익문고", "_id": "62f285a6c5780d6f2c6c1e97" },
-      { "content": "아크앤북 신촌점", "_id": "62f285a6c5780d6f2c6c1e92" }
-    ]
-  },
-  {
-    "district": "#양재동",
-    "books": [
-      { "content": "책방오늘", "_id": "62e9aafd324d058bb1f5a3b7" },
-      { "content": "믿음문고", "_id": "62e9aafd324d058bb1f5a3b8" },
-      { "content": "책읽는정원", "_id": "62e9aafd324d058bb1f5a3b9" }
-    ]
-  }
+  {"0": [
+      {
+          "district": "강남구",
+          "books": [{"_id":"62f285a6c5780d6f2c6c1e86","content":"책과얽힘"},
+          {"_id":"62f285a6c5780d6f2c6c1e84","content":"심지전문서적"},
+          {"_id":"62f285a6c5780d6f2c6c1e85","content":"콜링북스"},
+          {"_id":"62f285a6c5780d6f2c6c1e80","content":"스토리지북앤필름 강남점"},
+          {"_id":"62f285a6c5780d6f2c6c1e87","content":"최인아책방"}]
+      },
+      {
+          "district": "강동구",
+          "books": [{"_id":"62f285a6c5780d6f2c6c1e8d","content":"아운트"},
+          {"_id":"62f285a6c5780d6f2c6c1e8e","content":"순정책방"},
+          {"_id":"62f285a6c5780d6f2c6c1e8c","content":"쎄임더스트"}]
+      },
+      {
+          "district": "강북구",
+          "books": [{"_id":"62f2859fc5780d6f2c6c1e40","content":"수수한 책방"}]
+      },
+      {
+          "district": "강서구",
+          "books": [{"_id":"62f2859fc5780d6f2c6c1e61","content":"호수책장"},
+          {"_id":"62f2859fc5780d6f2c6c1e63","content":"행복한글간"},
+          {"_id":"62f2859fc5780d6f2c6c1e64","content":"더아메리칸라이브러리인서울"},
+          {"_id":"62f2859fc5780d6f2c6c1e62","content":"다시서점"},
+          {"_id":"62f2859fc5780d6f2c6c1e60","content":"악어책방"}]
+      }
+  ]}, 
+  {"1": [
+      {
+          "district": "관악구",
+          "books": [{"_id":"62f2859fc5780d6f2c6c1e76","content":"엠프티폴더스"},
+          {"_id":"62f2859fc5780d6f2c6c1e78","content":"자상한시간"},
+          {"_id":"62f2859fc5780d6f2c6c1e75","content":"밝은책방"},
+          {"_id":"62f2859fc5780d6f2c6c1e77","content":"관객의취향"},
+          {"_id":"62f2859fc5780d6f2c6c1e74","content":"음주가의책방"},
+          {"_id":"62f2859fc5780d6f2c6c1e72","content":"책이는당나귀"},
+          {"_id":"62f2859fc5780d6f2c6c1e73","content":"그날이오면"},
+          {"_id":"62f2859fc5780d6f2c6c1e71","content":"이나영책방"}]
+      },
+      {
+          "district": "광진구",
+          "books": [{"_id":"62f2859fc5780d6f2c6c1e55","content":"닻프레스 다크룸"},
+          {"_id":"62f2859fc5780d6f2c6c1e54","content":"아니마아니무스"},
+          {"_id":"62f2859fc5780d6f2c6c1e53","content":"인덱스"}]
+      },
+      {
+          "district": "구로구",
+          "books": [{"_id":"62f2859fc5780d6f2c6c1e6f","content":"인공위성"},
+          {"_id":"62f2859fc5780d6f2c6c1e6e","content":"책방공책"},
+          {"_id":"62f2859fc5780d6f2c6c1e6d","content":"콕콕콕"}]
+      },
+      {
+          "district": "노원구",
+          "books": [{"_id":"62f2859fc5780d6f2c6c1e4a","content":"지구불시착"},
+          {"_id":"62f2859fc5780d6f2c6c1e4b","content":"좋은책많은데"},
+          {"_id":"62f2859fc5780d6f2c6c1e49","content":"책인감"},
+          {"_id":"62f2859fc5780d6f2c6c1e4c","content":"노원문고"},
+          {"_id":"62f2859fc5780d6f2c6c1e48","content":"책방봄"},
+          {"_id":"62f2859fc5780d6f2c6c1e47","content":"동네책방 브론테살롱"},
+          {"_id":"62f2859fc5780d6f2c6c1e4e","content":"마들문고"},
+          {"_id":"62f2859fc5780d6f2c6c1e4f","content":"건영문고"},
+          {"_id":"62f2859fc5780d6f2c6c1e4d","content":"북뱅크"}]
+      }
+  ]}, 
+  {"2": [
+      {
+          "district": "도봉구",
+          "books": [{"_id":"62f2859fc5780d6f2c6c1e45","content":"모모"},
+          {"_id":"62f2859fc5780d6f2c6c1e44","content":"사유의사유"},
+          {"_id":"62f2859fc5780d6f2c6c1e42","content":"마들린느의 책방"},
+          {"_id":"62f2859fc5780d6f2c6c1e43","content":"책가도"},
+          {"_id":"62f2859fc5780d6f2c6c1e46","content":"예일문고"},
+          {"_id":"62f2859fc5780d6f2c6c1e41","content":"도도봉봉"}]
+      },
+      {
+          "district": "동작구",
+          "books": [{"_id":"62f2859fc5780d6f2c6c1e70","content":"톨쉽북스토어"},
+          {"_id":"62f285a6c5780d6f2c6c1e7c","content":"다정한책방"},
+          {"_id":"62f285a6c5780d6f2c6c1e7b","content":"지금의세상"},
+          {"_id":"62f2859fc5780d6f2c6c1e79","content":"청맥살롱"}]
+      },
+      {
+          "district": "마포구 동교동",
+          "books": [{"_id":"62f28599c5780d6f2c6c1e18","content":"1984"},
+          {"_id":"62f28599c5780d6f2c6c1e16","content":"공상온도"},
+          {"_id":"62f28599c5780d6f2c6c1e2a","content":"북새통문고"},
+          {"_id":"62f28599c5780d6f2c6c1e27","content":"숨어있는책"},
+          {"_id":"62f28599c5780d6f2c6c1e2b","content":"글벗서점"}]
+      },
+      {
+          "district": "마포구 망원동",
+          "books": [{"_id":"62f28599c5780d6f2c6c1e0e","content":"이후북스"},
+          {"_id":"62f28599c5780d6f2c6c1e0f","content":"커피가게동경"},
+          {"_id":"62f28599c5780d6f2c6c1e0b","content":"스캐터북스"},
+          {"_id":"62f28599c5780d6f2c6c1e0a","content":"어쩌다책방"},
+          {"_id":"62f28599c5780d6f2c6c1e09","content":"제로헌드레드"},
+          {"_id":"62f28599c5780d6f2c6c1e0c","content":"작업책방씀"}]
+      }
+  ]}, 
+  {"3": [
+      {
+          "district": "마포구 상수동",
+          "books": [{"_id":"62f28599c5780d6f2c6c1e04","content":"유어마나"},
+          {"_id":"62f28599c5780d6f2c6c1e03","content":"스튜디오썸띵"}]
+      },
+      {
+          "district": "마포구 서교동",
+          "books": [{"_id":"62f28599c5780d6f2c6c1e17","content":"라이너노트"},
+          {"_id":"62f28599c5780d6f2c6c1e26","content":"후란서가"},
+          {"_id":"62f28599c5780d6f2c6c1e06","content":"매거진랜드"},
+          {"_id":"62f28599c5780d6f2c6c1e13","content":"진부책방스튜디오"},
+          {"_id":"62f28599c5780d6f2c6c1e29","content":"오브젝트 홍대점"},
+          {"_id":"62f28599c5780d6f2c6c1e14","content":"책방꼴"},
+          {"_id":"62f28599c5780d6f2c6c1e24","content":"온고당서점"},
+          {"_id":"62f28599c5780d6f2c6c1dff","content":"땡스북스"},
+          {"_id":"62f28599c5780d6f2c6c1dfe","content":"종이잡지클럽"},
+          {"_id":"62f28599c5780d6f2c6c1e0d","content":"당인리책발전소"},
+          {"_id":"62f28599c5780d6f2c6c1e12","content":"번역가의서재"},
+          {"_id":"62f28599c5780d6f2c6c1e01","content":"가가77페이지"}]
+      },
+      {
+          "district": "마포구 서교동",
+          "books": [{"_id":"62f28599c5780d6f2c6c1e05","content":"왓리얼리매터스"},
+          {"_id":"62f28599c5780d6f2c6c1e28","content":"책방연희"},
+          {"_id":"62f28599c5780d6f2c6c1e25","content":"책익다"}]
+      },
+      {
+          "district": "마포구 성산동",
+          "books": [{"_id":"62f28599c5780d6f2c6c1dfa","content":"사슴책방 성산점"},
+          {"_id":"62f28599c5780d6f2c6c1e15","content":"책방사춘기"},
+          {"_id":"62f28599c5780d6f2c6c1e11","content":"개똥이네책놀이터"},
+          {"_id":"62f28599c5780d6f2c6c1e10","content":"사적인서점"},
+          {"_id":"62f28599c5780d6f2c6c1e1f","content":"조은이책"},
+          {"_id":"62f28599c5780d6f2c6c1e1e","content":"책방서로"}]
+      }
+  ]}, 
+  {"4": [
+      {
+          "district": "마포구 연남동",
+          "books": [{"_id":"62f28599c5780d6f2c6c1e1b","content":"카페 책속의한줄"},
+          {"_id":"62f28599c5780d6f2c6c1e23","content":"헬로인디북스"},
+          {"_id":"62f28599c5780d6f2c6c1e21","content":"서점리스본"},
+          {"_id":"62f28599c5780d6f2c6c1e1a","content":"스프링플레어"},
+          {"_id":"62f28599c5780d6f2c6c1e22","content":"아침달"},
+          {"_id":"62f28599c5780d6f2c6c1e19","content":"안도북스"},
+          {"_id":"62f28599c5780d6f2c6c1e1c","content":"그림책방 곰곰"},
+          {"_id":"62f28599c5780d6f2c6c1e1d","content":"북스피리언스"}]
+      },
+      {
+          "district": "마포구 합정동",
+          "books": [{"_id":"62f28599c5780d6f2c6c1e00","content":"정치발전소"},
+          {"_id":"62f28599c5780d6f2c6c1dfb","content":"산책자"},
+          {"_id":"62f28599c5780d6f2c6c1dfc","content":"비플랫폼"},
+          {"_id":"62f28599c5780d6f2c6c1e07","content":"아인서점"},
+          {"_id":"62f28599c5780d6f2c6c1e08","content":"로우북스"},
+          {"_id":"62f28599c5780d6f2c6c1dfd","content":"디벙크"}]
+      },
+      {
+          "district": "마포구",
+          "books": [{"_id":"62f28599c5780d6f2c6c1e2d","content":"아직독립못한책방"},
+          {"_id":"62f28599c5780d6f2c6c1e02","content":"당인리수오재책방"},
+          {"_id":"62f28599c5780d6f2c6c1e2c","content":"이루리북스"},
+          {"_id":"62f28599c5780d6f2c6c1e20","content":"책방울림"},
+          {"_id":"62f28599c5780d6f2c6c1e2e","content":"책방만유인력"}]
+      },
+      {
+          "district": "서대문구 연희동",
+          "books": [{"_id":"62f285a6c5780d6f2c6c1e96","content":"책바"},
+          {"_id":"62f285a6c5780d6f2c6c1e9c","content":"페잇퍼"},
+          {"_id":"62f285a6c5780d6f2c6c1e95","content":"밤의서점"},
+          {"_id":"62f285a6c5780d6f2c6c1e94","content":"초콜릿책방"},
+          {"_id":"62f285a6c5780d6f2c6c1e99","content":"백색소음"},
+          {"_id":"62f285a6c5780d6f2c6c1e9a","content":"모닥킨상점"},
+          {"_id":"62f285a6c5780d6f2c6c1e8f","content":"유어마인드"}]
+      }
+  ]}, 
+  {"5": [
+      {
+          "district": "서대문구 창천동",
+          "books": [{"_id":"62f285a6c5780d6f2c6c1e93","content":"공씨책방 신촌점"},
+          {"_id":"62f285a6c5780d6f2c6c1e92","content":"아크앤북 신촌점"},
+          {"_id":"62f285a6c5780d6f2c6c1e97","content":"홍익문고"},
+          {"_id":"62f285a6c5780d6f2c6c1e9b","content":"쉬바펍&북스"}]
+      },
+      {
+          "district": "서대문구",
+          "books": [{"_id":"62f285a6c5780d6f2c6c1e98","content":"초방책방"},
+          {"_id":"62f285a6c5780d6f2c6c1e91","content":"미스터리유니온"},
+          {"_id":"62f285a6c5780d6f2c6c1e90","content":"별별그림"}]
+      },
+      {
+          "district": "서초구",
+          "books": [{"_id":"62f285a6c5780d6f2c6c1e7f","content":"목성서점"},
+          {"_id":"62f285a6c5780d6f2c6c1e7e","content":"라비블"},
+          {"_id":"62f285a6c5780d6f2c6c1e7d","content":"책그리고"},
+          {"_id":"62f285a6c5780d6f2c6c1e81","content":"책방오늘"},
+          {"_id":"62f285a6c5780d6f2c6c1e82","content":"믿음문고"},
+          {"_id":"62f285a6c5780d6f2c6c1e83","content":"책읽는정원"}]
+      },
+      {
+          "district": "성동구",
+          "books": [{"_id":"62f2859fc5780d6f2c6c1e59","content":"프루스트의 서재"},
+          {"_id":"62f2859fc5780d6f2c6c1e5a","content":"카모메그림책방"},
+          {"_id":"62f2859fc5780d6f2c6c1e5c","content":"도원문고"},
+          {"_id":"62f2859fc5780d6f2c6c1e58","content":"낫저스트북스"},
+          {"_id":"62f2859fc5780d6f2c6c1e5b","content":"공씨책방 성수점"},
+          {"_id":"62f2859fc5780d6f2c6c1e56","content":"트립북앤스페이스"},
+          {"_id":"62f2859fc5780d6f2c6c1e57","content":"옥수서재"}]
+      }
+  ]}, 
+  {"6": [
+      {
+          "district": "성북구",
+          "books": [{"_id":"62f2859fc5780d6f2c6c1e3d","content":"세화영어서점"},
+          {"_id":"62f28599c5780d6f2c6c1e37","content":"일일문고"},
+          {"_id":"62f28599c5780d6f2c6c1e35","content":"부비프"},
+          {"_id":"62f28599c5780d6f2c6c1e33","content":"성북동책방"},
+          {"_id":"62f28599c5780d6f2c6c1e34","content":"노드메이트"},
+          {"_id":"62f2859fc5780d6f2c6c1e3c","content":"책의기분"},
+          {"_id":"62f2859fc5780d6f2c6c1e3e","content":"책보냥"},
+          {"_id":"62f28599c5780d6f2c6c1e3a","content":"지식을담다"},
+          {"_id":"62f28599c5780d6f2c6c1e39","content":"감성인간서점"},
+          {"_id":"62f2859fc5780d6f2c6c1e3f","content":"호박이넝쿨책"},
+          {"_id":"62f28599c5780d6f2c6c1e38","content":"시절인연"},
+          {"_id":"62f28599c5780d6f2c6c1e36","content":"햇살속으로"}]
+      },
+      {
+          "district": "송파구",
+          "books": [{"_id":"62f285a6c5780d6f2c6c1e88","content":"서가설"},
+          {"_id":"62f285a6c5780d6f2c6c1e8b","content":"주책"},
+          {"_id":"62f285a6c5780d6f2c6c1e8a","content":"공유서재무소음"},
+          {"_id":"62f285a6c5780d6f2c6c1e89","content":"무엇보다책방"}]
+      },
+      {
+          "district": "양천구",
+          "books": [{"_id":"62f2859fc5780d6f2c6c1e66","content":"사해책방"},
+          {"_id":"62f2859fc5780d6f2c6c1e67","content":"꽃피는책"},
+          {"_id":"62f2859fc5780d6f2c6c1e65","content":"새벽감성1집"}]
+      },
+      {
+          "district": "영등포구",
+          "books": [{"_id":"62f2859fc5780d6f2c6c1e6b","content":"일단불온"},
+          {"_id":"62f2859fc5780d6f2c6c1e6c","content":"청색종이"},
+          {"_id":"62f2859fc5780d6f2c6c1e6a","content":"노른자"},
+          {"_id":"62f2859fc5780d6f2c6c1e69","content":"늘라운지"},
+          {"_id":"62f2859fc5780d6f2c6c1e68","content":"선유서가"}]
+      }
+  ]}, 
+  {"7": [
+      {
+          "district": "용산구",
+          "books": [{"_id":"62f2859fc5780d6f2c6c1e5f","content":"그래픽"},
+          {"_id":"62f2859fc5780d6f2c6c1e5e","content":"책방죄책감"},
+          {"_id":"62f2859fc5780d6f2c6c1e5d","content":"마이어날다"}]
+      },
+      {
+          "district": "은평구",
+          "books": [{"_id":"62f28599c5780d6f2c6c1e2f","content":"책방비엥"},
+          {"_id":"62f28599c5780d6f2c6c1e31","content":"한평책빵"},
+          {"_id":"62f28599c5780d6f2c6c1e32","content":"이상한나라의헌책방"},
+          {"_id":"62f28599c5780d6f2c6c1e30","content":"니은서점"}]
+      },
+      {
+          "district": "종로구 통의동",
+          "books": [{"_id":"62f285a6c5780d6f2c6c1ea1","content":"보안책방"},
+          {"_id":"62f285a6c5780d6f2c6c1eb5","content":"한칸서점"},
+          {"_id":"62f285a6c5780d6f2c6c1e9e","content":"더북소사이어티"},
+          {"_id":"62f285a6c5780d6f2c6c1ea0","content":"사진책방 이라선"},
+          {"_id":"62f285a6c5780d6f2c6c1e9f","content":"역사책방"}]
+      },
+      {
+          "district": "종로구 통인동",
+          "books": [{"_id":"62f285a6c5780d6f2c6c1ea8","content":"오프투얼론"},
+          {"_id":"62f285a6c5780d6f2c6c1ebe","content":"이상의집"},
+          {"_id":"62f285a6c5780d6f2c6c1eab","content":"한권의 서점"},
+          {"_id":"62f285a6c5780d6f2c6c1ec0","content":"책방 79-1"}]
+          
+      }
+  ]}, 
+  {"8": [
+      {
+          "district": "종로구 혜화동",
+          "books": [{"_id":"62f285a6c5780d6f2c6c1ea4","content":"동양서림"},
+          {"_id":"62f285a6c5780d6f2c6c1eb3","content":"위트 앤 시니컬"},
+          {"_id":"62f285a6c5780d6f2c6c1eb1","content":"자각몽"},
+          {"_id":"62f285a6c5780d6f2c6c1eae","content":"마음책방 서가는"},
+          {"_id":"62f285a6c5780d6f2c6c1eb0","content":"소원책담"}]
+      },
+      {
+          "district": "종로구",
+          "books": [{"_id":"62f285a6c5780d6f2c6c1eb8","content":"비화림"},
+          {"_id":"62f285a6c5780d6f2c6c1ead","content":"부쿠"},
+          {"_id":"62f285a6c5780d6f2c6c1ea7","content":"통문관"},
+          {"_id":"62f285a6c5780d6f2c6c1eac","content":"피스북스"},
+          {"_id":"62f285a6c5780d6f2c6c1ea5","content":"고양이서점"},
+          {"_id":"62f285a6c5780d6f2c6c1ec1","content":"대오서점"},
+          {"_id":"62f285a6c5780d6f2c6c1eb4","content":"북바이북 광화문점"},
+          {"_id":"62f285a6c5780d6f2c6c1eb7","content":"스타더스트"},
+          {"_id":"62f285a6c5780d6f2c6c1ebc","content":"공간과몰입"},
+          {"_id":"62f285a6c5780d6f2c6c1ea6","content":"어쩌다 산책"},
+          {"_id":"62f285a6c5780d6f2c6c1ea2","content":"풀무질"},
+          {"_id":"62f285a6c5780d6f2c6c1ebf","content":"서울셀렉션"}]
+      },
+      {
+          "district": "종로구",
+          "books": [
+              {"_id":"62f285a6c5780d6f2c6c1eaf","content":"과학책방 갈다"},
+              {"_id":"62f285a6c5780d6f2c6c1eb6","content":"마당책방"},
+              {"_id":"62f285a6c5780d6f2c6c1ebd","content":"세컨드뮤지엄"},
+              {"_id":"62f285a6c5780d6f2c6c1ebb","content":"서울오감도"},
+              {"_id":"62f285a6c5780d6f2c6c1ec2","content":"트레바리 안국 아지트"},
+              {"_id":"62f285a6c5780d6f2c6c1eba","content":"책책"},
+              {"_id":"62f285a6c5780d6f2c6c1eb2","content":"커넥티드북스토어"},
+              {"_id":"62f285a6c5780d6f2c6c1eaa","content":"오에프알 서울"},
+              {"_id":"62f285a6c5780d6f2c6c1eb9","content":"건강책방 일일호일"},
+              {"_id":"62f285a6c5780d6f2c6c1ea9","content":"사진책방 고래"},
+              {"_id":"62f285a6c5780d6f2c6c1ea3","content":"서촌그책방"},
+              {"_id":"62f285a6c5780d6f2c6c1e9d","content":"더레퍼런스"}]
+      },
+      {
+          "district": "중구",
+          "books": [{"_id":"62f285a6c5780d6f2c6c1ec4","content":"소요서가"},
+          {"_id":"62f285a6c5780d6f2c6c1ec7","content":"서점다다"},
+          {"_id":"62f285a6c5780d6f2c6c1ecb","content":"소수책방"},
+          {"_id":"62f285a6c5780d6f2c6c1ec3","content":"노말에이"},
+          {"_id":"62f285a6c5780d6f2c6c1ec8","content":"그래서책방"},
+          {"_id":"62f285a6c5780d6f2c6c1eca","content":"카페꼼마 명동점"},
+          {"_id":"62f285a6c5780d6f2c6c1ec5","content":"일삼오삼육"},
+          {"_id":"62f285a6c5780d6f2c6c1ec9","content":"서울책방"},
+          {"_id":"62f285a6c5780d6f2c6c1ec6","content":"스페인책방"}]
+      }
+  ]}, 
+  {"9": [
+      {
+          "district": "중랑구",
+          "books": [{"_id":"62f2859fc5780d6f2c6c1e50","content":"주책"},
+          {"_id":"62f2859fc5780d6f2c6c1e51","content":"바람길"},
+          {"_id":"62f2859fc5780d6f2c6c1e52","content":"상상하는 삐삐"}]
+      
+      }
+  ]}
 ]
