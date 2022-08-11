@@ -25,7 +25,6 @@ const FavoriteBookstore = ({ data }) => {
   }
 
   function BookYes() {
-    console.log(datas)
     return (
       <>
       <div className="FavoriteBookstore">

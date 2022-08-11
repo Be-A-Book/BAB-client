@@ -5,11 +5,14 @@ import "../css/MyReview.css";
 const MyReview = ({ data }) => {
   const [bookStore, setBookstore] = useState("");
   const [datas, setData] = useState("");
-  
-  useEffect(() => {
-    if(data.length === 0 ) {
-      setData('작성한 리뷰 없음')
-    }else {
+  const [state, setState] = useState(false)
+
+  useEffect(()=> {
+    if (data.length === 0) {
+      setData("작성한 리뷰 없음")
+      setState(false)
+    } else {
+      setState(true)
       new useEffect(() => {
         axios({
           method: "post",
@@ -25,16 +28,40 @@ const MyReview = ({ data }) => {
         });
       }, []);
     }
-  })
+  })  
+
+  function ReviewNo() {
+    return(
+      <div className="my-review-bookstore">
+      {datas && datas}
+      </div>
+    )
+  }
+
+  function ReviewYes() {
+    return(
+      <>
+      <div className="my-review-bookstore">
+      {datas && datas}  
+      </div>
+      <div className="my-review-content">{data[0].content}
+      </div> 
+    </>
+    )
+  }
+
+  let MyReview = null;
+
+  if(state === true) {
+    MyReview = ReviewYes()
+  } else {
+    MyReview = ReviewNo()
+  }
 
   return (
     <>
       <div className="MyReview">
-        <div className="my-review-bookstore">
-          {datas && datas}
-        </div>
-        {/* <div className="my-review-content">{data[0].content}</div>  */}
-        {/* map 처리해 줘야 함! */}
+      {MyReview}
       </div>
     </>
   );
