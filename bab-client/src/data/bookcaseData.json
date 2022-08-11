@@ -2,42 +2,42 @@
   {
     "district": "#연희동",
     "books": [
-      { "bookid": 1, "content": "유어마인드", "_id": "62f285a6c5780d6f2c6c1e8f" },
-      { "bookid": 2, "content": "초콜릿책방", "_id": "62f285a6c5780d6f2c6c1e94" },
-      { "bookid": 3, "content": "사슴책방 성산", "_id": "62f28599c5780d6f2c6c1dfa" },
-      { "bookid": 4, "content": "책방서로", "_id": "62f28599c5780d6f2c6c1e1e" },
-      { "bookid": 5, "content": "헬로인디북스", "_id": "62f28599c5780d6f2c6c1e23" },
-      { "bookid": 6, "content": "아침달", "_id": "62f28599c5780d6f2c6c1e22" }
+      { "content": "유어마인드", "_id": "62f285a6c5780d6f2c6c1e8f" },
+      { "content": "초콜릿책방", "_id": "62f285a6c5780d6f2c6c1e94" },
+      { "content": "사슴책방 성산", "_id": "62f28599c5780d6f2c6c1dfa" },
+      { "content": "책방서로", "_id": "62f28599c5780d6f2c6c1e1e" },
+      { "content": "헬로인디북스", "_id": "62f28599c5780d6f2c6c1e23" },
+      { "content": "아침달", "_id": "62f28599c5780d6f2c6c1e22" }
     ]
   },
   {
     "district": "#관악구",
     "books": [
-      { "bookid": 1, "content": "자상한시간", "_id": "62f2859fc5780d6f2c6c1e78" },
-      { "bookid": 2, "content": "관객의취향", "_id": "62f2859fc5780d6f2c6c1e77" },
-      { "bookid": 3, "content": "엠프티폴더스", "_id": "62f2859fc5780d6f2c6c1e76" },
-      { "bookid": 4, "content": "음주가의책방", "_id": "62f2859fc5780d6f2c6c1e74" },
-      { "bookid": 5, "content": "밝은책방", "_id": "62f2859fc5780d6f2c6c1e75" },
-      { "bookid": 6, "content": "그날이오면", "_id": "62f2859fc5780d6f2c6c1e73" }
+      { "content": "자상한시간", "_id": "62f2859fc5780d6f2c6c1e78" },
+      { "content": "관객의취향", "_id": "62f2859fc5780d6f2c6c1e77" },
+      { "content": "엠프티폴더스", "_id": "62f2859fc5780d6f2c6c1e76" },
+      { "content": "음주가의책방", "_id": "62f2859fc5780d6f2c6c1e74" },
+      { "content": "밝은책방", "_id": "62f2859fc5780d6f2c6c1e75" },
+      { "content": "그날이오면", "_id": "62f2859fc5780d6f2c6c1e73" }
     ]
   },
   {
     "district": "#마포구",
     "books": [
-      { "bookid": 1, "content": "책익다", "_id": "62f28599c5780d6f2c6c1e25" },
-      { "bookid": 2, "content": "후란서가", "_id": "62f28599c5780d6f2c6c1e26" },
-      { "bookid": 3, "content": "책방연희", "_id": "62f28599c5780d6f2c6c1e28" },
-      { "bookid": 4, "content": "숨어있는책", "_id": "62f28599c5780d6f2c6c1e27" },
-      { "bookid": 5, "content": "홍익문고", "_id": "62f285a6c5780d6f2c6c1e97" },
-      { "bookid": 6, "content": "아크앤북 신촌점", "_id": "62f285a6c5780d6f2c6c1e92" }
+      { "content": "책익다", "_id": "62f28599c5780d6f2c6c1e25" },
+      { "content": "후란서가", "_id": "62f28599c5780d6f2c6c1e26" },
+      { "content": "책방연희", "_id": "62f28599c5780d6f2c6c1e28" },
+      { "content": "숨어있는책", "_id": "62f28599c5780d6f2c6c1e27" },
+      { "content": "홍익문고", "_id": "62f285a6c5780d6f2c6c1e97" },
+      { "content": "아크앤북 신촌점", "_id": "62f285a6c5780d6f2c6c1e92" }
     ]
   },
   {
     "district": "#양재동",
     "books": [
-      { "bookid": 1, "content": "책방오늘", "_id": "62e9aafd324d058bb1f5a3b7" },
-      { "bookid": 2, "content": "믿음문고", "_id": "62e9aafd324d058bb1f5a3b8" },
-      { "bookid": 3, "content": "책읽는정원", "_id": "62e9aafd324d058bb1f5a3b9" }
+      { "content": "책방오늘", "_id": "62e9aafd324d058bb1f5a3b7" },
+      { "content": "믿음문고", "_id": "62e9aafd324d058bb1f5a3b8" },
+      { "content": "책읽는정원", "_id": "62e9aafd324d058bb1f5a3b9" }
     ]
   }
 ]

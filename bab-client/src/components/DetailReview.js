@@ -4,20 +4,42 @@ import "../css/DetailReview.css";
 import logo from "../img/logo_wax2.png";
 
 const DetailReview = ({ data }) => {
+  const value = data || {};
+  console.log(data);
   const [reviews, setReviews] = useState("");
 
   useEffect(() => {
     axios({
       method: "get",
-      url: `/api/review/getReviews/${data}`,
+      url: `/api/review/getReviews/${value}`,
     }).then((response) => {
       if (response.data.success) {
+        console.log(response.data);
         setReviews(response.data.reviews);
       } else {
         console.log("불러오기 실패");
       }
     });
-  }, []);
+  }, [data]);
+
+  // const bookstore = async () =>
+  //   await axios({
+  //     method: "get",
+  //     url: `/api/review/getReviews/${value}`,
+  //   }).then((response) => {
+  //     if (response.data.success) {
+  //       console.log(response.data);
+  //       setReviews(response.data.reviews);
+  //     } else {
+  //       console.log("불러오기 실패");
+  //     }
+  //   });
+
+  // useEffect(() => {
+  //   bookstore();
+  // }, [data]);
+
+  //console.log(reviews);
 
   return (
     <div className="detail-review-content">
