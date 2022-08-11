@@ -10,6 +10,7 @@ const WrittenReview = ({ data }) => {
   const [like, setLike] = useState("");
   const [id, setId] = useState();
 
+  
   //현재 접속 중인 사람
   useEffect(() => {
     axios({
@@ -47,8 +48,7 @@ const WrittenReview = ({ data }) => {
     }).then((response) => {
       if (response.data.success) {
         setBookStore(response.data);
-        // console.log("리뷰-서점 정보 불러오기 성공");
-        // console.log(response.data);
+        setLike(data.likes.length)
       } else {
         console.log("리뷰-서점 정보 불러오기 실패");
       }
@@ -64,7 +64,6 @@ const WrittenReview = ({ data }) => {
           user: id,
         }
       }).then((response) => {
-        console.log(response.data)
         setLike(response.data.review.likes.length)
       })
   }
@@ -133,7 +132,7 @@ const WrittenReview = ({ data }) => {
             <div className='tumbUp'>
             <button onClick={likeClick} className='tumbUpButton'>
             <img src={thumbUp} alt="엄지 버튼" width="25px" height="25px" />
-            <div className="tumb-number">{data.likes.length}</div>         
+            <div className="tumb-number">{like}</div>         
             </button> 
             </div>
 
