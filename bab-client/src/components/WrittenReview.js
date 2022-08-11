@@ -133,7 +133,7 @@ const WrittenReview = ({ data }) => {
             <div className='tumbUp'>
             <button onClick={likeClick} className='tumbUpButton'>
             <img src={thumbUp} alt="엄지 버튼" width="25px" height="25px" />
-            <div className="tumb-number">{like}</div>         
+            <div className="tumb-number">{data.likes.length}</div>         
             </button> 
             </div>
 
