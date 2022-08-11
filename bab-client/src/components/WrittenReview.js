@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../css/WrittenReview.css";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import logo from "../img/logo_wax2.png";
 import thumbUp from "../img/thumb_up.png";
@@ -8,14 +9,13 @@ const WrittenReview = ({ data }) => {
   const [users, setUser] = useState("");
   const [bookStore, setBookStore] = useState("");
   const [like, setLike] = useState("");
-  const [id, setId] = useState();
+  const [id, setId] = useState("");
 
-  
   //현재 접속 중인 사람
   useEffect(() => {
     axios({
       method: "get",
-      url: `/api/users/auth`, //${data.writer}
+      url: `/api/users/auth`,
     }).then((response) => {
       setId(response.data._id);
     });
@@ -37,6 +37,12 @@ const WrittenReview = ({ data }) => {
     });
   }, []);
 
+  // useEffect(() => {
+
+  // }, []);
+
+  // console.log(data.writer?._id);
+
   // 서점 정보
   useEffect(() => {
     axios({
@@ -48,7 +54,7 @@ const WrittenReview = ({ data }) => {
     }).then((response) => {
       if (response.data.success) {
         setBookStore(response.data);
-        setLike(data.likes.length)
+        setLike(data.likes.length);
       } else {
         console.log("리뷰-서점 정보 불러오기 실패");
       }
@@ -56,17 +62,25 @@ const WrittenReview = ({ data }) => {
   }, []);
 
   const likeClick = async (values) => {
-      await axios({
-        method: "post",
-        url: `/api/like/postLike`,
-        data : {
-          review: data._id,
-          user: id,
-        }
-      }).then((response) => {
-        setLike(response.data.review.likes.length)
-      })
-  }
+    await axios({
+      method: "post",
+      url: `/api/like/postLike`,
+      data: {
+        review: data._id,
+        user: id,
+      },
+    }).then((response) => {
+      setLike(response.data.review.likes.length);
+    });
+  };
+
+  useEffect(() => {
+    if (id !== data.writer?._id) {
+      console.log(id, data.writer?._id);
+      const btn = document.getElementById("editbutton");
+      btn.style.visibility = "hidden";
+    }
+  }, [data]);
 
   return (
     <>
@@ -128,15 +142,19 @@ const WrittenReview = ({ data }) => {
               </div>
             </div>
             <div className="review-content">{data.content}</div>
-            
-            <div className='tumbUp'>
-            <button onClick={likeClick} className='tumbUpButton'>
-            <img src={thumbUp} alt="엄지 버튼" width="25px" height="25px" />
-            <div className="tumb-number">{like}</div>         
-            </button> 
+            <Link to={"/editReview"} state={{ element: data && data._id }}>
+              <div className="edit-review">
+                <button type="button" className="editButton" id="editbutton">
+                  수정
+                </button>
+              </div>
+            </Link>
+            <div className="tumbUp">
+              <button onClick={likeClick} className="tumbUpButton">
+                <img src={thumbUp} alt="엄지 버튼" width="25px" height="25px" />
+                <div className="tumb-number">{like}</div>
+              </button>
             </div>
-
-            
           </div>
         </div>
       </div>

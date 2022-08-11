@@ -126,6 +126,29 @@
     margin-top: 3vh;
 }
 
+.edit-review{
+    position: absolute;
+    z-index: 2;
+    top: 38vh;
+    left: 20vh;
+}
+
+.editButton{
+    border-color: #790000;
+    outline: none;
+    background-color: #C69D4D;
+    border-radius: 50px;
+    outline-color: #790000;
+    font-family: "NanumGothic";
+    font-size: 15px;
+    padding: 5px;    
+    visibility: visible;
+}
+
+.editButton:hover{
+    background-color: #F4EEE4;
+}
+
 .tumbUp{
     position: absolute;
     z-index: 2;
