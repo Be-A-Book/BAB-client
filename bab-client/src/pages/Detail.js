@@ -4,6 +4,7 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import heart from "../img/heart.png";
 import DetailReview from "../components/DetailReview";
+import bab from "../img/bab_black.png";
 
 const Detail = () => {
   const location = useLocation();
@@ -14,6 +15,8 @@ const Detail = () => {
   const [like, setLike] = useState();
   const [id, setId] = useState();
   const [likeButton, setLikeButton] = useState(false);
+  const [bookstoreImage, setBookStoreImage] = useState();
+  
 
   //작성자 정보, 북마크
   useEffect(() => {
@@ -41,6 +44,7 @@ const Detail = () => {
       }
     });
   }, []);
+
 
   useEffect(() => {
     axios({
@@ -141,8 +145,8 @@ const Detail = () => {
           <div className="image">
             <div className="image-image">
               <img
-                alt={bookStore && bookStore.bookstore?.defaultImage}
-                src={bookStore && bookStore.bookstore?.defaultImage}
+                alt={bookstoreImage}
+                src={bookstoreImage}
                 width="360px"
                 height="360px"
               />{" "}
