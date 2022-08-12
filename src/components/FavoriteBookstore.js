@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/FavoriteBookstore.css";
 import { Link } from "react-router-dom";
 
@@ -14,7 +14,7 @@ const FavoriteBookstore = ({ data }) => {
       setData(data)
       setState(true)
     }
-  })
+  }, [data])
 
   function BookNo() {
     return (
