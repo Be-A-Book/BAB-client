@@ -25,10 +25,10 @@ const Login = () => {
         },
       })
         .then((res) => {
-          console.log(res);
+          //console.log(res);
           localStorage.setItem("userId", JSON.stringify(res.data.userId));
           const userid = localStorage.getItem("userId");
-          console.log(userid);
+          //console.log(userid);
         })
         .catch((err) => {
           console.log(err);

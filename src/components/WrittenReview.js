@@ -71,13 +71,12 @@ const WrittenReview = ({ data }) => {
   };
 
   useEffect(() => {
-    //const userid = localStorage.getItem("userId");
-    console.log(userid, JSON.stringify(data.writer?._id));
+    //console.log(userid, JSON.stringify(data.writer?._id));
     async function checkEditValidation() {
       const v = (await (userid !== JSON.stringify(data.writer?._id)))
         ? false
         : true;
-      console.log(v);
+      //console.log(v);
       setEditValidation(v);
     }
     checkEditValidation();
