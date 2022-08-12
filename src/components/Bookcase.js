@@ -1,8 +1,16 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import "../css/Bookcase.css";
 
 const Bookcase = (book) => {
+  const [id, setId] = useState();
+  const [bookstage, setBookstage] = useState();
+  useEffect(()=> {
+    setId(Math.floor(Math.random() * 10));
+    setBookstage(book.book.bookcase[id])
+    console.log(bookstage)
+  })
+
   var l = -8.3;
 
   function generateRandomCode() {
@@ -14,10 +22,11 @@ const Bookcase = (book) => {
 
   return (
     <>
+      {bookstage && bookstage.array.map((bookStage)=> <>
       <div className="bookcase">
-        <div className="bookcase-title">{book.book.district}</div>
+        <div className="bookcase-title">{bookStage && bookStage.district}</div>
         <div className="bookcase-content">
-          {book.book.books.map((booklist) => (
+          {bookStage && bookStage.books.map((booklist) => (
             <Link to={"/detail"} state={{ data: booklist && booklist._id }}>
               <div
                 className="bookcase-bookstore-books"
@@ -32,7 +41,9 @@ const Bookcase = (book) => {
             </Link>
           ))}
         </div>
-      </div>
+        </div>
+</>)}
+        
     </>
   );
 };
