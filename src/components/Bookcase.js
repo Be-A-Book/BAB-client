@@ -1,14 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Bookcase.css";
 
 const Bookcase = (book) => {
-  const [id, setId] = useState();
-  const [bookstage, setBookstage] = useState();
-  useEffect(()=> {
-    setId(Math.floor(Math.random() * 10));
-    setBookstage(book.book.bookcase[id])
-  }, [book.book.bookcase, id, bookstage])
+  console.log(book.book);
 
   var l = -8.3;
 
@@ -21,28 +16,37 @@ const Bookcase = (book) => {
 
   return (
     <>
-      {bookstage && bookstage.array.map((bookStage)=> <>
-      <div className="bookcase">
-        <div className="bookcase-title">{bookStage && bookStage.district}</div>
-        <div className="bookcase-content">
-          {bookStage && bookStage.books.map((booklist) => (
-            <Link to={"/detail"} state={{ data: booklist && booklist._id }}>
-              <div
-                className="bookcase-bookstore-books"
-                key={booklist._id}
-                style={{
-                  backgroundColor: generateRandomCode(),
-                  left: l + "%",
-                }}
-              >
-                {booklist.content}
+      {book.book &&
+        book.book.map((bookStage) => (
+          <>
+            <div className="bookcase">
+              <div className="bookcase-title">
+                {bookStage && bookStage.district}
               </div>
-            </Link>
-          ))}
-        </div>
-        </div>
-</>)}
-        
+              {bookStage &&
+                bookStage.books.map((booklist) => (
+                  <div className="bookcase-content">
+                    <Link
+                      to={"/detail"}
+                      state={{ data: booklist && booklist._id }}
+                    >
+                      <div
+                        className="bookcase-bookstore-books"
+                        id="bookcase-bookstore-books"
+                        key={booklist._id}
+                        style={{
+                          backgroundColor: generateRandomCode(),
+                          left: l + "%",
+                        }}
+                      >
+                        {booklist.content}
+                      </div>
+                    </Link>
+                  </div>
+                ))}
+            </div>
+          </>
+        ))}
     </>
   );
 };

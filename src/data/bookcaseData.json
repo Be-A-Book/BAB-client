@@ -2,29 +2,37 @@
   {"array": [
       {
           "district": "강남구",
-          "books": [{"_id":"62f285a6c5780d6f2c6c1e86","content":"책과얽힘"},
+          "books": [
+            {"_id":"62f285a6c5780d6f2c6c1e86","content":"책과얽힘"},
           {"_id":"62f285a6c5780d6f2c6c1e84","content":"심지전문서적"},
           {"_id":"62f285a6c5780d6f2c6c1e85","content":"콜링북스"},
           {"_id":"62f285a6c5780d6f2c6c1e80","content":"스토리지북앤필름 강남점"},
-          {"_id":"62f285a6c5780d6f2c6c1e87","content":"최인아책방"}]
+          {"_id":"62f285a6c5780d6f2c6c1e87","content":"최인아책방"}
+        ]
       },
       {
           "district": "강동구",
-          "books": [{"_id":"62f285a6c5780d6f2c6c1e8d","content":"아운트"},
+          "books": [
+            {"_id":"62f285a6c5780d6f2c6c1e8d","content":"아운트"},
           {"_id":"62f285a6c5780d6f2c6c1e8e","content":"순정책방"},
-          {"_id":"62f285a6c5780d6f2c6c1e8c","content":"쎄임더스트"}]
+          {"_id":"62f285a6c5780d6f2c6c1e8c","content":"쎄임더스트"}
+        ]
       },
       {
           "district": "강북구",
-          "books": [{"_id":"62f2859fc5780d6f2c6c1e40","content":"수수한 책방"}]
+          "books": [
+            {"_id":"62f2859fc5780d6f2c6c1e40","content":"수수한 책방"}
+        ]
       },
       {
           "district": "강서구",
-          "books": [{"_id":"62f2859fc5780d6f2c6c1e61","content":"호수책장"},
+          "books": [
+            {"_id":"62f2859fc5780d6f2c6c1e61","content":"호수책장"},
           {"_id":"62f2859fc5780d6f2c6c1e63","content":"행복한글간"},
           {"_id":"62f2859fc5780d6f2c6c1e64","content":"더아메리칸라이브러리인서울"},
           {"_id":"62f2859fc5780d6f2c6c1e62","content":"다시서점"},
-          {"_id":"62f2859fc5780d6f2c6c1e60","content":"악어책방"}]
+          {"_id":"62f2859fc5780d6f2c6c1e60","content":"악어책방"}
+        ]
       }
   ]}, 
   {"array": [
