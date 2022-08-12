@@ -18,7 +18,7 @@ const DetailReview = ({ data }) => {
         console.log("불러오기 실패");
       }
     });
-  }, [data]);
+  }, []);
 
   return (
     <div className="detail-review-content">

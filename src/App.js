@@ -29,7 +29,7 @@ const App = () => {
     } else {
       setIsLogin(false);
     }
-  });
+  }, []);
 
   return (
     <>

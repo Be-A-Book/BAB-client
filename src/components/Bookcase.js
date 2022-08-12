@@ -8,8 +8,7 @@ const Bookcase = (book) => {
   useEffect(()=> {
     setId(Math.floor(Math.random() * 10));
     setBookstage(book.book.bookcase[id])
-    console.log(bookstage)
-  })
+  }, [book.book.bookcase, id, bookstage])
 
   var l = -8.3;
 

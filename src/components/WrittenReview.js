@@ -10,6 +10,7 @@ const WrittenReview = ({ data }) => {
   const [bookStore, setBookStore] = useState("");
   const [like, setLike] = useState("");
   const [id, setId] = useState("");
+  const [length, setLength] = useState();
 
   //현재 접속 중인 사람
   useEffect(() => {
@@ -45,8 +46,9 @@ const WrittenReview = ({ data }) => {
       },
     }).then((response) => {
       if (response.data.success) {
+        setLength(data.likes.length)
         setBookStore(response.data);
-        setLike(data.likes.length);
+        setLike(length);
       } else {
         console.log("리뷰-서점 정보 불러오기 실패");
       }
@@ -71,7 +73,7 @@ const WrittenReview = ({ data }) => {
       const btn = document.getElementById("editbutton");
       btn.style.visibility = "hidden";
     }
-  }, [data]);
+  }, [data, id]);
 
   return (
     <>
