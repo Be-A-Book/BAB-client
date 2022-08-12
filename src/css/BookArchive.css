@@ -4,47 +4,6 @@
     padding: 5vh;
 }
 
-.bookArchive-left-button{
-    position: absolute;
-    z-index: 1;
-    top:64vh;
-    left: -1.7vh;
-    background: none;
-    outline: none;
-    border: none;
-    align-items: center;
-}
-
-.bookArchive-left-button-icon{
-    font-size: 3rem;
-    cursor: pointer;
-}
-
-.bookArchive-left-button-icon:hover{
-    color: #FFFFFF;
-}
-
-.bookArchive-right-button{
-    position: absolute;
-    z-index: 1;
-    top:64vh;
-    right:-1.7vh;
-    background: none;
-    outline: none;
-    border: none;
-    margin-left: 38%;
-    align-items: center;
-}
-
-.bookArchive-right-button-icon{
-    font-size: 3rem;
-    cursor: pointer;
-}
-
-.bookArchive-right-button-icon:hover{
-    color: #FFFFFF;
-}
-
 .bookArchive-content{
     display: grid;
     grid-template-columns:repeat(2, 1fr);

@@ -31,7 +31,7 @@ const Home = () => {
             setBtnVisible(!btnVisible);
             setState(!state)
 
-            if (state != true) {
+            if (state !== true) {
                 setContent("검색")
             } else {
                 setContent("메인 화면으로 이동")

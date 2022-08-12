@@ -1,33 +1,41 @@
-[
-  {"0": [
+[{ "bookcase" : [
+  {"array": [
       {
           "district": "강남구",
-          "books": [{"_id":"62f285a6c5780d6f2c6c1e86","content":"책과얽힘"},
+          "books": [
+            {"_id":"62f285a6c5780d6f2c6c1e86","content":"책과얽힘"},
           {"_id":"62f285a6c5780d6f2c6c1e84","content":"심지전문서적"},
           {"_id":"62f285a6c5780d6f2c6c1e85","content":"콜링북스"},
           {"_id":"62f285a6c5780d6f2c6c1e80","content":"스토리지북앤필름 강남점"},
-          {"_id":"62f285a6c5780d6f2c6c1e87","content":"최인아책방"}]
+          {"_id":"62f285a6c5780d6f2c6c1e87","content":"최인아책방"}
+        ]
       },
       {
           "district": "강동구",
-          "books": [{"_id":"62f285a6c5780d6f2c6c1e8d","content":"아운트"},
+          "books": [
+            {"_id":"62f285a6c5780d6f2c6c1e8d","content":"아운트"},
           {"_id":"62f285a6c5780d6f2c6c1e8e","content":"순정책방"},
-          {"_id":"62f285a6c5780d6f2c6c1e8c","content":"쎄임더스트"}]
+          {"_id":"62f285a6c5780d6f2c6c1e8c","content":"쎄임더스트"}
+        ]
       },
       {
           "district": "강북구",
-          "books": [{"_id":"62f2859fc5780d6f2c6c1e40","content":"수수한 책방"}]
+          "books": [
+            {"_id":"62f2859fc5780d6f2c6c1e40","content":"수수한 책방"}
+        ]
       },
       {
           "district": "강서구",
-          "books": [{"_id":"62f2859fc5780d6f2c6c1e61","content":"호수책장"},
+          "books": [
+            {"_id":"62f2859fc5780d6f2c6c1e61","content":"호수책장"},
           {"_id":"62f2859fc5780d6f2c6c1e63","content":"행복한글간"},
           {"_id":"62f2859fc5780d6f2c6c1e64","content":"더아메리칸라이브러리인서울"},
           {"_id":"62f2859fc5780d6f2c6c1e62","content":"다시서점"},
-          {"_id":"62f2859fc5780d6f2c6c1e60","content":"악어책방"}]
+          {"_id":"62f2859fc5780d6f2c6c1e60","content":"악어책방"}
+        ]
       }
   ]}, 
-  {"1": [
+  {"array": [
       {
           "district": "관악구",
           "books": [{"_id":"62f2859fc5780d6f2c6c1e76","content":"엠프티폴더스"},
@@ -64,7 +72,7 @@
           {"_id":"62f2859fc5780d6f2c6c1e4d","content":"북뱅크"}]
       }
   ]}, 
-  {"2": [
+  {"array": [
       {
           "district": "도봉구",
           "books": [{"_id":"62f2859fc5780d6f2c6c1e45","content":"모모"},
@@ -99,7 +107,7 @@
           {"_id":"62f28599c5780d6f2c6c1e0c","content":"작업책방씀"}]
       }
   ]}, 
-  {"3": [
+  {"array": [
       {
           "district": "마포구 상수동",
           "books": [{"_id":"62f28599c5780d6f2c6c1e04","content":"유어마나"},
@@ -136,7 +144,7 @@
           {"_id":"62f28599c5780d6f2c6c1e1e","content":"책방서로"}]
       }
   ]}, 
-  {"4": [
+  {"array": [
       {
           "district": "마포구 연남동",
           "books": [{"_id":"62f28599c5780d6f2c6c1e1b","content":"카페 책속의한줄"},
@@ -176,7 +184,7 @@
           {"_id":"62f285a6c5780d6f2c6c1e8f","content":"유어마인드"}]
       }
   ]}, 
-  {"5": [
+  {"array": [
       {
           "district": "서대문구 창천동",
           "books": [{"_id":"62f285a6c5780d6f2c6c1e93","content":"공씨책방 신촌점"},
@@ -210,7 +218,7 @@
           {"_id":"62f2859fc5780d6f2c6c1e57","content":"옥수서재"}]
       }
   ]}, 
-  {"6": [
+  {"array": [
       {
           "district": "성북구",
           "books": [{"_id":"62f2859fc5780d6f2c6c1e3d","content":"세화영어서점"},
@@ -248,7 +256,7 @@
           {"_id":"62f2859fc5780d6f2c6c1e68","content":"선유서가"}]
       }
   ]}, 
-  {"7": [
+  {"array": [
       {
           "district": "용산구",
           "books": [{"_id":"62f2859fc5780d6f2c6c1e5f","content":"그래픽"},
@@ -279,7 +287,7 @@
           
       }
   ]}, 
-  {"8": [
+  {"array": [
       {
           "district": "종로구 혜화동",
           "books": [{"_id":"62f285a6c5780d6f2c6c1ea4","content":"동양서림"},
@@ -332,7 +340,7 @@
           {"_id":"62f285a6c5780d6f2c6c1ec6","content":"스페인책방"}]
       }
   ]}, 
-  {"9": [
+  {"array": [
       {
           "district": "중랑구",
           "books": [{"_id":"62f2859fc5780d6f2c6c1e50","content":"주책"},
@@ -341,4 +349,4 @@
       
       }
   ]}
-]
+]}]

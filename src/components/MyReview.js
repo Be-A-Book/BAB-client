@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "../css/MyReview.css";
 
 const MyReview = ({ data }) => {
-  const [bookStore, setBookstore] = useState("");
-  const [bookStoreId, setBookstoreId] = useState("");
   const [datas, setData] = useState("");
   const [state, setState] = useState(false);
-  const [id, setId] = useState();
 
   useEffect(()=> {
     if (data.length === 0) {
@@ -17,7 +13,7 @@ const MyReview = ({ data }) => {
       setData(data)
       setState(true)
     }
-  })  
+  }, [data])  
 
 
 

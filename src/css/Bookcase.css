@@ -51,7 +51,8 @@
     z-index: 1;
     padding: 20px;
     bottom: 0%;
-    float: left;
+    float: right;
+    display: flex;
     text-align: center;
     font-size: 2rem;
     font-family: "NanumDdarEGeEomMaGa";
