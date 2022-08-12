@@ -102,6 +102,7 @@ const Map = () => {
             state: { data: marker.id }, //markers[0]
           });
         }
+        return true;
       });
   });
 

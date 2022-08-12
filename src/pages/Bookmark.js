@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import "../css/Bookmark.css"
 import BookmarkTest from '../components/BookmarkTest';
-import { CSSTransition } from 'react-transition-group';
 
 const Bookmark = () => {
     const [visible, setVisible] = useState(false);

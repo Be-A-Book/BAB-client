@@ -4,10 +4,11 @@ import "../css/DetailReview.css";
 import logo from "../img/logo_wax2.png";
 
 const DetailReview = ({ data }) => {
-  const value = data || {};
+  
   const [reviews, setReviews] = useState("");
 
   useEffect(() => {
+    const value = data || {};
     axios({
       method: "get",
       url: `/api/review/getReviews/${value}`,
