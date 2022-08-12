@@ -34,7 +34,7 @@ const WrittenReview = ({ data }) => {
         console.log("리뷰-작성자 정보 불러오기 실패");
       }
     });
-  }, []);
+  }, [data.writer?._id]);
 
   // 서점 정보
   useEffect(() => {
@@ -53,7 +53,7 @@ const WrittenReview = ({ data }) => {
         console.log("리뷰-서점 정보 불러오기 실패");
       }
     });
-  }, []);
+  }, [data.likes.length, data.store, length]);
 
   const likeClick = async (values) => {
     await axios({
