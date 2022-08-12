@@ -10,6 +10,8 @@ const WrittenReview = ({ data }) => {
   const [bookStore, setBookStore] = useState("");
   const [like, setLike] = useState("");
   const [id, setId] = useState("");
+  const [editvalidation, setEditValidation] = useState();
+  const userid = localStorage.getItem("userId");
 
   //현재 접속 중인 사람
   useEffect(() => {
@@ -67,10 +69,16 @@ const WrittenReview = ({ data }) => {
   };
 
   useEffect(() => {
-    if (id !== data.writer?._id) {
-      const btn = document.getElementById("editbutton");
-      btn.style.visibility = "hidden";
+    //const userid = localStorage.getItem("userId");
+    console.log(userid, JSON.stringify(data.writer?._id));
+    async function checkEditValidation() {
+      const v = (await (userid !== JSON.stringify(data.writer?._id)))
+        ? false
+        : true;
+      console.log(v);
+      setEditValidation(v);
     }
+    checkEditValidation();
   }, [data]);
 
   return (
@@ -135,7 +143,12 @@ const WrittenReview = ({ data }) => {
             <div className="review-content">{data.content}</div>
             <Link to={"/editReview"} state={{ element: data && data._id }}>
               <div className="edit-review">
-                <button type="button" className="editButton" id="editbutton">
+                <button
+                  type="button"
+                  className="editButton"
+                  id="editbutton"
+                  style={{ visibility: !editvalidation ? "hidden" : "visible" }}
+                >
                   수정
                 </button>
               </div>

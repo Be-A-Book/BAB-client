@@ -64,14 +64,12 @@ const Review = () => {
       <div className="review-page">
         <div className="review-book">
           <img alt="리뷰" src={reviewBook} width="92%" height="75%" />
-          {review && review.length > 0 && (
-            <div className="all-review">
-              <WrittenReview data={review[0]} />
-              <WrittenReview data={review[1]} />
-              <WrittenReview data={review[2]} />
-              <WrittenReview data={review[3]} />
-            </div>
-          )}
+
+          <div className="all-review">
+            {review.map((r) => (
+              <WrittenReview data={r} key={r._id} />
+            ))}
+          </div>
           <div className="review-button">
             <button
               className="popular-order-button"
