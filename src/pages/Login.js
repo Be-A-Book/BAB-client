@@ -25,30 +25,45 @@ const Login = () => {
         },
       })
         .then((res) => {
-          //console.log(res);
+          console.log(res);
           localStorage.setItem("userId", JSON.stringify(res.data.userId));
           const userid = localStorage.getItem("userId");
           //console.log(userid);
+          if (res.data.loginSuccess) {
+            toast.success(
+              <div className="toast">로그인이 완료되었습니다! 😎</div>,
+              {
+                position: "top-center",
+                autoClose: 2000,
+              }
+            );
+            setTimeout(() => {
+              navigate("/");
+            }, 2000);
+            console.log("로그인 성공");
+            // console.log(`${getCookie('x_auth')}`)
+            dispatch(setToken(`${getCookie("x_auth")}`));
+          } else {
+            // 서버에서 받은 에러 메시지 출력
+            console.log(res.data.message);
+            toast.error(
+              <div className="toast">
+                로그인을 실패하였어요 😭
+                <br />
+                {res.data.message}
+              </div>,
+              {
+                position: "top-center",
+              }
+            );
+          }
         })
         .catch((err) => {
           console.log(err);
         });
-      toast.success(<div className="toast">로그인이 완료되었습니다! 😎</div>, {
-        position: "top-center",
-        autoClose: 2000,
-      });
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-      console.log("로그인 성공");
-      // console.log(`${getCookie('x_auth')}`)
-      dispatch(setToken(`${getCookie("x_auth")}`));
     } catch (e) {
-      // 서버에서 받은 에러 메시지 출력
-      console.log(e.response.data.message);
-      toast.error(<div className="toast">로그인을 실패하였어요 😭</div>, {
-        position: "top-center",
-      });
+      console.log(e);
+      return <div>에러발생:{e}</div>;
     }
   };
 
