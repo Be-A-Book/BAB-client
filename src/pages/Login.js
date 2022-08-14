@@ -27,6 +27,7 @@ const Login = () => {
         .then((res) => {
           console.log(res);
           if (res.data.loginSuccess) {
+            dispatch(setToken(`${res.data.userId}`));
             localStorage.setItem("userId", res.data.userId);
             toast.success(
               <div className="toast">로그인이 완료되었습니다! 😎</div>,
@@ -38,9 +39,7 @@ const Login = () => {
             setTimeout(() => {
               navigate("/");
             }, 2000);
-            console.log("로그인 성공");
             // console.log(`${getCookie('x_auth')}`)
-            dispatch(setToken(`${getCookie("x_auth")}`));
           } else {
             // 서버에서 받은 에러 메시지 출력
             console.log(res.data.message);
