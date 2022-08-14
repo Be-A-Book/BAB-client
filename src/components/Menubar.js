@@ -14,7 +14,7 @@ const Menubar = (props) => {
       <li>
         <NavLink to="/logout" className="nav-link"> LogOut </NavLink>
       </li>
-      <MypageNavbar />
+        <MypageNavbar className="nav-link-2"/>
       </>
     )
 

@@ -51,6 +51,13 @@
     transition: 0.3s;
 }
 
+.nav-link-2 {
+    position: absolute;
+    z-index: 5;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
 .active {
     font-family: "NanumMyeongjo";
     color: #FFFFFF;
