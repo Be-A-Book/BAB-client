@@ -28,8 +28,6 @@ const Login = () => {
           console.log(res);
           if (res.data.loginSuccess) {
             localStorage.setItem("userId", JSON.stringify(res.data.userId));
-            const userid = localStorage.getItem("userId");
-            //console.log(userid);
             toast.success(
               <div className="toast">로그인이 완료되었습니다! 😎</div>,
               {

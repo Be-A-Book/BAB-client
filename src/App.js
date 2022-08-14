@@ -18,15 +18,12 @@ import ReviewWrite from "./pages/ReviewWrite";
 import EditReview from "./pages/EditReview";
 import GuestBook from "./pages/Guestbook";
 import Bookmark from "./pages/Bookmark";
-import { getCookie } from "./utils/cookie";
-import axios from "axios";
 
 const App = () => {
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
     const userid = localStorage.getItem("userId");
-    console.log(userid);
     if (userid !== "") {
       setIsLogin(true);
     } else {

@@ -14,12 +14,13 @@ const Mypage = () => {
 
   //작성자 정보, 북마크
   useEffect(() => {
-    axios({
-      method: "get",
-      url: `https://beabook-server.herokuapp.com/api/users/auth`, //${data.writer}
-    }).then((response) => {
-      setId(response.data._id);
-    });
+    setId(localStorage.getItem("userId"));
+    // axios({
+    //   method: "get",
+    //   url: `https://beabook-server.herokuapp.com/api/users/auth`, //${data.writer}
+    // }).then((response) => {
+    //   setId(response.data._id);
+    // });
   }, []);
 
   useEffect(() => {
