@@ -24,7 +24,7 @@ const App = () => {
 
   useEffect(() => {
     const userid = localStorage.getItem("userId");
-    if (userid !== "") {
+    if (userid !== null) {
       setIsLogin(true);
     } else {
       setIsLogin(false);
