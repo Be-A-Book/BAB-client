@@ -12,7 +12,7 @@ const Map = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `/api/bookstore/getMapMarker`,
+      url: `https://beabook-server.herokuapp.com/api/bookstore/getMapMarker`,
     }).then((response) => {
       if (response.data.success) {
         setMarker(response.data.bookstore);

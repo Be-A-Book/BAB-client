@@ -27,7 +27,7 @@ const Logout = () => {
     );
     axios({
       method: "get",
-      url: "/api/users/logout",
+      url: "https://beabook-server.herokuapp.com/api/users/logout",
     });
     removeCookie("x_auth"); // 쿠키삭제후
     await dispatch(setToken(""));

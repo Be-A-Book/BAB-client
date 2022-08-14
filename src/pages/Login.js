@@ -18,7 +18,7 @@ const Login = () => {
     try {
       await axios({
         method: "post",
-        url: "/api/users/login",
+        url: "https://beabook-server.herokuapp.com/api/users/login",
         data: {
           email,
           password,

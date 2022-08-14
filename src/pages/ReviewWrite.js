@@ -33,7 +33,7 @@ const ReviewWrite = (props) => {
     frm.append("content", value.content);
 
     await axios
-      .post("api/review/postReview", frm, {
+      .post("https://beabook-server.herokuapp.com/api/review/postReview", frm, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((response) => {
@@ -62,7 +62,7 @@ const ReviewWrite = (props) => {
     const value = values || {};
 
     await axios
-      .get(`/api/bookstore/search?keyword=${name}`)
+      .get(`https://beabook-server.herokuapp.com/api/bookstore/search?keyword=${name}`)
       .then((response) => {
         value.store = response.data.bookstore[0]._id;
       })
@@ -72,7 +72,7 @@ const ReviewWrite = (props) => {
       .then(() => {});
 
     await axios
-      .get(`/api/users/auth`)
+      .get(`https://beabook-server.herokuapp.com/api/users/auth`)
       .then((response) => {
         value.writer = response.data._id;
       })

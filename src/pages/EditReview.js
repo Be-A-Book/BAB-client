@@ -21,7 +21,7 @@ const EditReview = () => {
 
     axios({
       method: "put",
-      url: `/api/review/postReview/${data}`,
+      url: `https://beabook-server.herokuapp.com/api/review/postReview/${data}`,
       data: {
         content: value.content,
       },

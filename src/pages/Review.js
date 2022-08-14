@@ -49,7 +49,7 @@ const Review = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `/api/review/getReviews?page=${currentPage}&sort=${currentSort}`,
+      url: `https://beabook-server.herokuapp.com/api/review/getReviews?page=${currentPage}&sort=${currentSort}`,
     }).then((response) => {
       if (response.data.success) {
         setReview(response.data.reviews);

@@ -24,7 +24,7 @@ const Home = () => {
     const onSearch = (e) => {
         axios({
             method: "get",
-            url: `/api/bookstore/search?keyword=${searchValue}`
+            url: `https://beabook-server.herokuapp.com/api/bookstore/search?keyword=${searchValue}`
         }).then((response) => {
             setProps(response.data.bookstore);
             setVisible(!visible);

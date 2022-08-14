@@ -15,7 +15,7 @@ const SearchBookstore = (props) => {
 
     axios({
       method: "get",
-      url: `/api/favorite/getFavorites/${bookStore._id}`,
+      url: `https://beabook-server.herokuapp.com/api/favorite/getFavorites/${bookStore._id}`,
     }).then((response) => {
       if (response.data.success) {
         setLike(response.data.favorites.length);

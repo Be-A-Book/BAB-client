@@ -18,7 +18,7 @@ const WrittenReview = ({ data }) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `/api/users/auth`,
+      url: `https://beabook-server.herokuapp.com/api/users/auth`,
     }).then((response) => {
       setId(response.data._id);
     });
@@ -28,7 +28,7 @@ const WrittenReview = ({ data }) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `/api/users/getUserInfo/${data.writer?._id}`,
+      url: `https://beabook-server.herokuapp.com/api/users/getUserInfo/${data.writer?._id}`,
     }).then((response) => {
       if (response.data.success) {
         setUser(response.data.userInfo);
@@ -42,7 +42,7 @@ const WrittenReview = ({ data }) => {
   useEffect(() => {
     axios({
       method: "post",
-      url: `/api/bookstore/getBookstoreDetail`,
+      url: `https://beabook-server.herokuapp.com/api/bookstore/getBookstoreDetail`,
       data: {
         _id: data.store,
       },
@@ -60,7 +60,7 @@ const WrittenReview = ({ data }) => {
   const likeClick = async (values) => {
     await axios({
       method: "post",
-      url: `/api/like/postLike`,
+      url: `https://beabook-server.herokuapp.com/api/like/postLike`,
       data: {
         review: data._id,
         user: id,

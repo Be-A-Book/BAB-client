@@ -11,7 +11,7 @@ const MypageNavbar = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `/api/users/auth`, //${data.writer}
+      url: `https://beabook-server.herokuapp.com/api/users/auth`, //${data.writer}
     }).then((response) => {
       setId(response.data._id);
     });
@@ -20,7 +20,7 @@ const MypageNavbar = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `/api/users/getUserInfo/${id && id}`, //${data.writer}
+      url: `https://beabook-server.herokuapp.com/api/users/getUserInfo/${id && id}`, //${data.writer}
     }).then((response) => {
       setUser(response.data.userInfo && response.data.userInfo.user);
     });

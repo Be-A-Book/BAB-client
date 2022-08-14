@@ -22,7 +22,7 @@ const GuestBook = (props) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `/api/users/auth`,
+      url: `https://beabook-server.herokuapp.com/api/users/auth`,
     }).then((response) => {
       setId(response.data._id);
     });
@@ -40,7 +40,7 @@ const GuestBook = (props) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `/api/guestbook/getmessages?page=${currentPage}`,
+      url: `https://beabook-server.herokuapp.com/api/guestbook/getmessages?page=${currentPage}`,
     }).then((response) => {
       if (response.data.success) {
         setGuestbook(response.data.messages);
@@ -62,7 +62,7 @@ const GuestBook = (props) => {
       const { content } = values || {};
       axios({
         method: "post",
-        url: `api/guestbook/postMessage`,
+        url: `https://beabook-server.herokuapp.com/api/guestbook/postMessage`,
         data: {
           message: content,
           writer: id,

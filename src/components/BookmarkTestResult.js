@@ -10,7 +10,7 @@ const BookmarkTestResult = (props) => {
     useEffect(() => {
         axios({
             method: "get",
-            url: `/api/users/auth`,
+            url: `https://beabook-server.herokuapp.com/api/users/auth`,
         }).then((response) => {
             setEmail(response.data.email)
         })
@@ -19,7 +19,7 @@ const BookmarkTestResult = (props) => {
     useEffect(() => {
         axios({
             method: "post",
-            url: `/api/users/selectBookmark`,
+            url: `https://beabook-server.herokuapp.com/api/users/selectBookmark`,
             data: {
                 "email" : email && email,
                 "bookmark" : data.id,

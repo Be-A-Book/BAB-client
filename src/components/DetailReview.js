@@ -11,7 +11,7 @@ const DetailReview = ({ data }) => {
     const value = data || {};
     axios({
       method: "get",
-      url: `/api/review/getReviews/${value}`,
+      url: `https://beabook-server.herokuapp.com/api/review/getReviews/${value}`,
     }).then((response) => {
       if (response.data.success) {
         setReviews(response.data.reviews);

@@ -12,7 +12,7 @@ const SignUp = () => {
       const { name, email, password } = values || {} ;
       axios({
         method:"post",
-        url:`api/users/register`,
+        url:`https://beabook-server.herokuapp.com/api/users/register`,
         data: {
           name,
           email,

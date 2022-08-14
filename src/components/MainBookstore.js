@@ -23,7 +23,7 @@ const MainBookstore = () => {
 
       axios({
         method: "get",
-        url: `/api/favorite/getFavorites/62e9a3a46da7cf12cf5f9dfb`,
+        url: `https://beabook-server.herokuapp.com/api/favorite/getFavorites/62e9a3a46da7cf12cf5f9dfb`,
       }).then((response) => {
         if (response.data.success) {
           setLike(response.data.favorites.length);

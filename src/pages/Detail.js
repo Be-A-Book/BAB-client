@@ -19,7 +19,7 @@ const Detail = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `/api/users/auth`, //${data.writer}
+      url: `https://beabook-server.herokuapp.com/api/users/auth`, //${data.writer}
     }).then((response) => {
       setId(response.data._id);
     });
@@ -28,7 +28,7 @@ const Detail = () => {
   useEffect(() => {
     axios({
       method: "post",
-      url: `/api/bookstore/getBookstoreDetail`,
+      url: `https://beabook-server.herokuapp.com/api/bookstore/getBookstoreDetail`,
       data: {
         _id: data, //"62dffd0708c904737340ae36"
       },
@@ -45,7 +45,7 @@ const Detail = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `/api/favorite/getFavorites/${data}`,
+      url: `https://beabook-server.herokuapp.com/api/favorite/getFavorites/${data}`,
     }).then((response) => {
       if (response.data.success) {
         setLike(response.data.favorites.length);
@@ -59,7 +59,7 @@ const Detail = () => {
     if (likeButton === false) {
       await axios({
         method: "post",
-        url: `/api/favorite/postFavorite`,
+        url: `https://beabook-server.herokuapp.com/api/favorite/postFavorite`,
         data: {
           store: data,
           user: id,
@@ -69,7 +69,7 @@ const Detail = () => {
     } else {
       await axios({
         method: "post",
-        url: `/api/favorite/cancelFavorite`,
+        url: `https://beabook-server.herokuapp.com/api/favorite/cancelFavorite`,
         data: {
           store: data,
           user: id,
@@ -80,7 +80,7 @@ const Detail = () => {
 
     axios({
       method: "get",
-      url: `/api/favorite/getFavorites/${data}`,
+      url: `https://beabook-server.herokuapp.com/api/favorite/getFavorites/${data}`,
     }).then((response) => {
       if (response.data.success) {
         setLike(response.data.favorites.length);
