@@ -27,8 +27,7 @@ const Login = () => {
         .then((res) => {
           console.log(res);
           if (res.data.loginSuccess) {
-            dispatch(setToken(res.data.userId));
-            localStorage.setItem("userId", JSON.stringify(res.data.userId));
+            localStorage.setItem("userId", res.data.userId);
             toast.success(
               <div className="toast">로그인이 완료되었습니다! 😎</div>,
               {

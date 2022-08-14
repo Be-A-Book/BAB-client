@@ -15,7 +15,7 @@ const Mypage = () => {
   //작성자 정보, 북마크
   useEffect(() => {
     setId(localStorage.getItem("userId"));
-    console.log(id)
+    console.log(localStorage.getItem("userId"))
     // axios({
     //   method: "get",
     //   url: `https://beabook-server.herokuapp.com/api/users/auth`, //${data.writer}
@@ -29,12 +29,13 @@ const Mypage = () => {
       method: "get",
       url: `https://beabook-server.herokuapp.com/api/users/getUserInfo/${id && id}`, //${data.writer}
     }).then((response) => {
+      console.log(response.data)
       setUser(response.data.userInfo && response.data.userInfo.user);
       setBookmark(response.data.userInfo && response.data.userInfo);
       setReviews(response.data.userInfo && response.data.userInfo.reviews)
       setLikes(response.data.userInfo && response.data.userInfo.favorites)
     });
-  });
+  }, []);
 
   return (
     <>
