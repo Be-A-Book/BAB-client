@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { setToken } from "../redux/reducers/AuthReducer";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { getCookie } from "../utils/cookie";
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -38,6 +38,8 @@ const Login = () => {
             );
             setTimeout(() => {
               navigate("/");
+              window.location.reload();
+              
             }, 2000);
             // console.log(`${getCookie('x_auth')}`)
           } else {

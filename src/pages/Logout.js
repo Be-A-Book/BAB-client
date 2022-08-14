@@ -31,6 +31,7 @@ const Logout = () => {
     localStorage.removeItem("userId");
     setTimeout(() => {
       navigate("/");
+      window.location.reload();
     }, 2000);
   };
   return (
