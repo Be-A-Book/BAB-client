@@ -21,7 +21,7 @@
 
 .guestbook{
     background-color: #F4EEE4;
-    height: 110vh;
+    height: 1100px;
     padding-bottom: 10vh;
 }
 
@@ -30,14 +30,14 @@
     color: #790000;
     font-family: "NanumMyeongjo";
     text-align: center;
-    padding-top: 5vh;
+    padding-top: 6vh;
 }
 
 .guestbook-write{
     position: absolute;
     z-index: 0;
-    top: 25vh;
-    left: 27vh;
+    top: 29vh;
+    left: 30vh;
     background-color: #FFFBF4;
     width: 150vh;
     height: 20vh;
@@ -61,32 +61,28 @@
 }
 
 .guestbook-container{
-    position: absolute;
+    position: relative;
     z-index: 0;
-    top: 50vh;
-    left: 30vh;
-
+    top: 30vh;
+    margin-left: 20vh;
 }
 
 .guestbook-container-memo-left{
     position: absolute;
     z-index: 1;
-    top: 5vh;
-    left: 13vh;
+    top: 70px;
+    left: 20vh;
 }
 
 .guestbook-container-memo-right{
     position: absolute;
     z-index: 1;
-    top: 5vh;
-    right: 15vh;
+    top: 70px;
+    right: 40vh;
 }
 
 .guestbook-arrow-keys{
-    position: absolute;
     margin-left: 20%;
-    bottom: -10vh;
-    left: 25vh;
 }
 
 .guestbook-left-button{
@@ -94,7 +90,6 @@
     outline: none;
     border: none;
     align-items: center;
-    padding-right: 25px;
 }
 
 .guestbook-left-button:hover{
@@ -122,12 +117,13 @@
     outline: none;
     border: none;
     align-items: center;
-    padding-left: 25px;
+    margin-left: 38%;
 }
 
 .guestbook-right-button:hover{
     color: #FFFFFF;
 }
+
 
 .guestbook-right-button-text{
     font-family: "NanumMyeongjo";
@@ -154,14 +150,13 @@
     margin-bottom: 30px;
     background-color: #F9E7E7;
     border-radius: 30px;
-    padding: 3px 10px 3px 10px;
+    padding: 0px 5px 0px 8px;
     align-items: center;
     z-index: 2;
     position: absolute;
     color: #790000;
     top: 13vh;
-    right: 1.5vh;
-
+    left: 84%;
 }
 
 .guestbook-write-button:hover{
@@ -173,14 +168,14 @@
     outline: none;
     border: none;
     float: left;
-    margin-top: 20px;
-    font-size: 1rem;
+    margin-top: 18px;
+    font-size: 1.2rem;
     cursor: pointer;
 }
 
 .guestbook-write-button-text{
     font-family: "NanumDdarEGeEomMaGa";
-    font-size: 2.3rem;
+    font-size: 2.0rem;
     float: left;
-    padding: 3px 10px 10px 10px;
+    padding: 3px 8px 10px 10px;
 }

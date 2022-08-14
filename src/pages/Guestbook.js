@@ -18,7 +18,6 @@ const GuestBook = (props) => {
   const [guestbook, setGuestbook] = useState([]);
   const [id, setId] = useState();
 
-  //작성자 정보, 북마크
   useEffect(() => {
     axios({
       method: "get",
@@ -119,9 +118,9 @@ const GuestBook = (props) => {
             </form>
           </div>
           <div className="guestbook-container">
-            <img alt="리뷰" src={reviewBook} width="1500vh" height="600vh" />
+            <img alt="리뷰" src={reviewBook} width="90%" height="680px" />
             {guestbook && guestbook.length > 0 && (
-              <div>
+              <div className="all-memo">
                 <div className="guestbook-container-memo-left">
                   <GuestBookMemo data={guestbook[0]} />
                   <GuestBookMemo data={guestbook[1]} />
@@ -140,27 +139,23 @@ const GuestBook = (props) => {
 
             <div className="guestbook-arrow-keys">
               {/* 왼쪽 방향키 */}
-              <button className="guestbook-left-button">
+              <button
+                className="guestbook-left-button"
+                onClick={() =>
+                  currentPage > 1
+                    ? setCurrentPage(currentPage - 1)
+                    : showToast()
+                }
+              >
                 <AiFillCaretLeft className="guestbook-left-button-icon" />
-                <div
-                  className="guestbook-left-button-text"
-                  onClick={() =>
-                    currentPage > 1
-                      ? setCurrentPage(currentPage - 1)
-                      : showToast()
-                  }
-                >
-                  이전
-                </div>
+                <div className="guestbook-left-button-text">이전</div>
               </button>
               {/* 오른쪽 방향키 */}
-              <button className="guestbook-right-button">
-                <div
-                  className="guestbook-right-button-text"
-                  onClick={() => setCurrentPage(currentPage + 1)}
-                >
-                  다음
-                </div>
+              <button
+                className="guestbook-right-button"
+                onClick={() => setCurrentPage(currentPage + 1)}
+              >
+                <div className="guestbook-right-button-text">다음</div>
                 <AiFillCaretRight className="guestbook-right-button-icon" />
               </button>
             </div>
