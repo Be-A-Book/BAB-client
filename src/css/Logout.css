@@ -19,6 +19,11 @@
     font-family: "NanumMyeongjo";
     padding-top: 60px;
     padding-bottom: 70px;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
 }
 
 .logout-text{
