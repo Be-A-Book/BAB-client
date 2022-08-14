@@ -16,12 +16,8 @@ const WrittenReview = ({ data }) => {
 
   //현재 접속 중인 사람
   useEffect(() => {
-    axios({
-      method: "get",
-      url: `https://beabook-server.herokuapp.com/api/users/auth`,
-    }).then((response) => {
-      setId(response.data._id);
-    });
+    setId(localStorage.getItem("userId"));
+
   }, []);
 
   //작성자 정보, 북마크
