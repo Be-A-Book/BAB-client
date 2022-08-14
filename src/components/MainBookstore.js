@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../css/MainBookstore.css";
 import heart from "../img/heart.png";
 import stamp from "../img/stamp.png";
@@ -35,6 +36,11 @@ const MainBookstore = () => {
   }, []);
   return (
     <>
+    <Link
+        to={"/detail"}
+        state={{ data: bookStore.bookstore && bookStore.bookstore._id }}
+        style={{textDecoration: 'none'}}
+      >
       <div className="MainBookstore">
         <div className="main-book-hashtag">
           {bookStore &&
@@ -82,6 +88,7 @@ const MainBookstore = () => {
           </div>
         </div>
       </div>
+      </Link>
     </>
   );
 };

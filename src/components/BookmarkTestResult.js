@@ -6,15 +6,20 @@ import bookmarkData from "../data/bookmarkData.json";
 const BookmarkTestResult = (props) => {
     const data = bookmarkData[props.number];
     const [email, setEmail] = useState();
+    const [id, setId] = useState();
 
     useEffect(() => {
+        setId(localStorage.getItem("userId"));
+    }, []);
+
+    useEffect(()=> {
         axios({
             method: "get",
-            url: `https://beabook-server.herokuapp.com/api/users/auth`,
+            url: `https://beabook-server.herokuapp.com/api/users/getUserInfo/${id && id}`, //${data.writer}
         }).then((response) => {
-            setEmail(response.data.email)
-        })
-    });
+            setEmail(response.data.userInfo && response.data.userInfo.user.email);
+        });
+    })
     
     useEffect(() => {
         axios({
