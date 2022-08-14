@@ -11,7 +11,7 @@ const MainBookstore = () => {
   useEffect(() => {
     axios({
       method: "post",
-      url: `/api/bookstore/getBookstoreDetail`,
+      url: `https://beabook-server.herokuapp.com/api/bookstore/getBookstoreDetail`,
       data: {
         _id: "62e9a3a46da7cf12cf5f9dfb", //storekey 임의 지정
       },
