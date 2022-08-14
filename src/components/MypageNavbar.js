@@ -10,13 +10,7 @@ const MypageNavbar = () => {
   //작성자 정보, 북마크
   useEffect(() => {
     setId(localStorage.getItem("userId"));
-    // console.log(id)
-    // axios({
-    //   method: "get",
-    //   url: `https://beabook-server.herokuapp.com/api/users/auth`, //${data.writer}
-    // }).then((response) => {
-    //   setId(response.data._id);
-    // });
+
   }, []);
 
   useEffect(() => {
