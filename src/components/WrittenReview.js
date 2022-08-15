@@ -17,7 +17,6 @@ const WrittenReview = ({ data }) => {
   //현재 접속 중인 사람
   useEffect(() => {
     setId(localStorage.getItem("userId"));
-
   }, []);
 
   //작성자 정보, 북마크
@@ -69,9 +68,7 @@ const WrittenReview = ({ data }) => {
   useEffect(() => {
     //console.log(userid, JSON.stringify(data.writer?._id));
     async function checkEditValidation() {
-      const v = (await (userid !== JSON.stringify(data.writer?._id)))
-        ? false
-        : true;
+      const v = (await (userid !== data.writer?._id)) ? false : true;
       //console.log(v);
       setEditValidation(v);
     }
