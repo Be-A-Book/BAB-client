@@ -20,14 +20,16 @@ const Mypage = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `https://beabook-server.herokuapp.com/api/users/getUserInfo/${id && id}`, //${data.writer}
+      url: `https://beabook-server.herokuapp.com/api/users/getUserInfo/${
+        id && id
+      }`, //${data.writer}
     }).then((response) => {
       setUser(response.data.userInfo && response.data.userInfo.user);
       setBookmark(response.data.userInfo && response.data.userInfo);
-      setReviews(response.data.userInfo && response.data.userInfo.reviews)
-      setLikes(response.data.userInfo && response.data.userInfo.favorites)
+      setReviews(response.data.userInfo && response.data.userInfo.reviews);
+      setLikes(response.data.userInfo && response.data.userInfo.favorites);
     });
-  },);
+  });
 
   return (
     <>
@@ -37,7 +39,9 @@ const Mypage = () => {
           {/* 좌측 북마크 */}
 
           <div className="mypage-content-left">
-            <div className="mypage-small-title">{user.name}'s Bookmark</div>
+            <div className="mypage-small-title">
+              {user && user.name}'s Bookmark
+            </div>
             <div className="mypage-bookmark-container">
               <div className="mypage-big-rectangle"></div>
               <div>
@@ -73,6 +77,6 @@ const Mypage = () => {
       </div>
     </>
   );
-            };
+};
 
 export default Mypage;
