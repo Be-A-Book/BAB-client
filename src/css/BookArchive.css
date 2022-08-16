@@ -1,12 +1,21 @@
 .bookArchive{
-    position: relative;
     background-color: #C69D4D;
     padding: 5vh;
 }
 
-.bookArchive-content{
+.bookcase-top{
     display: grid;
     grid-template-columns:repeat(2, 1fr);
-    grid-gap: 5vh;
-    grid-auto-rows: auto;
+    grid-auto-rows:auto;
+    grid-column: 10vh;
+    margin-bottom: 5vh;
+    margin-right: -5vh;
+}
+
+.bookcase-bottom{
+    display: grid;
+    grid-template-columns:repeat(2, 1fr);
+    grid-auto-rows:auto;
+    grid-row: 5vh;
+    margin-right: -5vh;
 }

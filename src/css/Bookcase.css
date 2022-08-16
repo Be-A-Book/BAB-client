@@ -23,7 +23,7 @@
     position: relative;
     z-index: 0;
     background-color: #F4EEE4;
-    width: 97.5vh;
+    width: 98vh;
     height: 60vh;
 }
 
@@ -31,30 +31,21 @@
     color: #000000;
     font-family: "NanumDdarEGeEomMaGa";
     right: 3%;
+    padding-top: 5px;
     font-size: 2.5rem;
     position: absolute;
     z-index: 1;
 }
 
-.bookcase-content{
-    /* position: absolute;
-    z-index: 1;
-    text-align: center;
-    background-color:blueviolet;
-    padding: 0;
-    margin: 0;
-    bottom: 0%; */
-}
-
 .bookcase-bookstore-books{
     position: absolute;
     z-index: 1;
-    padding: 20px;
+    padding: 20px 20px 20px 20px;
     bottom: 0%;
     float: right;
     display: flex;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.9rem;
     font-family: "NanumDdarEGeEomMaGa";
     writing-mode: tb-rl;
 }
