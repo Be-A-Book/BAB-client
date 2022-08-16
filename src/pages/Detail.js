@@ -15,14 +15,8 @@ const Detail = () => {
   const [id, setId] = useState();
   const [likeButton, setLikeButton] = useState(false);
 
-  //작성자 정보, 북마크
   useEffect(() => {
-    axios({
-      method: "get",
-      url: `https://beabook-server.herokuapp.com/api/users/auth`, //${data.writer}
-    }).then((response) => {
-      setId(response.data._id);
-    });
+    setId(localStorage.getItem("userId"));
   }, []);
 
   useEffect(() => {
@@ -30,7 +24,7 @@ const Detail = () => {
       method: "post",
       url: `https://beabook-server.herokuapp.com/api/bookstore/getBookstoreDetail`,
       data: {
-        _id: data, //"62dffd0708c904737340ae36"
+        _id: data,
       },
     }).then((response) => {
       if (response.data.success) {

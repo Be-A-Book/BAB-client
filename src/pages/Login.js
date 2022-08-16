@@ -8,7 +8,6 @@ import { setToken } from "../redux/reducers/AuthReducer";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -39,9 +38,7 @@ const Login = () => {
             setTimeout(() => {
               navigate("/");
               window.location.reload();
-              
             }, 2000);
-            // console.log(`${getCookie('x_auth')}`)
           } else {
             // 서버에서 받은 에러 메시지 출력
             console.log(res.data.message);

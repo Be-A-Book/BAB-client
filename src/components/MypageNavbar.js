@@ -7,7 +7,6 @@ const MypageNavbar = () => {
   const [user, setUser] = useState("");
   const [id, setId] = useState();
 
-  //작성자 정보, 북마크
   useEffect(() => {
     setId(localStorage.getItem("userId"));
   }, []);
@@ -15,7 +14,9 @@ const MypageNavbar = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `https://beabook-server.herokuapp.com/api/users/getUserInfo/${id && id}`, //${data.writer}
+      url: `https://beabook-server.herokuapp.com/api/users/getUserInfo/${
+        id && id
+      }`,
     }).then((response) => {
       setUser(response.data.userInfo && response.data.userInfo.user);
     });
@@ -24,12 +25,12 @@ const MypageNavbar = () => {
   return (
     <Link to="/mypage" className="nav-link">
       {user && (
-              <div
-                className="mypage-bookmark"
-                style={{
-                  backgroundColor: user.bookmark?.color,
-                }}
-              ></div>
+        <div
+          className="mypage-bookmark"
+          style={{
+            backgroundColor: user.bookmark?.color,
+          }}
+        ></div>
       )}
     </Link>
   );

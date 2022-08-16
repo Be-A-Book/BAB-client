@@ -6,13 +6,11 @@ import axios from "axios";
 
 const Mypage = () => {
   const [bookmark, setBookmark] = useState("");
-
   const [user, setUser] = useState("");
   const [id, setId] = useState();
   const [review, setReviews] = useState();
   const [like, setLikes] = useState();
 
-  //작성자 정보, 북마크
   useEffect(() => {
     setId(localStorage.getItem("userId"));
   }, []);
@@ -22,7 +20,7 @@ const Mypage = () => {
       method: "get",
       url: `https://beabook-server.herokuapp.com/api/users/getUserInfo/${
         id && id
-      }`, //${data.writer}
+      }`,
     }).then((response) => {
       setUser(response.data.userInfo && response.data.userInfo.user);
       setBookmark(response.data.userInfo && response.data.userInfo);
@@ -40,21 +38,23 @@ const Mypage = () => {
 
           <div className="mypage-content-left">
             <div className="mypage-small-title">
-              {user && user.name}'s Bookmark
+              {user && user?.name}'s Bookmark
             </div>
-            <div className="mypage-bookmark-container">
-              <div className="mypage-big-rectangle"></div>
-              <div>
-                {bookmark && (
-                  <div
-                    className="mypage-bookmark-book"
-                    style={{
-                      backgroundColor: user.bookmark?.color,
-                    }}
-                  ></div>
-                )}
+            <div className="mypage-bookmark-wrapper">
+              <div className="mypage-bookmark-container">
+                <div className="mypage-big-rectangle"></div>
+                <div>
+                  {bookmark && (
+                    <div
+                      className="mypage-bookmark-book"
+                      style={{
+                        backgroundColor: user.bookmark?.color,
+                      }}
+                    ></div>
+                  )}
+                </div>
+                <div className="mypage-small-rectangle"></div>
               </div>
-              <div className="mypage-small-rectangle"></div>
             </div>
           </div>
 

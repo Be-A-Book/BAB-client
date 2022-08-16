@@ -14,7 +14,7 @@
 .Mypage {
     background: #C69D4D;
     color: #790000;
-    height: 85vh;
+    height: 100vh;
     font-size: 40px;
     font-family: "NanumMyeongjo";
     padding-top: 40px;
@@ -25,7 +25,7 @@
 
 .mypage-grid {
     margin-top: 40px;
-    height: 70vh;
+    height: 85vh;
     background: #E4D7C4;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -44,35 +44,40 @@
     grid-row: 1 / 2;
 }
 
+.mypage-bookmark-wrapper{
+    position: relative;
+}
+
 .mypage-bookmark-container{
+    position: absolute;
     padding-bottom: 20px;
     position: relative;
-    padding-left: 100px;
+    left: 25%;
 }
 
 .mypage-big-rectangle{
     position: absolute;
-    width: 220px;
-    height: 270px;
+    width: 53%;
+    height: 38vh;
     background-color: #FFFFFF;
-    z-index: 0;
 }
 
 .mypage-bookmark-book {
     position: absolute;
+    left: 1%;
     width: 40px;
-    height: 160px;
+    height: 23vh;
     background-color: #FFFFFF;
     margin-left: 30px;
     z-index: 4;
     top: 0vh;
-    left: 23vh;
+    /* left: 23vh; */
 }
 
 .mypage-small-rectangle{
     position: absolute;
-    width: 208px;
-    height: 270px;
+    width: 50%;
+    height: 38vh;
     background-color: #790000;
     z-index: 1;
 }

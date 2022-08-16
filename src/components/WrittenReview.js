@@ -52,7 +52,7 @@ const WrittenReview = ({ data }) => {
     });
   }, [data.likes.length, data.store, length]);
 
-  const likeClick = async (values) => {
+  const likeClick = async () => {
     await axios({
       method: "post",
       url: `https://beabook-server.herokuapp.com/api/like/postLike`,
@@ -66,10 +66,8 @@ const WrittenReview = ({ data }) => {
   };
 
   useEffect(() => {
-    //console.log(userid, JSON.stringify(data.writer?._id));
     async function checkEditValidation() {
       const v = (await (userid !== data.writer?._id)) ? false : true;
-      //console.log(v);
       setEditValidation(v);
     }
     checkEditValidation();

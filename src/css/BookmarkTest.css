@@ -1,93 +1,93 @@
 .bookmarkSelect {
     background-image: url("../img/booktest_select.png");
-    width: 110vh;
-    height: 75vh;
+    width: 63%;
+    height: 80%;
     background-size:cover;
     position: absolute;
     top: 15vh;
-    left: 45vh;
+    left: 18%;
     box-shadow: 1px 1px 5px #000000;
 }
 
 .bookmarkSelect.hidden {
     background-image: url("../img/booktest_select.png");
-    width: 110vh;
-    height: 75vh;
+    width: 63%;
+    height: 80%;
     background-size:cover;
     position: absolute;
     top: 15vh;
-    left: 45vh;
+    left: 18%;
     box-shadow: 1px 1px 5px #000000;
     visibility: hidden;
 }
 
 .bookmarkChoice1 {
-    width: 75px;
-    height: 300px;
+    width: 8%;
+    height: 52%;
     background-color: #B72C2C;
     position: relative;
     top: 30vh;
-    left: 20vh;
+    left: 16%;
     margin-left: 30px;
     border: none;
     box-shadow: 1px 1px 5px #000000;
 }
 
 .bookmarkChoice2 {
-    width: 75px;
-    height: 300px;
+    width: 8%;
+    height: 52%;
     background-color: #005412;
     position: relative;
     top: 30vh;
-    left: 20vh;
+    left: 16%;
     margin-left: 30px;
     border: none;
     box-shadow: 1px 1px 5px #000000;
 }
 
 .bookmarkChoice3 {
-    width: 75px;
-    height: 300px;
+    width: 8%;
+    height: 52%;
     background-color: #EEAD48;
     position: relative;
     top: 30vh;
-    left: 20vh;
+    left: 16%;
     margin-left: 30px;
     border: none;
     box-shadow: 1px 1px 5px #000000;
 }
 
 .bookmarkChoice4 {
-    width: 75px;
-    height: 300px;
+    width: 8%;
+    height: 52%;
     background-color: #3C6273;
     position: relative;
     top: 30vh;
-    left: 20vh;
+    left: 16%;
     margin-left: 30px;
     border: none;
     box-shadow: 1px 1px 5px #000000;
 }
 
 .bookmarkChoice5 {
-    width: 75px;
-    height: 300px;
+    width: 8%;
+    height: 52%;
     background-color: #623E67;
     position: relative;
     top: 30vh;
-    left: 20vh;
+    left: 16%;
     margin-left: 30px;
     border: none;
     box-shadow: 1px 1px 5px #000000;
 }
 
 .bookmarkChoice6 {
-    width: 75px;
-    height: 300px;
+    width: 8%;
+    height: 52%;
     background-color: #13A3A3;
     position: relative;
     top: 30vh;
-    left: 20vh;
+    left: 16%;
     margin-left: 30px;
     border: none;
     box-shadow: 1px 1px 5px #000000;

@@ -5,19 +5,20 @@
 
 .bookmarkResult {
     background-image: url("../img/booktest_result.png");
-    width: 110vh;
-    height: 75vh;
+    width: 63%;
+    height: 80%;
     background-size:cover;
     position: absolute;
     top: 15vh;
-    left: 45vh;
+    left: 18%;
     box-shadow: 1px 1px 5px #000000;
 }
 
 .bookmarkResultText {
     font-family: "NanumMyeongjo";
-    font-size: 32px;
+    font-size: 30px;
     position: absolute;
-    left: 35vh;
+    top: 35%;
+    left: 35%;
     color: #000000;
 }

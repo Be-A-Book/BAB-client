@@ -16,7 +16,6 @@ const Map = () => {
     }).then((response) => {
       if (response.data.success) {
         setMarker(response.data.bookstore);
-        //console.log(response.data.bookstore);
       } else {
         console.log("불러오기 실패");
       }
@@ -26,11 +25,10 @@ const Map = () => {
   useEffect(() => {
     const container = document.getElementById("map");
     const options = {
-      center: new kakao.maps.LatLng(37.5550831, 126.932516), //37.5550831, 126.932516
+      center: new kakao.maps.LatLng(37.5550831, 126.932516),
       level: 3,
     };
 
-    //map
     const map = new kakao.maps.Map(container, options);
 
     const imageSrc = mapMarker, // 마커이미지 주소
@@ -61,7 +59,6 @@ const Map = () => {
           "</div>" +
           "</div>" +
           "</div>";
-        // console.log(`${el.defaultImage}`);
         //마커 생성
         const marker = new kakao.maps.Marker({
           //마커가 표시 될 지도
@@ -99,7 +96,7 @@ const Map = () => {
 
         function onClick() {
           navigate("/detail", {
-            state: { data: marker.id }, //markers[0]
+            state: { data: marker.id },
           });
         }
         return true;
