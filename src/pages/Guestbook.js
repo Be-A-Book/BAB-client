@@ -19,12 +19,7 @@ const GuestBook = (props) => {
   const [id, setId] = useState();
 
   useEffect(() => {
-    axios({
-      method: "get",
-      url: `https://beabook-server.herokuapp.com/api/users/auth`,
-    }).then((response) => {
-      setId(response.data._id);
-    });
+    setId(localStorage.getItem("userId"));
   }, []);
 
   const showToast = () => {
@@ -76,6 +71,11 @@ const GuestBook = (props) => {
               autoClose: 2000,
             }
           );
+          setTimeout(() => {
+            navigate("/guestbook");
+            window.location.reload();
+            
+          }, 2000);
         } else {
           console.log(response.data);
           toast.error(
