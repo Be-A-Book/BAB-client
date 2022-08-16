@@ -30,13 +30,13 @@ const MyReview = ({ data }) => {
     return(
       <>
       {datas && datas.map((Review) => (
-      <>
+      <div key={Review && Review._id}>
       <div className="my-review-bookstore">
         {Review && Review.store?.name}
       </div>
       <div className="my-review-content">{Review && Review.content}
       </div> 
-      </>
+      </div>
       ))}
 
     </>

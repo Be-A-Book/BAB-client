@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
@@ -19,10 +19,9 @@ const ReviewWrite = (props) => {
   }
   const navigate = useNavigate();
   const [name, setName] = useState("");
+  const [id, setId] = useState();
 
   const submit = async (values) => {
-    console.log(values.store);
-
     const value = values || {};
 
     const frm = new FormData();
@@ -47,7 +46,6 @@ const ReviewWrite = (props) => {
           });
           navigate("/review");
         } else {
-          console.log(value);
           toast.error(<div>리뷰 작성에 실패하였습니다.</div>, {
             position: "bottom-center",
             autoClose: 2000,
@@ -57,6 +55,10 @@ const ReviewWrite = (props) => {
         }
       });
   };
+
+  useEffect(()=> {
+    setId(localStorage.getItem("userId"));
+  },[])
 
   const anotherInfo = async (values) => {
     const value = values || {};
@@ -70,16 +72,8 @@ const ReviewWrite = (props) => {
         console.log(error);
       })
       .then(() => {});
-
-    await axios
-      .get(`https://beabook-server.herokuapp.com/api/users/auth`)
-      .then((response) => {
-        value.writer = response.data._id;
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .then(() => {});
+      
+    value.writer = id && id;
 
     submit(value);
   };

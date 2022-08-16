@@ -37,7 +37,7 @@ const Mypage = () => {
           {/* 좌측 북마크 */}
 
           <div className="mypage-content-left">
-            <div className="mypage-small-title">Your Bookmark</div>
+            <div className="mypage-small-title">{user.name}'s Bookmark</div>
             <div className="mypage-bookmark-container">
               <div className="mypage-big-rectangle"></div>
               <div>

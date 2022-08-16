@@ -19,7 +19,7 @@ const FavoriteBookstore = ({ data }) => {
   function BookNo() {
     return (
       <>
-      <div className="favorite-bookstore-name">{datas}</div>
+      <div className="favorite-bookstore-name" key={datas._id}>{datas}</div>
       </>
     )
   }
@@ -29,8 +29,8 @@ const FavoriteBookstore = ({ data }) => {
       <>
       <div className="FavoriteBookstore">
       {datas && datas.map((Favbook) => (
-            <Link to={"/detail"} state={{ data: Favbook.store && Favbook.store._id }}>
-            <div className="favorite-bookstore-name">{Favbook.store.name}</div>
+            <Link to={"/detail"} state={{ data: Favbook.store && Favbook.store._id }} key={Favbook.store._id}>
+            <div className="favorite-bookstore-name" key={Favbook.store._id}>{Favbook.store.name}</div>
             </Link>
       ))} 
     </div>
