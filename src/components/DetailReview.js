@@ -6,6 +6,7 @@ import logo from "../img/logo_wax2.png";
 const DetailReview = ({ data }) => {
   
   const [reviews, setReviews] = useState("");
+  const [review, setReview] = useState();
 
   useEffect(() => {
     const value = data || {};
@@ -16,7 +17,7 @@ const DetailReview = ({ data }) => {
       if (response.data.success) {
         setReviews(response.data.reviews);
       } else {
-        console.log("불러오기 실패");
+        setReview("작성된 리뷰가 없습니다.")
       }
     });
   }, [data]);

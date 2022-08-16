@@ -3,26 +3,14 @@ import { Link } from "react-router-dom";
 import "../css/MainBookstore.css";
 import heart from "../img/heart.png";
 import stamp from "../img/stamp.png";
-import axios from "axios";
 
 const SearchBookstore = (props) => {
   const [bookStore, setBookStore] = useState("");
-  const [like, setLike] = useState();
 
   const prop = props;
   
   new useEffect (() => {
     setBookStore(prop.props[0])
-
-    axios({
-      method: "get",
-      url: `https://beabook-server.herokuapp.com/api/favorite/getFavorites/${bookStore._id}`,
-    }).then((response) => {
-      if (response.data.success) {
-        setLike(response.data.favorites.length);
-      } else {
-      }
-    });
   })
 
   return (
@@ -71,10 +59,6 @@ const SearchBookstore = (props) => {
               <div className="main-book-stamp-text">
                 {bookStore && bookStore.name}
               </div>
-            </div>
-            <div className="main-book-heart">
-              <img alt="하트 버튼" src={heart} width="30px" height="30px" />{" "}
-              {like}
             </div>
           </div>
         </div>
